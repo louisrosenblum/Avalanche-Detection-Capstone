@@ -4,7 +4,9 @@
 
 %% Sensor initialization
 
+% s0, reference sensor
 s0 = [0 0];
+
 s1 = [100 0];
 s2 = [0 100];
 s3 = [100 100];
@@ -21,9 +23,38 @@ for i = 1:100
     end
 end
 
-%% Distance usage example
+%% Avalanche condition generation
 
-dist1 = distance(s0,grid{90,30})
+randx = randi([1 100],1,1);
+randy = randi([1 100],1,1);
+
+origin = grid{randx, randy}
+
+% Temp in kelvin, -40 F to 50 F
+temp = randi([233 283],1,1)
+
+% Universal gas constant
+r = 8.314;
+
+% Adiabatic constant
+y = 1.4;
+
+% Molecular mass for dry air
+m = .02895;
+
+% Speed of sound in m/s
+speed_of_sound = sqrt(y*r*temp/m)
+
+%% Calculate distance to sensors
+
+d0 = distance(s0,origin)
+d1 = distance(s1,origin)
+d2 = distance(s2,origin)
+d3 = distance(s3,origin)
+
+delta1 = d1 - d0
+delta2 = d2 - d0
+delta3 = d3 - d0
 
 
 %% Distance function definition
