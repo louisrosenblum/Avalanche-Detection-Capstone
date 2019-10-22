@@ -1,59 +1,71 @@
-%% Team 20 - Avalanche Detection
-% Nov 12th, algorithm demo
+% Team 20 - Avalanche Detection
+% Nov 12th, algorithim demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
-%% Sensor and Grid locations
 
+%% Sensor placement
 
-<<<<<<< HEAD
-
-=======
 s0 = [0 0];
 s1 = [100 0];
 s2 = [0 100];
 s3 = [100 100];
->>>>>>> parent of 78d3b0e... Added temperature and dist to sensor calculation
 
-%% Generate random temps/humidity/air pressure
+%% Grid design
 
+grid = cell(100,100);
 
+for i = 1:100
+    for j = 1:100
+    grid{i,j} = [ (10*i-5) (10*i+995)];   
+        
+        
+    end
+end
 
-<<<<<<< HEAD
-%% Calc speed of sound
-
-
-%% Randomly pick origin
-
-
-%% Calculate distance to sensor
-
-
-
-%% Generate phase delays
-
-
-
-%% 4 copies of .wav file with delays
-=======
 %% Distance usage example
+ 
+ dist1 = distance(s0,s1);
+ 
+ dist1 = distance(s0, grid{30,80});
+
+
+
+%% Avalanche condition generation
+
+randx = randi([1 100],1,1);
+randy = randi([1 100],1,1);
+
+origin = grid{randx, randy}
+
+% Temp in kelvin, -40 F to 50 F
+temp = randi([233 283],1,1)
+
+% Universal gas constant
+r = 8.314;
+
+% Adiabatic constant
+y = 1.4;
+
+% Molecular mass for dry air
+m = .02895;
+
+% Speed of sound in m/s
+speed_of_sound = sqrt(y*r*temp/m)
+
+%% Calculate distance to sensors
+
+d0 = distance(s0,origin)
+d1 = distance(s1,origin)
+d2 = distance(s2,origin)
+d3 = distance(s3,origin)
 
 dist1 = distance(s0,grid{90,30})
->>>>>>> parent of 78d3b0e... Added temperature and dist to sensor calculation
+delta1 = d1 - d0
+delta2 = d2 - d0
+delta3 = d3 - d0
+%% Distance function definition
 
-
-
-%% Add noise 
-
-
-
-
-%% The meat and potatoes of this bad boi
-%  Calculate origin of signal
-
-
-
-%% Plot sensors, grid, predicted origin, actual origin
-
-
-
-
-%% Print if matching. If not how far off is it.
+function dist = distance(p1,p2)
+    a = p2(1)
+    b = p2(2)
+    dist = sqrt(abs((p2(1) - p1(1))^2 + (p2(2)-p1(2))^2));
+end
