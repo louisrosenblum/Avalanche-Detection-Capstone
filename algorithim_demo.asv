@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 %% Team 20 - Avalanche Detection
 % Nov 12th, algorithm demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
@@ -26,5 +27,44 @@
 
 %% 4 copies of .wav file with delays
 
+=======
+% Team 20 - Avalanche Detection
+% Nov 12th, algorithim demo
+% Louis Rosenblum, Cayden Seiler, Khristian Jones
+
+%% Sensor initialization
+
+s0 = [0 0];
+s1 = [100 0];
+s2 = [0 100];
+s3 = [100 100];
+
+%% Grid intialization
+
+% Initialize grid
+grid = cell(100,100);
+
+% Populate grid points with x,y coordinates (center of each grid point)
+for i = 1:100
+    for j = 1:100
+    grid{i,j} = [ (10*i-5) (10*i+995)];     
+    end
+end
+
+%% Distance usage example
+
+dist1 = distance(s0,s1)
+
+dist1 = distance(s0, grid{30,80})
+
+
+%% Distance function definition
+
+function dist = distance(p1,p2)
+    a = p2(1)
+    b = p2(2)
+    dist = sqrt(abs((p2(1) - p1(1))^2 + (p2(2)-p1(2))^2));
+end
+>>>>>>> parent of 78d3b0e... Added temperature and dist to sensor calculation
 
 

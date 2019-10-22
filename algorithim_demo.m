@@ -4,12 +4,20 @@
 %% Sensor and Grid locations
 
 
+<<<<<<< HEAD
 
+=======
+s0 = [0 0];
+s1 = [100 0];
+s2 = [0 100];
+s3 = [100 100];
+>>>>>>> parent of 78d3b0e... Added temperature and dist to sensor calculation
 
 %% Generate random temps/humidity/air pressure
 
 
 
+<<<<<<< HEAD
 %% Calc speed of sound
 
 
@@ -25,6 +33,11 @@
 
 
 %% 4 copies of .wav file with delays
+=======
+%% Distance usage example
+
+dist1 = distance(s0,grid{90,30})
+>>>>>>> parent of 78d3b0e... Added temperature and dist to sensor calculation
 
 
 
