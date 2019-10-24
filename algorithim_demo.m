@@ -1,7 +1,17 @@
 % Team 20 - Avalanche Detection
 % Nov 12th, algorithim demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
-
+%% Noise for Waveform
+fileReader = dsp.AudioFileReader('Avy.wav');
+writer = audioDeviceWriter('SampleRate', fileReader.SampleRate);
+scope = dsp.TimeScope(1,...
+                      fileReader.SampleRate, ...
+                      'TimeSpanOverrunAction','Scroll', ...
+                      'TimeSpan',6.5, ...
+                      'BufferLength',1.5e6, ...
+                      'YLimits',[-1 1],...
+                      'ShowGrid',true,...
+                      'ShowLegend',true);
 %% Sensor placement
 
 s0 = [0 0];
@@ -53,22 +63,37 @@ tempc = randi([-40 10],1,1)
 speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
 % speed_of_sound = sqrt(y*r*tempk/m)
 
-
-
-
 %% Calculate distance to sensors
 
+%Distance from origin to sensors
 d0 = distance(s0,origin) 
 d1 = distance(s1,origin)
 d2 = distance(s2,origin)
 d3 = distance(s3,origin)
 
-dist1 = distance(s0,grid{90,30});
+dist1 = distance(s0,grid{90,30})
 delta1 = d1 - d0
 delta2 = d2 - d0
 delta3 = d3 - d0
 
 %% Gaussian noise
+
+
+while ~isDone(fileReader)
+    wave1 = fileReader();
+    %wave2 = fileReader();
+    %wave3 = fileReader();
+    %wave4 = fileReader();
+    wc1 = wave1 + (2e-1/4) * randn(1024,1);
+    %wc2 = wave2 + (1e-2/4) * randn(1024,1);
+    %wc3 = wave3 + (1e-2/4) * randn(1024,1);
+    %wc4 = wave4 + (1e-2/4) * randn(1024,1);
+    writer(wc1)
+    scope([wc1, wave1]);
+end
+release(fileReader)
+release(scope)
+release(writer)
 
 %% Distance function definition
 
