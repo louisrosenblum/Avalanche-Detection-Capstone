@@ -137,7 +137,7 @@ while ~isDone(fileReader)
     %wc2 = wave2 + (1e-2/4) * randn(1024,1);
     %wc3 = wave3 + (1e-2/4) * randn(1024,1);
     %wc4 = wave4 + (1e-2/4) * randn(1024,1);
-    writer(wc1)
+    writer(wc1);
     scope([wc1, wave1]);
 end
 release(fileReader)
