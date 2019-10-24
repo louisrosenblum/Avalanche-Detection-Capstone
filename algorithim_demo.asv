@@ -1,10 +1,6 @@
-%% Team 20 - Avalanche Detection
-% Nov 12th, algorithm demo
+% Team 20 - Avalanche Detection
+% Nov 12th, algorithim demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
-<<<<<<< Updated upstream
-%% Sensor and Grid locations
-
-=======
 %% Noise for Waveform
 fileReader = dsp.AudioFileReader('Avy.wav');
 writer = audioDeviceWriter('SampleRate', fileReader.SampleRate);
@@ -17,37 +13,56 @@ scope = dsp.TimeScope(1,...
                       'ShowGrid',true,...
                       'ShowLegend',true);
 %% Sensor placement
->>>>>>> Stashed changes
+
+s0 = [0 0];
+s1 = [100 0];
+s2 = [0 100];
+s3 = [100 100];
+
+%% Grid design
+
+grid = cell(100,100);
+
+for i = 1:100
+    for j = 1:100
+    grid{i,j} = [ (10*i-5) (10*j+995)];   
+        
+        
+    end
+end
+
+%% Distance usage example
+ 
+ dist1 = distance(s0,s1);
+ 
+ dist1 = distance(s0, grid{30,80});
 
 
 
-%% Generate random temps/humidity/air pressure
+%% Avalanche condition generation
 
+randx = randi(100,1,1);
+randy = randi(100,1,1);
 
+origin = grid{randx, randy}
 
-%% Calc speed of sound
+% Temp in celsius, -40 C to 10 C
+tempc = randi([-40 10],1,1)
+% tempc = tempk-273
 
+% Universal gas constant
+% r = 8.314;
 
-%% Randomly pick origin
+% Adiabatic constant
+% y = 1.4;
 
+% Molecular mass for dry air
+% m = .02895;
 
-%% Calculate distance to sensor
+% Speed of sound in m/s
+speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
+% speed_of_sound = sqrt(y*r*tempk/m)
 
-
-
-%% Generate phase delays
-
-
-
-<<<<<<< Updated upstream
-%% 4 copies of .wav file with delays
-
-
-
-%% Add noise 
-
-
-=======
 %% Calculate distance to sensors
 
 %Distance from origin to sensors
@@ -60,29 +75,16 @@ dist1 = distance(s0,grid{90,30})
 delta1 = d1 - d0
 delta2 = d2 - d0
 delta3 = d3 - d0
->>>>>>> Stashed changes
 
+%% Gaussian noise
 
-<<<<<<< Updated upstream
-%% The meat and potatoes of this bad boi
-%  Calculate origin of signal
-
-
-
-%% Plot sensors, grid, predicted origin, actual origin
-
-
-
-
-%% Print if matching. If not how far off is it.
-=======
 
 while ~isDone(fileReader)
     wave1 = fileReader();
     %wave2 = fileReader();
     %wave3 = fileReader();
     %wave4 = fileReader();
-    wc1 = wave1 + (2e-1/4) * randn(1024,1);
+    wc1 = wave1 + (1e-2/4) * randn(1024,1);
     %wc2 = wave2 + (1e-2/4) * randn(1024,1);
     %wc3 = wave3 + (1e-2/4) * randn(1024,1);
     %wc4 = wave4 + (1e-2/4) * randn(1024,1);
@@ -100,4 +102,3 @@ function dist = distance(p1,p2)
     b = p2(2);
     dist = sqrt(abs((p2(1) - p1(1))^2 + (p2(2)-p1(2))^2));
 end
->>>>>>> Stashed changes
