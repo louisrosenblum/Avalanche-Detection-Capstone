@@ -76,8 +76,57 @@ delta1 = d1 - d0
 delta2 = d2 - d0
 delta3 = d3 - d0
 
-%% Gaussian noise
+%% Algorithim definition
 
+
+
+
+%% Plot 
+
+% Sensors
+scatter([0 0 100 100],[0 100 0 100],'filled'),xlim([-100 1100]),ylim([-100 2100]),hold on
+
+% True origin
+scatter([origin(1)],[origin(2)],'filled')
+
+% Grid border
+%plot([0 0 1000 1000 0],[1000 2000 2000 1000 1000],'g','Linewidth',2)
+
+% Grid points
+x1 = [];
+y1 = [];
+
+% One square filled to 100x100 resolution
+for x = 1:10
+    for y = 1:10
+        z = grid{x,y};
+        k1 = [(z(1) - 5) (z(1) +5) (z(1) +5) (z(1) -5) (z(1) -5)];
+        k2 = [(z(2) + 5) (z(2) +5) (z(2) -5) (z(2) -5) (z(2) +5)];
+        x1 = [x1 k1];
+        y1 = [y1 k2];
+    end
+    plot(x1,y1,'b'), hold on;
+    x1 = [];
+    y1 = [];
+end
+
+% 10x10 resolution
+for x = 1:10
+    for y = 1:10
+        z = grid{x*10,y*10};
+        k1 = [(z(1) - 50) (z(1) +50) (z(1) +50) (z(1) -50) (z(1) -50)] - 45;
+        k2 = [(z(2) + 50) (z(2) +50) (z(2) -50) (z(2) -50) (z(2) +50)] - 45;
+        x1 = [x1 k1];
+        y1 = [y1 k2];
+    end
+    plot(x1,y1,'b'),xlabel("Km"),ylabel("Km")
+    x1 = [];
+    y1 = [];
+end
+
+
+
+%% Gaussian noise
 
 while ~isDone(fileReader)
     wave1 = fileReader();
