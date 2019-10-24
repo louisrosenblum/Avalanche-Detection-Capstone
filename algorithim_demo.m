@@ -78,6 +78,9 @@ delta3 = d3 - d0
 % Sensors
 scatter([0 0 100 100],[0 100 0 100],'filled'),xlim([-100 1100]),ylim([-100 2100]),hold on
 
+% True origin
+scatter([origin(1)],[origin(2)],'filled')
+
 % Grid border
 %plot([0 0 1000 1000 0],[1000 2000 2000 1000 1000],'g','Linewidth',2)
 
