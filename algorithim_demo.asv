@@ -103,10 +103,10 @@ plot(t,signal1);
 plot(t,signal2);
 plot(t,signal3);
 
+amplitude = max(signal0(:)
+
 
 %% Algorithim execution
-
-[guess, height] = algorithim(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound)
 
 
 
@@ -118,7 +118,6 @@ scatter([0 0 100 100],[0 100 0 100],'filled'),xlim([-100 1100]),ylim([-100 2100]
 
 % True origin
 scatter([origin(1)],[origin(2)],'filled')
-scatter([guess(1)],[guess(2)],'filled')
 
 % Grid border
 %plot([0 0 1000 1000 0],[1000 2000 2000 1000 1000],'g','Linewidth',2)
@@ -155,21 +154,13 @@ for x = 1:10
     y1 = [];
 end
 
-%% Error calculation
-
-d_1 = distance(s0,origin);
-d_2 = distance(s0,guess);
-
-percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
-
 
 
 %% Geolocation algorithim function definition
 
-function [predict, amp] = algorithim(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
+function result = algorithim(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
     
-    amp = 0;
-    predict = {1,1};
+    p = 0;
     for i = 1:100
         for k = 1:100
             distance0 = distance(s0,grid{i,k});
@@ -192,17 +183,6 @@ function [predict, amp] = algorithim(s0,s1,s2,s3,signal_0,signal_1,signal_2,sign
             signal3_shift = circshift(signal_3,round(-shift_3*1024/3));
             
             beamformed = signal_0 + signal1_shift + signal2_shift + signal3_shift;
-            
-            % Root mean square ampltitude
-            
-            beamformed = (beamformed).^2;
-            beamformed = sqrt(beamformed);
-            amplitude = mean(beamformed);
-            
-            if amplitude > amp
-                amp = amplitude;
-                predict = grid{i,k};
-            end
             
         end
     end
