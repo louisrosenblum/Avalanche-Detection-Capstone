@@ -11,6 +11,7 @@ s3 = [100 100];
 
 %% Grid design
 
+% data structure of all x,y locations for grid points
 grid = cell(100,100);
 
 for i = 1:100
@@ -34,6 +35,7 @@ end
 randx = randi(100,1,1);
 randy = randi(100,1,1);
 
+origin_point = {randx,randy}
 origin = grid{randx, randy}
 
 % Temp in celsius, -40 C to 10 C
@@ -64,9 +66,31 @@ d2 = distance(s2,origin)
 d3 = distance(s3,origin)
 
 dist1 = distance(s0,grid{90,30});
-delta1 = d1 - d0
-delta2 = d2 - d0
-delta3 = d3 - d0
+delta1 = d1 - d0;
+delta2 = d2 - d0;
+delta3 = d3 - d0;
+
+%% Signal Generation
+
+figure();
+t = 0:1/1024:0.25;
+
+
+signal0 = cos(10*2*pi.*t);
+
+plot(t,signal0), hold on
+
+wavelength = speed_of_sound/10;
+shift1 = delta1/wavelength
+shift2 = delta2/wavelength;
+shift3 = delta3/wavelength;
+signal1 = cos(10*2*pi.*(t-shift1));
+signal2 = cos(10*2*pi.*(t-shift2));
+signal3 = cos(10*2*pi.*(t-shift3));
+
+plot(t,signal1);
+plot(t,signal2);
+plot(t,signal3);
 
 %% Algorithim definition
 
@@ -75,6 +99,7 @@ delta3 = d3 - d0
 
 %% Plot 
 
+figure();
 % Sensors
 scatter([0 0 100 100],[0 100 0 100],'filled'),xlim([-100 1100]),ylim([-100 2100]),hold on
 
@@ -111,7 +136,7 @@ for x = 1:10
         x1 = [x1 k1];
         y1 = [y1 k2];
     end
-    plot(x1,y1,'b'),xlabel("Km"),ylabel("Km")
+    plot(x1,y1,'b'),xlabel("m"),ylabel("m")
     x1 = [];
     y1 = [];
 end
