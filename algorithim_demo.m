@@ -77,13 +77,13 @@ delta3 = d3 - d0;
 %% Signal Generation
 
 figure();
-t = 0:1/3413:0.3
+t = 0:1/3413:0.3;
 
 
 signal0 = cos(10*2*pi.*t);
 
 wavelength = speed_of_sound/10
-shift1 = delta1/wavelength
+shift1 = delta1/wavelength;
 shift2 = delta2/wavelength;
 shift3 = delta3/wavelength;
 
