@@ -1,0 +1,38 @@
+%% Signal Generation
+
+figure();
+t = 0:1/3413:0.3
+
+
+signal0 = cos(10*2*pi.*t);
+
+
+
+wavelength = speed_of_sound/10
+shift1 = delta1/wavelength
+shift2 = delta2/wavelength;
+shift3 = delta3/wavelength;
+
+signal1 = cos(10*2*pi.*(t-shift1/10));
+signal2 = cos(10*2*pi.*(t-shift2/10));
+signal3 = cos(10*2*pi.*(t-shift3/10));
+
+% Add gaussian noise
+
+signal0 = awgn(signal0,25);
+signal1 = awgn(signal1,25);
+signal2 = awgn(signal2,25);
+signal3 = awgn(signal3,25);
+
+signal1_shift = circshift(signal1,round(-shift1*1024/3));
+signal2_shift = circshift(signal2,round(-shift2*1024/3));
+signal3_shift = circshift(signal3,round(-shift3*1024/3));
+
+signal_go = signal0 + signal1_shift + signal2_shift + signal3_shift;
+
+plot(t,signal_go)
+
+%plot(t,signal0), hold on
+%plot(t,signal1);
+%plot(t,signal1_shift);
+%plot(t,signal3);
