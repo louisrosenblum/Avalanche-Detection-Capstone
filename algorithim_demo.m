@@ -39,11 +39,11 @@ end
 randx = randi(100,1,1);
 randy = randi(100,1,1);
 
-origin_point = {randx,randy}
-origin = grid{randx, randy}
+origin_point = {randx,randy};
+origin = grid{randx, randy};
 
 % Temp in celsius, -40 C to 10 C
-tempc = randi([-40 10],1,1)
+tempc = randi([-40 10],1,1);
 % tempc = tempk-273
 
 % Universal gas constant
@@ -56,7 +56,7 @@ tempc = randi([-40 10],1,1)
 % m = .02895;
 
 % Speed of sound in m/s
-speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
+speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15));
 % speed_of_sound = sqrt(y*r*tempk/m)
 
 
@@ -82,8 +82,8 @@ t = 0:1/3413:0.3;
 
 signal0 = cos(10*2*pi.*t);
 
-wavelength = speed_of_sound/10
-shift1 = delta1/wavelength
+wavelength = speed_of_sound/10;
+shift1 = delta1/wavelength;
 shift2 = delta2/wavelength;
 shift3 = delta3/wavelength;
 
@@ -105,13 +105,28 @@ plot(t,signal3);
 legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
 title("Signals seen by sensors");
 xlabel("Time");
-ylabel("Amplitude");
+ylabel("Amplitude"); hold off;
 
-amplitude = max(signal0(:))
+filt0 = lowpass(signal0,20,10000);
+filt1 = lowpass(signal1,20,10000);
+filt2 = lowpass(signal2,20,10000);
+filt3 = lowpass(signal3,20,10000);
+
+plot(t,filt0), hold on
+plot(t,filt1);
+plot(t,filt2);
+plot(t,filt3);
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
+title("Signals seen by sensors");
+xlabel("Time");
+ylabel("Amplitude"); hold off;
+
+amplitude = max(signal0(:));
 
 
 %% Algorithim execution
 
+[guess, height] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound);
 
 
 %% Plot 
@@ -123,12 +138,13 @@ gscatter(0,0,'Sensor 0', 'b'),hold on
 gscatter(0,100,'Sensor 1', 'r');
 gscatter(100,0,'Sensor 2', 'y');
 gscatter(100,100,'Sensor 3', 'm');
-xlim([-100 1100]),ylim([-100 2100])
+xlim([-100 1100]),ylim([-100 2100]);
 
 
 % True origin
-scatter([origin(1)],[origin(2)],'filled')
-legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'Origin');
+scatter([origin(1)],[origin(2)],'filled');
+scatter([guess(1)],[guess(2)],'filled');
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'Origin','Predicted Origin');
 title("Sensor Grid"); 
 %xlabel("X (m)");
 %ylabel("Y (m)");
@@ -168,13 +184,19 @@ for x = 1:10
 end
 hold off;
 
+%% Error calculation
 
+d_1 = distance(s0,origin);
+d_2 = distance(s0,guess);
 
-%% Geolocation algorithim function definition
+percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
 
-function result = algorithim(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
+%% Prediction algorithm
+
+function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
     
-    p = 0;
+    amp = 0;
+    predict = {1,1};
     for i = 1:100
         for k = 1:100
             distance0 = distance(s0,grid{i,k});
@@ -197,6 +219,17 @@ function result = algorithim(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,gri
             signal3_shift = circshift(signal_3,round(-shift_3*1024/3));
             
             beamformed = signal_0 + signal1_shift + signal2_shift + signal3_shift;
+            
+            % Root mean square ampltitude
+            
+            beamformed = (beamformed).^2;
+            beamformed = sqrt(beamformed);
+            amplitude = mean(beamformed);
+            
+            if amplitude > amp
+                amp = amplitude;
+                predict = grid{i,k};
+            end
             
         end
     end
