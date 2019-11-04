@@ -10,8 +10,8 @@ close all
 
 s0 = [0 0];
 s1 = [100 0];
-s2 = [0 200];
-s3 = [100 200];
+s2 = [0 100];
+s3 = [100 100];
 
 %% Grid design
 
@@ -77,7 +77,7 @@ delta3 = d3 - d0;
 %% Signal Generation
 
 figure();
-t = 0:1/4096:0.3
+t = 0:1/3413:0.3;
 
 
 signal0 = cos(10*2*pi.*t);
@@ -102,9 +102,10 @@ plot(t,signal0), hold on
 plot(t,signal1);
 plot(t,signal2);
 plot(t,signal3);
-legend();
-signal4 = signal0 + signal1 + signal2 + signal3;
-plot(t,signal4);
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
+title("Signals seen by sensors");
+xlabel("Time");
+ylabel("Amplitude");
 
 amplitude = max(signal0(:))
 
@@ -117,11 +118,20 @@ amplitude = max(signal0(:))
 
 figure();
 % Sensors
-scatter([0 0 100 100],[0 200 0 200],'filled'),xlim([-100 1100]),ylim([-100 2100]),hold on
+%gscatter([0 100 0 100],[0 0 100 100],[0;1;2;3]),
+gscatter(0,0,'Sensor 0', 'b'),hold on
+gscatter(0,100,'Sensor 1', 'r');
+gscatter(100,0,'Sensor 2', 'y');
+gscatter(100,100,'Sensor 3', 'm');
+xlim([-100 1100]),ylim([-100 2100])
+
 
 % True origin
 scatter([origin(1)],[origin(2)],'filled')
-
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'Origin');
+title("Sensor Grid"); 
+%xlabel("X (m)");
+%ylabel("Y (m)");
 % Grid border
 %plot([0 0 1000 1000 0],[1000 2000 2000 1000 1000],'g','Linewidth',2)
 
@@ -138,7 +148,7 @@ for x = 1:10
         x1 = [x1 k1];
         y1 = [y1 k2];
     end
-    plot(x1,y1,'b'), hold on;
+    plot(x1,y1,'b','HandleVisibility', 'off'), hold on;
     x1 = [];
     y1 = [];
 end
@@ -152,10 +162,11 @@ for x = 1:10
         x1 = [x1 k1];
         y1 = [y1 k2];
     end
-    plot(x1,y1,'b'),xlabel("m"),ylabel("m")
+    plot(x1,y1,'b','HandleVisibility','off'),xlabel("m"),ylabel("m")
     x1 = [];
     y1 = [];
 end
+hold off;
 
 
 
