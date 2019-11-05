@@ -43,7 +43,7 @@ origin_point = {randx,randy};
 origin = grid{randx, randy};
 
 % Temp in celsius, -40 C to 10 C
-tempc = randi([-40 10],1,1);
+tempc = randi([-40 10],1,1)
 % tempc = tempk-273
 
 % Universal gas constant
@@ -56,7 +56,7 @@ tempc = randi([-40 10],1,1);
 % m = .02895;
 
 % Speed of sound in m/s
-speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15));
+speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
 % speed_of_sound = sqrt(y*r*tempk/m)
 
 
@@ -106,12 +106,6 @@ legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
 title("Signals seen by sensors");
 xlabel("Time");
 ylabel("Amplitude"); hold off;
-
-filt0 = lowpass(signal0,20,10000);
-filt1 = lowpass(signal1,20,10000);
-filt2 = lowpass(signal2,20,10000);
-filt3 = lowpass(signal3,20,10000);
-
 
 amplitude = max(signal0(:));
 
@@ -214,9 +208,12 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             beamformed_plot = beamformed;
             % Root mean square ampltitude
             
+          
             beamformed = (beamformed).^2;
             beamformed = sqrt(beamformed);
             amplitude = mean(beamformed);
+            
+           
             
             if amplitude > amp
                 amp = amplitude;
