@@ -1,5 +1,5 @@
 % Team 20 - Avalanche Detection
-% Nov 12th, algorithim demo
+% Nov 12th, Algorithim demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
 
 %% Initialization
@@ -26,7 +26,7 @@ for i = 1:100
     end
 end
 
-%% Distance usage example
+%% Distance function usage example
  
  dist1 = distance(s0,s1);
  
@@ -36,6 +36,7 @@ end
 
 %% Avalanche condition generation
 
+% Two random intergers from 1-100 for grid indexes
 randx = randi(100,1,1);
 randy = randi(100,1,1);
 
@@ -69,6 +70,7 @@ d1 = distance(s1,origin);
 d2 = distance(s2,origin);
 d3 = distance(s3,origin);
 
+% Calculate difference in distance from sensors 1-3 to reference sensor 0
 delta1 = d1 - d0;
 delta2 = d2 - d0;
 delta3 = d3 - d0;
@@ -79,25 +81,27 @@ delta3 = d3 - d0;
 figure();
 t = 0:1/3413:0.3;
 
-
+% Generate original avalanche signal
 signal0 = cos(10*2*pi.*t);
 
+% Shift each signal to match distance travelled to each sensor
 wavelength = speed_of_sound/10;
 shift1 = delta1/wavelength;
 shift2 = delta2/wavelength;
 shift3 = delta3/wavelength;
 
+% Generate signals received by each sensor
 signal1 = cos(10*2*pi.*(t-shift1/10));
 signal2 = cos(10*2*pi.*(t-shift2/10));
 signal3 = cos(10*2*pi.*(t-shift3/10));
 
 % Add gaussian noise
-
 signal0 = awgn(signal0,25);
 signal1 = awgn(signal1,25);
 signal2 = awgn(signal2,25);
 signal3 = awgn(signal3,25);
 
+% Plot signals received by sensors
 plot(t,signal0), hold on
 plot(t,signal1);
 plot(t,signal2);
@@ -109,12 +113,16 @@ ylabel("Amplitude"); hold off;
 
 amplitude = max(signal0(:));
 
+% Low-pass filter each sensor's data, cutoff of 20hz
 filt0 = lowpass(signal0,20,10000);
 filt1 = lowpass(signal1,20,10000);
 filt2 = lowpass(signal2,20,10000);
 filt3 = lowpass(signal3,20,10000);
 
 %% Algorithim execution
+
+% Pass sensor locations, filtered sensor data, grid layout, and speed of
+% sound into the geolocation algorithim
 
 [guess, height] = algorithm(s0,s1,s2,s3,filt0,filt1,filt2,filt3,grid,speed_of_sound);
 
@@ -186,6 +194,7 @@ percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
 function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
     
     amp = 0;
+    amp_check = 2.25;
     predict = {1,1};
     for i = 1:100
         for k = 1:100
@@ -229,6 +238,12 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     figure();
     t = 0:1/3413:0.3;
     plot(t,beamformed_plot_final);
+    
+    if amp > amp_check
+        disp('Summed waveformed has surpassed 90% amplitude threshold')
+        disp('An avalanche has been detected')
+        
+    end
 end
 
 

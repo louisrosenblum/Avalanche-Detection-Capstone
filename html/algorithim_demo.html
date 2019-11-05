@@ -1,0 +1,525 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>algorithim_demo</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-11-05"><meta name="DC.source" content="algorithim_demo.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Initialization</a></li><li><a href="#3">Sensor placement</a></li><li><a href="#4">Grid design</a></li><li><a href="#5">Distance usage example</a></li><li><a href="#6">Avalanche condition generation</a></li><li><a href="#7">Calculate distance to sensors</a></li><li><a href="#8">Signal Generation</a></li><li><a href="#9">Algorithim execution</a></li><li><a href="#10">Plot</a></li><li><a href="#11">Error calculation</a></li><li><a href="#12">Prediction algorithm</a></li><li><a href="#13">Distance function definition</a></li></ul></div><pre class="codeinput"><span class="comment">% Team 20 - Avalanche Detection</span>
+<span class="comment">% Nov 12th, algorithim demo</span>
+<span class="comment">% Louis Rosenblum, Cayden Seiler, Khristian Jones</span>
+</pre><h2 id="2">Initialization</h2><pre class="codeinput">close <span class="string">all</span>
+</pre><h2 id="3">Sensor placement</h2><pre class="codeinput">s0 = [0 0];
+s1 = [100 0];
+s2 = [0 100];
+s3 = [100 100];
+</pre><h2 id="4">Grid design</h2><pre class="codeinput"><span class="comment">% data structure of all x,y locations for grid points</span>
+grid = cell(100,100);
+
+<span class="keyword">for</span> i = 1:100
+    <span class="keyword">for</span> j = 1:100
+    grid{i,j} = [ (10*i-5) (10*j+995)];
+
+
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><h2 id="5">Distance usage example</h2><pre class="codeinput"> dist1 = distance(s0,s1);
+
+ dist1 = distance(s0, grid{30,80});
+</pre><h2 id="6">Avalanche condition generation</h2><pre class="codeinput">randx = randi(100,1,1);
+randy = randi(100,1,1);
+
+origin_point = {randx,randy};
+origin = grid{randx, randy};
+
+<span class="comment">% Temp in celsius, -40 C to 10 C</span>
+tempc = randi([-40 10],1,1)
+<span class="comment">% tempc = tempk-273</span>
+
+<span class="comment">% Universal gas constant</span>
+<span class="comment">% r = 8.314;</span>
+
+<span class="comment">% Adiabatic constant</span>
+<span class="comment">% y = 1.4;</span>
+
+<span class="comment">% Molecular mass for dry air</span>
+<span class="comment">% m = .02895;</span>
+
+<span class="comment">% Speed of sound in m/s</span>
+speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
+<span class="comment">% speed_of_sound = sqrt(y*r*tempk/m)</span>
+</pre><pre class="codeoutput">
+tempc =
+
+   -12
+
+
+speed_of_sound =
+
+  323.9409
+
+</pre><h2 id="7">Calculate distance to sensors</h2><pre class="codeinput">d0 = distance(s0,origin);
+d1 = distance(s1,origin);
+d2 = distance(s2,origin);
+d3 = distance(s3,origin);
+
+delta1 = d1 - d0;
+delta2 = d2 - d0;
+delta3 = d3 - d0;
+</pre><h2 id="8">Signal Generation</h2><pre class="codeinput">figure();
+t = 0:1/3413:0.3;
+
+
+signal0 = cos(10*2*pi.*t);
+
+wavelength = speed_of_sound/10;
+shift1 = delta1/wavelength;
+shift2 = delta2/wavelength;
+shift3 = delta3/wavelength;
+
+signal1 = cos(10*2*pi.*(t-shift1/10));
+signal2 = cos(10*2*pi.*(t-shift2/10));
+signal3 = cos(10*2*pi.*(t-shift3/10));
+
+<span class="comment">% Add gaussian noise</span>
+
+signal0 = awgn(signal0,25);
+signal1 = awgn(signal1,25);
+signal2 = awgn(signal2,25);
+signal3 = awgn(signal3,25);
+
+plot(t,signal0), hold <span class="string">on</span>
+plot(t,signal1);
+plot(t,signal2);
+plot(t,signal3);
+legend(<span class="string">'Sensor 0'</span>, <span class="string">'Sensor 1'</span>, <span class="string">'Sensor 2'</span>, <span class="string">'Sensor 3'</span>);
+title(<span class="string">"Signals seen by sensors"</span>);
+xlabel(<span class="string">"Time"</span>);
+ylabel(<span class="string">"Amplitude"</span>); hold <span class="string">off</span>;
+
+amplitude = max(signal0(:));
+
+filt0 = lowpass(signal0,20,10000);
+filt1 = lowpass(signal1,20,10000);
+filt2 = lowpass(signal2,20,10000);
+filt3 = lowpass(signal3,20,10000);
+</pre><img vspace="5" hspace="5" src="algorithim_demo_01.png" alt=""> <h2 id="9">Algorithim execution</h2><pre class="codeinput">[guess, height] = algorithm(s0,s1,s2,s3,filt0,filt1,filt2,filt3,grid,speed_of_sound);
+</pre><img vspace="5" hspace="5" src="algorithim_demo_02.png" alt=""> <h2 id="10">Plot</h2><pre class="codeinput">figure();
+<span class="comment">% Sensors</span>
+<span class="comment">%gscatter([0 100 0 100],[0 0 100 100],[0;1;2;3]),</span>
+gscatter(0,0,<span class="string">'Sensor 0'</span>, <span class="string">'b'</span>),hold <span class="string">on</span>
+gscatter(0,100,<span class="string">'Sensor 1'</span>, <span class="string">'r'</span>);
+gscatter(100,0,<span class="string">'Sensor 2'</span>, <span class="string">'y'</span>);
+gscatter(100,100,<span class="string">'Sensor 3'</span>, <span class="string">'m'</span>);
+xlim([-100 1100]),ylim([-100 2100]);
+
+
+<span class="comment">% True origin</span>
+scatter([origin(1)],[origin(2)],<span class="string">'filled'</span>);
+scatter([guess(1)],[guess(2)],<span class="string">'filled'</span>);
+legend(<span class="string">'Sensor 0'</span>, <span class="string">'Sensor 1'</span>, <span class="string">'Sensor 2'</span>, <span class="string">'Sensor 3'</span>, <span class="string">'True Origin'</span>,<span class="string">'Predicted Origin'</span>);
+title(<span class="string">"Sensor Grid"</span>);
+<span class="comment">%xlabel("X (m)");</span>
+<span class="comment">%ylabel("Y (m)");</span>
+<span class="comment">% Grid border</span>
+<span class="comment">%plot([0 0 1000 1000 0],[1000 2000 2000 1000 1000],'g','Linewidth',2)</span>
+
+<span class="comment">% Grid points</span>
+x1 = [];
+y1 = [];
+
+<span class="comment">% One square filled to 100x100 resolution</span>
+<span class="keyword">for</span> x = 1:10
+    <span class="keyword">for</span> y = 1:10
+        z = grid{x,y};
+        k1 = [(z(1) - 5) (z(1) +5) (z(1) +5) (z(1) -5) (z(1) -5)];
+        k2 = [(z(2) + 5) (z(2) +5) (z(2) -5) (z(2) -5) (z(2) +5)];
+        x1 = [x1 k1];
+        y1 = [y1 k2];
+    <span class="keyword">end</span>
+    plot(x1,y1,<span class="string">'b'</span>,<span class="string">'HandleVisibility'</span>, <span class="string">'off'</span>), hold <span class="string">on</span>;
+    x1 = [];
+    y1 = [];
+<span class="keyword">end</span>
+
+<span class="comment">% 10x10 resolution</span>
+<span class="keyword">for</span> x = 1:10
+    <span class="keyword">for</span> y = 1:10
+        z = grid{x*10,y*10};
+        k1 = [(z(1) - 50) (z(1) +50) (z(1) +50) (z(1) -50) (z(1) -50)] - 45;
+        k2 = [(z(2) + 50) (z(2) +50) (z(2) -50) (z(2) -50) (z(2) +50)] - 45;
+        x1 = [x1 k1];
+        y1 = [y1 k2];
+    <span class="keyword">end</span>
+    plot(x1,y1,<span class="string">'b'</span>,<span class="string">'HandleVisibility'</span>,<span class="string">'off'</span>),xlabel(<span class="string">"m"</span>),ylabel(<span class="string">"m"</span>)
+    x1 = [];
+    y1 = [];
+<span class="keyword">end</span>
+hold <span class="string">off</span>;
+</pre><img vspace="5" hspace="5" src="algorithim_demo_03.png" alt=""> <h2 id="11">Error calculation</h2><pre class="codeinput">d_1 = distance(s0,origin);
+d_2 = distance(s0,guess);
+
+percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
+</pre><pre class="codeoutput">
+percent_error =
+
+    6.3107
+
+</pre><h2 id="12">Prediction algorithm</h2><pre class="codeinput"><span class="keyword">function</span> [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
+
+    amp = 0;
+    predict = {1,1};
+    <span class="keyword">for</span> i = 1:100
+        <span class="keyword">for</span> k = 1:100
+            distance0 = distance(s0,grid{i,k});
+            distance1 = distance(s1,grid{i,k});
+            distance2 = distance(s2,grid{i,k});
+            distance3 = distance(s3,grid{i,k});
+
+            delta_1 = distance1 - distance0;
+            delta_2 = distance2 - distance0;
+            delta_3 = distance3 - distance0;
+
+            wave_length = speed/10;
+
+            shift_1 = delta_1/wave_length;
+            shift_2 = delta_2/wave_length;
+            shift_3 = delta_3/wave_length;
+
+            signal1_shift = circshift(signal_1,round(-shift_1*1024/3));
+            signal2_shift = circshift(signal_2,round(-shift_2*1024/3));
+            signal3_shift = circshift(signal_3,round(-shift_3*1024/3));
+
+            beamformed = signal_0 + signal1_shift + signal2_shift + signal3_shift;
+            beamformed_plot = beamformed;
+            <span class="comment">% Root mean square ampltitude</span>
+
+            beamformed = (beamformed).^2;
+            beamformed = sqrt(beamformed);
+            amplitude = mean(beamformed);
+
+
+
+            <span class="keyword">if</span> amplitude &gt; amp
+                amp = amplitude;
+                predict = grid{i,k};
+                beamformed_plot_final = beamformed_plot;
+            <span class="keyword">end</span>
+
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    figure();
+    t = 0:1/3413:0.3;
+    plot(t,beamformed_plot_final);
+<span class="keyword">end</span>
+</pre><h2 id="13">Distance function definition</h2><pre class="codeinput"><span class="keyword">function</span> dist = distance(p1,p2)
+    a = p2(1);
+    b = p2(2);
+    dist = sqrt(abs((p2(1) - p1(1))^2 + (p2(2)-p1(2))^2));
+<span class="keyword">end</span>
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+% Team 20 - Avalanche Detection
+% Nov 12th, algorithim demo
+% Louis Rosenblum, Cayden Seiler, Khristian Jones
+
+%% Initialization
+
+close all
+
+%% Sensor placement
+
+s0 = [0 0];
+s1 = [100 0];
+s2 = [0 100];
+s3 = [100 100];
+
+%% Grid design
+
+% data structure of all x,y locations for grid points
+grid = cell(100,100);
+
+for i = 1:100
+    for j = 1:100
+    grid{i,j} = [ (10*i-5) (10*j+995)];   
+        
+        
+    end
+end
+
+%% Distance usage example
+ 
+ dist1 = distance(s0,s1);
+ 
+ dist1 = distance(s0, grid{30,80});
+
+
+
+%% Avalanche condition generation
+
+randx = randi(100,1,1);
+randy = randi(100,1,1);
+
+origin_point = {randx,randy};
+origin = grid{randx, randy};
+
+% Temp in celsius, -40 C to 10 C
+tempc = randi([-40 10],1,1)
+% tempc = tempk-273
+
+% Universal gas constant
+% r = 8.314;
+
+% Adiabatic constant
+% y = 1.4;
+
+% Molecular mass for dry air
+% m = .02895;
+
+% Speed of sound in m/s
+speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
+% speed_of_sound = sqrt(y*r*tempk/m)
+
+
+
+
+%% Calculate distance to sensors
+
+d0 = distance(s0,origin);
+d1 = distance(s1,origin);
+d2 = distance(s2,origin);
+d3 = distance(s3,origin);
+
+delta1 = d1 - d0;
+delta2 = d2 - d0;
+delta3 = d3 - d0;
+
+
+%% Signal Generation
+
+figure();
+t = 0:1/3413:0.3;
+
+
+signal0 = cos(10*2*pi.*t);
+
+wavelength = speed_of_sound/10;
+shift1 = delta1/wavelength;
+shift2 = delta2/wavelength;
+shift3 = delta3/wavelength;
+
+signal1 = cos(10*2*pi.*(t-shift1/10));
+signal2 = cos(10*2*pi.*(t-shift2/10));
+signal3 = cos(10*2*pi.*(t-shift3/10));
+
+% Add gaussian noise
+
+signal0 = awgn(signal0,25);
+signal1 = awgn(signal1,25);
+signal2 = awgn(signal2,25);
+signal3 = awgn(signal3,25);
+
+plot(t,signal0), hold on
+plot(t,signal1);
+plot(t,signal2);
+plot(t,signal3);
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
+title("Signals seen by sensors");
+xlabel("Time");
+ylabel("Amplitude"); hold off;
+
+amplitude = max(signal0(:));
+
+filt0 = lowpass(signal0,20,10000);
+filt1 = lowpass(signal1,20,10000);
+filt2 = lowpass(signal2,20,10000);
+filt3 = lowpass(signal3,20,10000);
+
+%% Algorithim execution
+
+[guess, height] = algorithm(s0,s1,s2,s3,filt0,filt1,filt2,filt3,grid,speed_of_sound);
+
+
+%% Plot 
+
+figure();
+% Sensors
+%gscatter([0 100 0 100],[0 0 100 100],[0;1;2;3]),
+gscatter(0,0,'Sensor 0', 'b'),hold on
+gscatter(0,100,'Sensor 1', 'r');
+gscatter(100,0,'Sensor 2', 'y');
+gscatter(100,100,'Sensor 3', 'm');
+xlim([-100 1100]),ylim([-100 2100]);
+
+
+% True origin
+scatter([origin(1)],[origin(2)],'filled');
+scatter([guess(1)],[guess(2)],'filled');
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'True Origin','Predicted Origin');
+title("Sensor Grid"); 
+%xlabel("X (m)");
+%ylabel("Y (m)");
+% Grid border
+%plot([0 0 1000 1000 0],[1000 2000 2000 1000 1000],'g','Linewidth',2)
+
+% Grid points
+x1 = [];
+y1 = [];
+
+% One square filled to 100x100 resolution
+for x = 1:10
+    for y = 1:10
+        z = grid{x,y};
+        k1 = [(z(1) - 5) (z(1) +5) (z(1) +5) (z(1) -5) (z(1) -5)];
+        k2 = [(z(2) + 5) (z(2) +5) (z(2) -5) (z(2) -5) (z(2) +5)];
+        x1 = [x1 k1];
+        y1 = [y1 k2];
+    end
+    plot(x1,y1,'b','HandleVisibility', 'off'), hold on;
+    x1 = [];
+    y1 = [];
+end
+
+% 10x10 resolution
+for x = 1:10
+    for y = 1:10
+        z = grid{x*10,y*10};
+        k1 = [(z(1) - 50) (z(1) +50) (z(1) +50) (z(1) -50) (z(1) -50)] - 45;
+        k2 = [(z(2) + 50) (z(2) +50) (z(2) -50) (z(2) -50) (z(2) +50)] - 45;
+        x1 = [x1 k1];
+        y1 = [y1 k2];
+    end
+    plot(x1,y1,'b','HandleVisibility','off'),xlabel("m"),ylabel("m")
+    x1 = [];
+    y1 = [];
+end
+hold off;
+
+%% Error calculation
+
+d_1 = distance(s0,origin);
+d_2 = distance(s0,guess);
+
+percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
+
+%% Prediction algorithm
+
+function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
+    
+    amp = 0;
+    predict = {1,1};
+    for i = 1:100
+        for k = 1:100
+            distance0 = distance(s0,grid{i,k});
+            distance1 = distance(s1,grid{i,k});
+            distance2 = distance(s2,grid{i,k});
+            distance3 = distance(s3,grid{i,k});
+            
+            delta_1 = distance1 - distance0;
+            delta_2 = distance2 - distance0;
+            delta_3 = distance3 - distance0;
+            
+            wave_length = speed/10;
+            
+            shift_1 = delta_1/wave_length;
+            shift_2 = delta_2/wave_length;
+            shift_3 = delta_3/wave_length;
+            
+            signal1_shift = circshift(signal_1,round(-shift_1*1024/3));
+            signal2_shift = circshift(signal_2,round(-shift_2*1024/3));
+            signal3_shift = circshift(signal_3,round(-shift_3*1024/3));
+            
+            beamformed = signal_0 + signal1_shift + signal2_shift + signal3_shift;
+            beamformed_plot = beamformed;
+            % Root mean square ampltitude
+            
+            beamformed = (beamformed).^2;
+            beamformed = sqrt(beamformed);
+            amplitude = mean(beamformed);
+            
+           
+            
+            if amplitude > amp
+                amp = amplitude;
+                predict = grid{i,k};
+                beamformed_plot_final = beamformed_plot;
+            end
+            
+        end
+    end
+    figure();
+    t = 0:1/3413:0.3;
+    plot(t,beamformed_plot_final);
+end
+
+
+%% Distance function definition
+
+function dist = distance(p1,p2)
+    a = p2(1);
+    b = p2(2);
+    dist = sqrt(abs((p2(1) - p1(1))^2 + (p2(2)-p1(2))^2));
+end
+##### SOURCE END #####
+--></body></html>
