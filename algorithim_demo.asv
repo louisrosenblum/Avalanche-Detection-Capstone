@@ -136,7 +136,7 @@ xlim([-100 1100]),ylim([-100 2100]);
 % True origin
 scatter([origin(1)],[origin(2)],'filled');
 scatter([guess(1)],[guess(2)],'filled');
-legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'True Origin','Predicted Origin');
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'Origin','Predicted Origin');
 title("Sensor Grid"); 
 %xlabel("X (m)");
 %ylabel("Y (m)");
@@ -211,7 +211,7 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             signal3_shift = circshift(signal_3,round(-shift_3*1024/3));
             
             beamformed = signal_0 + signal1_shift + signal2_shift + signal3_shift;
-            beamformed_plot = beamformed;
+            
             % Root mean square ampltitude
             
             beamformed = (beamformed).^2;
@@ -221,14 +221,12 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             if amplitude > amp
                 amp = amplitude;
                 predict = grid{i,k};
-                beamformed_plot_final = beamformed_plot;
             end
             
         end
     end
-    figure();
+    
     t = 0:1/3413:0.3;
-    plot(t,beamformed_plot_final);
 end
 
 
