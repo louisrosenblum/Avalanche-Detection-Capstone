@@ -109,10 +109,14 @@ ylabel("Amplitude"); hold off;
 
 amplitude = max(signal0(:));
 
+filt0 = lowpass(signal0,20,10000);
+filt1 = lowpass(signal1,20,10000);
+filt2 = lowpass(signal2,20,10000);
+filt3 = lowpass(signal3,20,10000);
 
 %% Algorithim execution
 
-[guess, height] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound);
+[guess, height] = algorithm(s0,s1,s2,s3,filt0,filt1,filt2,filt3,grid,speed_of_sound);
 
 
 %% Plot 
@@ -208,7 +212,6 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             beamformed_plot = beamformed;
             % Root mean square ampltitude
             
-          
             beamformed = (beamformed).^2;
             beamformed = sqrt(beamformed);
             amplitude = mean(beamformed);
