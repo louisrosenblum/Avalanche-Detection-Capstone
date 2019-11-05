@@ -201,43 +201,37 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     for i = 1:100
         for k = 1:100
             
-            % Calculate distance from current grid point to each sensor
+            Calcu
             distance0 = distance(s0,grid{i,k});
             distance1 = distance(s1,grid{i,k});
             distance2 = distance(s2,grid{i,k});
             distance3 = distance(s3,grid{i,k});
             
-            % Determine difference in distance to reach sensor 1-3 compared
-            % to reference sensor 0
+            
             delta_1 = distance1 - distance0;
             delta_2 = distance2 - distance0;
             delta_3 = distance3 - distance0;
             
-            % Calculate wavelength from speed of sound
             wave_length = speed/10;
             
-            % Calculate phase shifts from wavelength
             shift_1 = delta_1/wave_length;
             shift_2 = delta_2/wave_length;
             shift_3 = delta_3/wave_length;
             
-            % Shift signals 1-3 accordingly, in attempt to match signal 0
             signal1_shift = circshift(signal_1,round(-shift_1*1024/3));
             signal2_shift = circshift(signal_2,round(-shift_2*1024/3));
             signal3_shift = circshift(signal_3,round(-shift_3*1024/3));
             
-            % Sum all four signals
             beamformed = signal_0 + signal1_shift + signal2_shift + signal3_shift;
             beamformed_plot = beamformed;
+            % Root mean square ampltitude
             
-            % Calculate root mean square ampltitude
             beamformed = (beamformed).^2;
             beamformed = sqrt(beamformed);
             amplitude = mean(beamformed);
             
            
-            % Highest amplitude result survives as the prediction until
-            % another point produces one higher
+            
             if amplitude > amp
                 amp = amplitude;
                 predict = grid{i,k};
@@ -246,14 +240,10 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             
         end
     end
-    
-    % Plot the beamformed signal
     figure();
     t = 0:1/3413:0.3;
     plot(t,beamformed_plot_final);
     
-    % Check beamform amplitude against threshold to determine whether an
-    % avalanche has occured
     if amp > amp_check
         disp('Summed waveformed has surpassed 90% amplitude threshold')
         disp('An avalanche has been detected')
