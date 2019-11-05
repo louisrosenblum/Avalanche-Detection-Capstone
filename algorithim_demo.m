@@ -194,7 +194,7 @@ percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
 function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
     
     amp = 0;
-    amp_check = 2.25;
+    amp_check = sqrt(2)/2 * 4 * 0.8;
     predict = {1,1};
     
     % Iterate through all grid points
@@ -255,7 +255,7 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     % Check beamform amplitude against threshold to determine whether an
     % avalanche has occured
     if amp > amp_check
-        disp('Summed waveformed has surpassed 90% amplitude threshold')
+        disp('Summed waveformed has surpassed 80% amplitude threshold')
         disp('An avalanche has been detected')
         
     end
