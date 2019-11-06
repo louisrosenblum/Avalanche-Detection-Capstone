@@ -114,10 +114,10 @@ ylabel("Amplitude"); hold off;
 amplitude = max(signal0(:));
 
 % Low-pass filter each sensor's data, cutoff of 20hz
-filt0 = lowpass(signal0,20,10000);
-filt1 = lowpass(signal1,20,10000);
-filt2 = lowpass(signal2,20,10000);
-filt3 = lowpass(signal3,20,10000);
+filt0 = lowpass(signal0,20,3413);
+filt1 = lowpass(signal1,20,3413);
+filt2 = lowpass(signal2,20,3413);
+filt3 = lowpass(signal3,20,3413);
 
 %% Algorithim execution
 
