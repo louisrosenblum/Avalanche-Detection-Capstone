@@ -40,6 +40,9 @@ end
 randx = randi(100,1,1);
 randy = randi(100,1,1);
 
+% Generate random signal to noise ratio (1 to 100, with 1 being the most noise)
+noise_factor = randi(100,1,1)
+
 origin_point = {randx,randy};
 origin = grid{randx, randy};
 
@@ -95,11 +98,16 @@ signal1 = cos(10*2*pi.*(t-shift1/10));
 signal2 = cos(10*2*pi.*(t-shift2/10));
 signal3 = cos(10*2*pi.*(t-shift3/10));
 
+signal0_orig = signal0;
+signal1_orig = signal1;
+signal2_orig = signal2;
+signal3_orig = signal3;
+
 % Add gaussian noise
-signal0 = awgn(signal0,25);
-signal1 = awgn(signal1,25);
-signal2 = awgn(signal2,25);
-signal3 = awgn(signal3,25);
+signal0 = awgn(signal0,noise_factor);
+signal1 = awgn(signal1,noise_factor);
+signal2 = awgn(signal2,noise_factor);
+signal3 = awgn(signal3,noise_factor);
 
 % Plot signals received by sensors
 plot(t,signal0), hold on
@@ -113,18 +121,31 @@ ylabel("Amplitude"); hold off;
 
 amplitude = max(signal0(:));
 
-% Low-pass filter each sensor's data, cutoff of 20hz
-filt0 = lowpass(signal0,20,3413);
-filt1 = lowpass(signal1,20,3413);
-filt2 = lowpass(signal2,20,3413);
-filt3 = lowpass(signal3,20,3413);
+noise0 = signal0 - signal0_orig;
+noise1 = signal1 - signal1_orig;
+noise2 = signal2 - signal2_orig;
+noise3 = signal3 - signal3_orig;
+
+%% Noise analysis
+
+zero = zeros(1,1024);
+noise_avg = [ ];
+for k = 1:100
+    noise = awgn(zero,noise_factor);
+    amp = mean(sqrt(noise.^2));
+    noise_avg = [noise_avg amp];   
+end
+
+deviation = std(noise_avg);
+average = mean(noise_avg);
+
 
 %% Algorithim execution
 
 % Pass sensor locations, filtered sensor data, grid layout, and speed of
 % sound into the geolocation algorithim
 
-[guess, height] = algorithm(s0,s1,s2,s3,filt0,filt1,filt2,filt3,grid,speed_of_sound);
+[guess, height] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound,deviation,average);
 
 
 %% Plot 
@@ -187,15 +208,25 @@ hold off;
 d_1 = distance(s0,origin);
 d_2 = distance(s0,guess);
 
-percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
+geolocation_percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
 
 %% Prediction algorithm
 
-function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
+function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed,deviation1,average1)
     
     amp = 0;
-    amp_check = sqrt(2)/2 * 4 * 0.8;
     predict = {1,1};
+    
+    orig0 = signal_0;
+    orig1 = signal_1;
+    orig2 = signal_2;
+    orig3 = signal_3;
+    
+    % Low-pass filter each sensor's data, cutoff of 20hz
+    signal_0 = lowpass(signal_0,20,3413);
+    signal_1 = lowpass(signal_1,20,3413);
+    signal_2 = lowpass(signal_2,20,3413);
+    signal_3 = lowpass(signal_3,20,3413);
     
     % Iterate through all grid points
     for i = 1:100
@@ -226,10 +257,17 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             signal2_shift = circshift(signal_2,round(-shift_2*1024/3));
             signal3_shift = circshift(signal_3,round(-shift_3*1024/3));
             
+        
+            
+            orig1_shift = circshift(orig1,round(-shift_1*1024/3));
+            orig2_shift = circshift(orig2,round(-shift_2*1024/3));
+            orig3_shift = circshift(orig3,round(-shift_3*1024/3));
+            
             % Sum all four signals
             beamformed = signal_0 + signal1_shift + signal2_shift + signal3_shift;
             beamformed_plot = beamformed;
-            
+            beamformed_orig = orig0 + orig1_shift + orig2_shift + orig3_shift;
+                       
             % Calculate root mean square ampltitude
             beamformed = (beamformed).^2;
             beamformed = sqrt(beamformed);
@@ -242,6 +280,7 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
                 amp = amplitude;
                 predict = grid{i,k};
                 beamformed_plot_final = beamformed_plot;
+                beamformed_orig_final = beamformed_orig;
             end
             
         end
@@ -252,13 +291,18 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     t = 0:1/3413:0.3;
     plot(t,beamformed_plot_final);
     
-    % Check beamform amplitude against threshold to determine whether an
-    % avalanche has occured
-    if amp > amp_check
-        disp('Summed waveformed has surpassed 80% amplitude threshold')
-        disp('An avalanche has been detected')
-        
-    end
+    figure();
+    
+    plot(t,beamformed_orig_final);
+    
+    
+    
+    % Calculate probability
+        zscore = (amp - average1)/(deviation1)
+        prob = tcdf(zscore,99) * 100;
+        fprintf('The system is ');
+        disp(prob);
+        disp('percent confident an avalanche infrasound signal is present');
 end
 
 
