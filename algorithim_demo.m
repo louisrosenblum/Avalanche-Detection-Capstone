@@ -106,11 +106,12 @@ plot(t,signal0), hold on
 plot(t,signal1);
 plot(t,signal2);
 plot(t,signal3);
-legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
-title("Signals seen by sensors");
-xlabel("Time");
-ylabel("Amplitude"); hold off;
+% legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
+% title("Signals seen by sensors");
+% xlabel("Time");
+% ylabel("Amplitude"); %hold off;
 
+<<<<<<< Updated upstream
 % filt0 = lowpass(signal0,20,10000);
 % filt1 = lowpass(signal1,20,10000);
 % filt2 = lowpass(signal2,20,10000);
@@ -124,14 +125,35 @@ ylabel("Amplitude"); hold off;
 % title("Signals seen by sensors");
 % xlabel("Time");
 % ylabel("Amplitude"); hold off;
+=======
+filt0 = lowpass(signal0,20,10000);
+filt1 = lowpass(signal1,20,10000);
+filt2 = lowpass(signal2,20,10000);
+filt3 = lowpass(signal3,20,10000);
+
+plot(t,filt0,'LineWidth',1.5), %hold on
+plot(t,filt1,'LineWidth',1.5);
+plot(t,filt2,'LineWidth',1.5);
+plot(t,filt3,'LineWidth',1.5);
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3','Filt 0','Filt 1','Filt 2','Filt 3');
+title("Filtered Signals");
+xlabel("Time");
+ylabel("Amplitude"); hold off;
+
+>>>>>>> Stashed changes
 
 amplitude = max(signal0(:));
 
 
 %% Algorithim execution
 
+<<<<<<< Updated upstream
 %[guess, height] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound,0);
 [filteredGuess, height2] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound);
+=======
+[guess, height] = algorithm(s0,s1,s2,s3,filt0,filt1,filt2,filt3,grid,speed_of_sound);
+
+>>>>>>> Stashed changes
 
 %% Plot 
 
