@@ -137,8 +137,8 @@ for k = 1:100
 end
 
 % Convert from dB to decimal
-deviation = std(noise_avg)
-average = mean(noise_avg)
+deviation = std(noise_avg);
+average = mean(noise_avg);
 
 
 %% Algorithim execution
@@ -295,7 +295,6 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
                 predict = grid{i,k};
                 beamformed_plot_final = beamformed_plot;
                 beamformed_orig_final = beamformed_orig;
-                orig_snr = snr(beamformed_orig);
             end
             
         end
@@ -311,7 +310,7 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     plot(t,beamformed_orig_final);
 
     % Calculate probability of signal detection
-        T_score_of_detection = (orig_snr - average1)/(deviation1)
+        T_score_of_detection = (amp - average1)/(deviation1)
         prob = tcdf(T_score_of_detection,99) * 100;
         fprintf('The system is ');
         disp(prob);
