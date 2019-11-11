@@ -132,13 +132,14 @@ zero = zeros(1,1024);
 noise_avg = [ ];
 for k = 1:100
     noise = awgn(zero,signal_to_noise_ratio);
+    noise = lowpass(noise,11,3413)
     val = mean(sqrt(noise.^2));
     noise_avg = [noise_avg val];   
 end
 
 % Convert from dB to decimal
-deviation = std(noise_avg)
-average = mean(noise_avg)
+deviation = std(noise_avg);
+average = mean(noise_avg);
 
 
 %% Algorithim execution
@@ -209,8 +210,16 @@ hold off;
 d_1 = distance(s0,origin);
 d_2 = distance(s0,guess);
 
-geolocation_percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
+geolocation_percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100;
 
+fprintf('\n');
+fprintf('\n');
+fprintf("The actual error of the origin prediction is")
+disp(geolocation_percent_error);
+fprintf("percent")
+
+fprintf('\n');
+fprintf('\n');
 %% Prediction algorithm
 
 function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed,deviation1,average1)
@@ -287,7 +296,6 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
                 predict = grid{i,k};
                 beamformed_plot_final = beamformed_plot;
                 beamformed_orig_final = beamformed_orig;
-                orig_snr = snr(beamformed_orig);
             end
             
         end
@@ -302,19 +310,24 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     
     plot(t,beamformed_orig_final);
     
-    % Calculate geolocation accuracy probability
-    data_mean = mean(data);
-    data_std = std(data);
-    zscore_of_geolocation = (amp - data_mean)/data_std
-    prob = tcdf(zscore_of_geolocation,9999) * 100;
     
-    
-    % Calculate probability
-        zscore_of_occurance = (orig_snr - average1)/(deviation1)
-        prob = tcdf(zscore_of_occurance,99) * 100;
+
+    % Calculate probability of signal detection
+        T_score_of_detection = (amp - average1)/(deviation1)
+        prob = tcdf(T_score_of_detection,99) * 100;
         fprintf('The system is ');
         disp(prob);
         disp('percent confident an avalanche infrasound signal is present');
+        
+    % Calculate geolocation accuracy probability
+    data_mean = mean(data);
+    data_std = std(data);
+    T_score_of_geolocation = (amp - data_mean)/data_std
+    prob = tcdf(T_score_of_geolocation,9999) * 100;
+    fprintf('The system is ');
+    disp(prob);
+    disp('percent confident it has correctly predicted the origin location');
+    
 end
 
 
