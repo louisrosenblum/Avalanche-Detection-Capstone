@@ -117,7 +117,7 @@ plot(t,signal3);
 legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
 title("Signals seen by sensors");
 xlabel("Time");
-ylabel("Amplitude"); hold off;
+ylabel("Amplitude");
 
 amplitude = max(signal0(:));
 
@@ -131,10 +131,13 @@ noise3 = signal3 - signal3_orig;
 zero = zeros(1,1024);
 noise_avg = [ ];
 for k = 1:100
-    noise = awgn(zero,signal_to_noise_ratio);
-    noise = lowpass(noise,15,3413);
-    noise = highpass(noise,5,3413);
-    val = mean(sqrt(noise.^2));
+    noise0 = awgn(zero,signal_to_noise_ratio);
+    noise1 = awgn(zero,signal_to_noise_ratio);
+    noise2 = awgn(zero,signal_to_noise_ratio);
+    noise3 = awgn(zero,signal_to_noise_ratio);
+    noise = noise0 + noise1 + noise2 + noise3;
+    noise_fft = fft(noise);
+    val = abs(noise_fft(4));
     noise_avg = [noise_avg val];   
 end
 
@@ -233,17 +236,12 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     orig2 = signal_2;
     orig3 = signal_3;
     
-    % Low-pass filter each sensor's data, cutoff of 15hz
-    signal_0 = lowpass(signal_0,15,3413);
-    signal_1 = lowpass(signal_1,15,3413);
-    signal_2 = lowpass(signal_2,15,3413);
-    signal_3 = lowpass(signal_3,15,3413);
+    % Low-pass filter each sensor's data, cutoff of 20hz
+    signal_0 = lowpass(signal_0,20,3413);
+    signal_1 = lowpass(signal_1,20,3413);
+    signal_2 = lowpass(signal_2,20,3413);
+    signal_3 = lowpass(signal_3,20,3413);
     
-    % High-pass filter each sensor's data, cutoff of 5hz
-    signal_0 = highpass(signal_0,5,3413);
-    signal_1 = highpass(signal_1,5,3413);
-    signal_2 = highpass(signal_2,5,3413);
-    signal_3 = highpass(signal_3,5,3413);
     
     data = [];
     
@@ -318,9 +316,13 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     plot(t,beamformed_orig_final);
     
     
+    x1 = fft(beamformed_orig_final);
+    amp_10 = abs(x1(4));
+    
+    
 
     % Calculate probability of signal detection
-        T_score_of_detection = (amp - average1)/(deviation1)
+        T_score_of_detection = (amp_10 - average1)/(deviation1)
         prob = tcdf(T_score_of_detection,99) * 100;
         fprintf('The system is ');
         disp(prob);
