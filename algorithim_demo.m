@@ -130,26 +130,37 @@ noise3 = signal3 - signal3_orig;
 
 zero = zeros(1,1024);
 noise_avg = [ ];
+
+% Generate 100 unique sets of white noise
 for k = 1:100
+    % One noise signal for each sensor
     noise0 = awgn(zero,signal_to_noise_ratio);
     noise1 = awgn(zero,signal_to_noise_ratio);
     noise2 = awgn(zero,signal_to_noise_ratio);
     noise3 = awgn(zero,signal_to_noise_ratio);
+    
+    % Sum noise signals
     noise = noise0 + noise1 + noise2 + noise3;
+    
+    % Detect magnitude of 10hz frequency from fft
     noise_fft = fft(noise);
-    val = abs(noise_fft(4));
+    P2 = abs(noise_fft/1024);
+    P1 = P2(1:1024/2+1);
+    P1(2:end-1) = 2*P1(2:end-1);
+    val = P1(4);
     noise_avg = [noise_avg val];   
 end
 
-% Convert from dB to decimal
+
+% Calculate average magnitude and standard deviation
 deviation = std(noise_avg);
 average = mean(noise_avg);
 
 
 %% Algorithim execution
 
-% Pass sensor locations, filtered sensor data, grid layout, and speed of
-% sound into the geolocation algorithim
+% Pass sensor locations, filtered sensor data, grid layout, speed of
+% sound, and noise sampling into the geolocation algorithim
 
 [guess, height] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound,deviation,average);
 
@@ -306,18 +317,21 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
         end
     end
     
-    % Plot the beamformed signal
+    % Plot the beamformed signal after low-pass filtering
     figure();
     t = 0:1/3413:0.3;
     plot(t,beamformed_plot_final);
     
+    % Plot the beamformed signal before low-pass filtering
     figure();
-    
     plot(t,beamformed_orig_final);
     
-    
+    % Analyze magnitude of 10hz frequency inside signal from fft
     x1 = fft(beamformed_orig_final);
-    amp_10 = abs(x1(4));
+    P2 = abs(x1/1024);
+    P1 = P2(1:1024/2+1);
+    P1(2:end-1) = 2*P1(2:end-1);
+    amp_10 = P1(4);
     
     
 
