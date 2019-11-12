@@ -1,0 +1,5 @@
+diary('C:\Users\cayde\Documents\GitHub\Avalanche-Detection-Capstone\de.txt')
+for i = 1:100
+    algorithim_demo_decay()
+end
+diary('off')

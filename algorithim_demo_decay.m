@@ -41,12 +41,17 @@ randx = randi(100,1,1);
 randy = randi(100,1,1);
 
 % Generate random signal to noise ratio (1 to 100, with 1 being the most noise)
+<<<<<<< Updated upstream
 signal_to_noise_ratio = randi(30,1,1);
+=======
+signal_to_noise_ratio = randi(30,1,1)
+>>>>>>> Stashed changes
 
 origin_point = {randx,randy};
 origin = grid{randx, randy};
 
 % Temp in celsius, -40 C to 10 C
+<<<<<<< Updated upstream
 tempc = randi([-40 10],1,1);
 % tempc = tempk-273
 
@@ -65,6 +70,12 @@ speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15));
 
 
 
+=======
+tempc = randi([-40 10],1,1)
+
+% Speed of sound in m/s
+speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
+>>>>>>> Stashed changes
 
 %% Calculate distance to sensors
 
@@ -174,6 +185,7 @@ average = mean(noise_avg);
 
 %% Plot 
 
+<<<<<<< Updated upstream
 %figure();
 % Sensors
 %gscatter([0 100 0 100],[0 0 100 100],[0;1;2;3]),
@@ -189,6 +201,22 @@ average = mean(noise_avg);
 % scatter([guess(1)],[guess(2)],'filled');
 % legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'True Origin','Predicted Origin');
 % title("Sensor Grid"); 
+=======
+% Sensors
+figure();
+gscatter(0,0,'Sensor 0', 'b'),hold on
+gscatter(0,100,'Sensor 1', 'r');
+gscatter(100,0,'Sensor 2', 'y');
+gscatter(100,100,'Sensor 3', 'm');
+xlim([-100 1100]),ylim([-100 2100]);
+
+
+% True origin
+scatter([origin(1)],[origin(2)],'filled');
+scatter([guess(1)],[guess(2)],'filled');
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'True Origin','Predicted Origin');
+title("Sensor Grid"); 
+>>>>>>> Stashed changes
 
 % Grid points
 x1 = [];
@@ -236,8 +264,6 @@ fprintf("The actual error of the origin prediction is")
 disp(geolocation_percent_error);
 fprintf("percent")
 
-fprintf('\n');
-fprintf('\n');
 %% Prediction algorithm
 
 function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed,deviation1,average1)
@@ -307,9 +333,18 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     end
     
     % Plot the beamformed signal
+<<<<<<< Updated upstream
 %     figure();
 %     t = 0:1/3413:0.3;
 %     plot(t,beamformed_plot_final);
+=======
+    figure();
+    t = 0:1/3413:0.3;
+    plot(t,beamformed_plot_final);
+    title("Beamformed Wave");
+    xlabel("Time");
+    ylabel("Amplitude");
+>>>>>>> Stashed changes
    
     
     % Analyze magnitude of 10hz frequency inside signal from fft
