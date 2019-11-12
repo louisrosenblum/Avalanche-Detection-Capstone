@@ -1,10 +1,11 @@
 % Team 20 - Avalanche Detection
-% Nov 12th, Algorithim demo
+% Nov 12th, Algorithm demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
 
 %% Initialization
 
-close all
+close all;
+clear all;
 
 %% Sensor placement
 
@@ -41,30 +42,16 @@ randx = randi(100,1,1);
 randy = randi(100,1,1);
 
 % Generate random signal to noise ratio (1 to 100, with 1 being the most noise)
-signal_to_noise_ratio = randi(100,1,1)
+signal_to_noise_ratio = randi(30,1,1)
 
 origin_point = {randx,randy};
 origin = grid{randx, randy};
 
 % Temp in celsius, -40 C to 10 C
-tempc = randi([-40 10],1,1)
-% tempc = tempk-273
-
-% Universal gas constant
-% r = 8.314;
-
-% Adiabatic constant
-% y = 1.4;
-
-% Molecular mass for dry air
-% m = .02895;
+tempc = randi([-40 10],1,1);
 
 % Speed of sound in m/s
-speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
-% speed_of_sound = sqrt(y*r*tempk/m)
-
-
-
+speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15));
 
 %% Calculate distance to sensors
 
@@ -164,19 +151,18 @@ deviation = std(noise_avg);
 average = mean(noise_avg);
 
 
-%% Algorithim execution
+%% Algorithm execution
 
 % Pass sensor locations, filtered sensor data, grid layout, speed of
-% sound, and noise sampling into the geolocation algorithim
+% sound, and noise sampling into the geolocation algorithm
 
 [guess, height] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound,deviation,average);
 
 
 %% Plot 
 
-figure();
 % Sensors
-%gscatter([0 100 0 100],[0 0 100 100],[0;1;2;3]),
+figure();
 gscatter(0,0,'Sensor 0', 'b'),hold on
 gscatter(0,100,'Sensor 1', 'r');
 gscatter(100,0,'Sensor 2', 'y');
@@ -184,15 +170,11 @@ gscatter(100,100,'Sensor 3', 'm');
 xlim([-100 1100]),ylim([-100 2100]);
 
 
-% True origin
+% True and predicted origin
 scatter([origin(1)],[origin(2)],'filled');
 scatter([guess(1)],[guess(2)],'filled');
 legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'True Origin','Predicted Origin');
 title("Sensor Grid"); 
-%xlabel("X (m)");
-%ylabel("Y (m)");
-% Grid border
-%plot([0 0 1000 1000 0],[1000 2000 2000 1000 1000],'g','Linewidth',2)
 
 % Grid points
 x1 = [];
@@ -239,7 +221,6 @@ fprintf('\n');
 fprintf("The actual error of the origin prediction is")
 disp(geolocation_percent_error);
 fprintf("percent")
-
 fprintf('\n');
 fprintf('\n');
 %% Prediction algorithm definition
