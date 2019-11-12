@@ -123,7 +123,7 @@ plot(t,signal2);
 plot(t,signal3);
 legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
 title("Signals seen by sensors");
-xlabel("Time (s)");
+xlabel("Time");
 ylabel("Amplitude");
 
 amplitude = max(signal0(:));
@@ -242,7 +242,7 @@ fprintf("percent")
 
 fprintf('\n');
 fprintf('\n');
-%% Prediction algorithm definition
+%% Prediction algorithm
 
 function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed,deviation1,average1)
     
@@ -313,10 +313,9 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     figure();
     t = 0:1/3413:0.3;
     plot(t,beamformed_plot_final);
-    title("Result of aligning and summing");
-    xlabel("Time (s)");
+    title("Aligned and summed signal");
+    xlabel("Time");
     ylabel("Amplitude");
-    legend('Maximum amplitude alignment');
    
     
     % Analyze magnitude of 10hz frequency inside signal from fft
