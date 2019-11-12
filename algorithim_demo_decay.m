@@ -246,7 +246,8 @@ fprintf('\n');
 
 function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed,deviation1,average1)
     
-   	snr1 = 1;
+   	amp = 0;
+    amplitude = 0;
     predict = {1,1};
     
     data = [];
@@ -282,12 +283,10 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             decay_3 = (4*pi*distance3^2)/100000000;
             
             % Shift signals 1-3 accordingly, in attempt to match signal 0
-            signal0_shift = decay_0 .* signal_0;
-            signal1_shift = decay_1 .* circshift(signal_1,round(-shift_1*1024/3));
-            signal2_shift = decay_2 .* circshift(signal_2,round(-shift_2*1024/3));
-            signal3_shift = decay_3 .* circshift(signal_3,round(-shift_3*1024/3));
-            
-        
+            signal0_shift = signal_0;
+            signal1_shift = circshift(signal_1,round(-shift_1*1024/3));
+            signal2_shift = circshift(signal_2,round(-shift_2*1024/3));
+            signal3_shift = circshift(signal_3,round(-shift_3*1024/3));
             
             
             % Sum all four signals
@@ -295,14 +294,14 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             
                        
             % Calculate root mean square ampltitude
-            snr_result = snr(beamformed);
-            data = [data snr_result];
+            amplitude = mean(sqrt(beamformed.^2));
+            data = [data amplitude];
             
            
             % Highest amplitude result survives as the prediction until
             % another point produces one higher
-            if snr_result > snr1
-                snr1 = snr_result;
+            if amplitude > amp
+                amp = amplitude;
                 predict = grid{i,k};
                 beamformed_plot_final = beamformed;
             end
@@ -335,12 +334,11 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     % Calculate geolocation accuracy probability
     data_mean = mean(data);
     data_std = std(data);
-    T_score_of_geolocation = (snr1 - data_mean)/data_std
+    T_score_of_geolocation = (amp - data_mean)/data_std
     prob = tcdf(T_score_of_geolocation,9999) * 100;
     fprintf('The system is ');
     disp(prob);
     disp('percent confident it has correctly predicted the origin location');
-    amp = snr1;
 end
 
 
