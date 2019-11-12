@@ -1,0 +1,401 @@
+
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is    3.8347
+
+percent
+
+The actual error of the origin prediction is   13.7761
+
+percent
+
+The actual error of the origin prediction is    2.0647
+
+percent
+
+The actual error of the origin prediction is   42.7907
+
+percent
+
+The actual error of the origin prediction is    5.4726
+
+percent
+
+The actual error of the origin prediction is    4.6940
+
+percent
+
+The actual error of the origin prediction is    7.4755
+
+percent
+
+The actual error of the origin prediction is    2.9571
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is   22.0271
+
+percent
+
+The actual error of the origin prediction is   42.8436
+
+percent
+
+The actual error of the origin prediction is   10.1956
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is    3.0423
+
+percent
+
+The actual error of the origin prediction is   23.5001
+
+percent
+
+The actual error of the origin prediction is    2.5631
+
+percent
+
+The actual error of the origin prediction is    6.2941
+
+percent
+
+The actual error of the origin prediction is   25.0954
+
+percent
+
+The actual error of the origin prediction is    6.4013
+
+percent
+
+The actual error of the origin prediction is   11.2007
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is    2.3566
+
+percent
+
+The actual error of the origin prediction is   10.9191
+
+percent
+
+The actual error of the origin prediction is    1.5566
+
+percent
+
+The actual error of the origin prediction is   15.7438
+
+percent
+
+The actual error of the origin prediction is    6.0348
+
+percent
+
+The actual error of the origin prediction is    7.4692
+
+percent
+
+The actual error of the origin prediction is   38.1232
+
+percent
+
+The actual error of the origin prediction is    1.1159
+
+percent
+
+The actual error of the origin prediction is    9.5335
+
+percent
+
+The actual error of the origin prediction is    2.2257
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is    3.2383
+
+percent
+
+The actual error of the origin prediction is   10.1433
+
+percent
+
+The actual error of the origin prediction is    1.3690
+
+percent
+
+The actual error of the origin prediction is    5.7683
+
+percent
+
+The actual error of the origin prediction is    3.1839
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is    7.5661
+
+percent
+
+The actual error of the origin prediction is    1.1125
+
+percent
+
+The actual error of the origin prediction is   17.8679
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is    3.0779
+
+percent
+
+The actual error of the origin prediction is    1.7211
+
+percent
+
+The actual error of the origin prediction is   13.1700
+
+percent
+
+The actual error of the origin prediction is    8.3344
+
+percent
+
+The actual error of the origin prediction is    4.7473
+
+percent
+
+The actual error of the origin prediction is   16.8453
+
+percent
+
+The actual error of the origin prediction is    1.5478
+
+percent
+
+The actual error of the origin prediction is   23.1068
+
+percent
+
+The actual error of the origin prediction is   52.4105
+
+percent
+
+The actual error of the origin prediction is    1.2065
+
+percent
+
+The actual error of the origin prediction is   14.9211
+
+percent
+
+The actual error of the origin prediction is   11.1266
+
+percent
+
+The actual error of the origin prediction is   14.7745
+
+percent
+
+The actual error of the origin prediction is   22.8198
+
+percent
+
+The actual error of the origin prediction is    2.6489
+
+percent
+
+The actual error of the origin prediction is    1.8999
+
+percent
+
+The actual error of the origin prediction is    4.1127
+
+percent
+
+The actual error of the origin prediction is   17.7014
+
+percent
+
+The actual error of the origin prediction is    3.5064
+
+percent
+
+The actual error of the origin prediction is   14.0234
+
+percent
+
+The actual error of the origin prediction is    2.0579
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is   13.1984
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is   19.5455
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is    6.2435
+
+percent
+
+The actual error of the origin prediction is    8.5827
+
+percent
+
+The actual error of the origin prediction is    9.9630
+
+percent
+
+The actual error of the origin prediction is   24.4551
+
+percent
+
+The actual error of the origin prediction is    3.7070
+
+percent
+
+The actual error of the origin prediction is    4.5274
+
+percent
+
+The actual error of the origin prediction is    1.5522
+
+percent
+
+The actual error of the origin prediction is   35.6766
+
+percent
+
+The actual error of the origin prediction is    5.4838
+
+percent
+
+The actual error of the origin prediction is   13.1821
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is   15.6056
+
+percent
+
+The actual error of the origin prediction is   17.4715
+
+percent
+
+The actual error of the origin prediction is    0.9188
+
+percent
+
+The actual error of the origin prediction is   16.4465
+
+percent
+
+The actual error of the origin prediction is    6.4398
+
+percent
+
+The actual error of the origin prediction is    4.3066
+
+percent
+
+The actual error of the origin prediction is    3.6942
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is    9.3054
+
+percent
+
+The actual error of the origin prediction is    4.2244
+
+percent
+
+The actual error of the origin prediction is   17.4936
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is   23.9047
+
+percent
+
+The actual error of the origin prediction is    7.0805
+
+percent
+
+The actual error of the origin prediction is    9.3540
+
+percent
+
+The actual error of the origin prediction is   28.6067
+
+percent
+
+The actual error of the origin prediction is     0
+
+percent
+
+The actual error of the origin prediction is    1.1481
+
+percent

@@ -1,17 +1,11 @@
 % Team 20 - Avalanche Detection
-% Nov 12th, algorithim demo
+% Nov 12th, Algorithim demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
-%% Noise for Waveform
-fileReader = dsp.AudioFileReader('Avy.wav');
-writer = audioDeviceWriter('SampleRate', fileReader.SampleRate);
-scope = dsp.TimeScope(1,...
-                      fileReader.SampleRate, ...
-                      'TimeSpanOverrunAction','Scroll', ...
-                      'TimeSpan',6.5, ...
-                      'BufferLength',1.5e6, ...
-                      'YLimits',[-1 1],...
-                      'ShowGrid',true,...
-                      'ShowLegend',true);
+
+%% Initialization
+
+close all
+
 %% Sensor placement
 
 s0 = [0 0];
@@ -21,6 +15,7 @@ s3 = [100 100];
 
 %% Grid design
 
+% data structure of all x,y locations for grid points
 grid = cell(100,100);
 
 for i = 1:100
@@ -31,7 +26,7 @@ for i = 1:100
     end
 end
 
-%% Distance usage example
+%% Distance function usage example
  
  dist1 = distance(s0,s1);
  
@@ -41,18 +36,15 @@ end
 
 %% Avalanche condition generation
 
+% Two random intergers from 1-100 for grid indexes
 randx = randi(100,1,1);
 randy = randi(100,1,1);
 
-<<<<<<< Updated upstream
-origin = grid{randx, randy}
-=======
 % Generate random signal to noise ratio (1 to 100, with 1 being the most noise)
 signal_to_noise_ratio = randi(30,1,1);
 
 origin_point = {randx,randy};
 origin = grid{randx, randy};
->>>>>>> Stashed changes
 
 % Temp in celsius, -40 C to 10 C
 tempc = randi([-40 10],1,1);
@@ -71,39 +63,11 @@ tempc = randi([-40 10],1,1);
 speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15));
 % speed_of_sound = sqrt(y*r*tempk/m)
 
+
+
+
 %% Calculate distance to sensors
 
-<<<<<<< Updated upstream
-%Distance from origin to sensors
-d0 = distance(s0,origin) 
-d1 = distance(s1,origin)
-d2 = distance(s2,origin)
-d3 = distance(s3,origin)
-
-dist1 = distance(s0,grid{90,30})
-delta1 = d1 - d0
-delta2 = d2 - d0
-delta3 = d3 - d0
-
-%% Gaussian noise
-
-
-while ~isDone(fileReader)
-    wave1 = fileReader();
-    %wave2 = fileReader();
-    %wave3 = fileReader();
-    %wave4 = fileReader();
-    wc1 = wave1 + (1e-2/4) * randn(1024,1);
-    %wc2 = wave2 + (1e-2/4) * randn(1024,1);
-    %wc3 = wave3 + (1e-2/4) * randn(1024,1);
-    %wc4 = wave4 + (1e-2/4) * randn(1024,1);
-    writer(wc1)
-    scope([wc1, wave1]);
-end
-release(fileReader)
-release(scope)
-release(writer)
-=======
 d0 = distance(s0,origin);
 d1 = distance(s1,origin);
 d2 = distance(s2,origin);
@@ -114,6 +78,13 @@ delta1 = d1 - d0;
 delta2 = d2 - d0;
 delta3 = d3 - d0;
 
+% Calculate amplitude decay
+
+decay0 = 100000000/(4*pi*d0^2);
+decay1 = 100000000/(4*pi*d1^2);
+decay2 = 100000000/(4*pi*d2^2);
+decay3 = 100000000/(4*pi*d3^2);
+
 
 %% Signal Generation
 
@@ -121,7 +92,7 @@ delta3 = d3 - d0;
 t = 0:1/3413:0.3;
 
 % Generate original avalanche signal
-signal0 = cos(10*2*pi.*t);
+signal0 = decay0 .* cos(10*2*pi.*t);
 
 % Shift each signal to match distance travelled to each sensor
 wavelength = speed_of_sound/10;
@@ -130,9 +101,9 @@ shift2 = delta2/wavelength;
 shift3 = delta3/wavelength;
 
 % Generate signals received by each sensor
-signal1 = cos(10*2*pi.*(t-shift1/10));
-signal2 = cos(10*2*pi.*(t-shift2/10));
-signal3 = cos(10*2*pi.*(t-shift3/10));
+signal1 = decay1 .* cos(10*2*pi.*(t-shift1/10));
+signal2 = decay2 .* cos(10*2*pi.*(t-shift2/10));
+signal3 = decay3 .* cos(10*2*pi.*(t-shift3/10));
 
 signal0_orig = signal0;
 signal1_orig = signal1;
@@ -203,8 +174,9 @@ average = mean(noise_avg);
 
 %% Plot 
 
-% figure();
+%figure();
 % Sensors
+%gscatter([0 100 0 100],[0 0 100 100],[0;1;2;3]),
 % gscatter(0,0,'Sensor 0', 'b'),hold on
 % gscatter(0,100,'Sensor 1', 'r');
 % gscatter(100,0,'Sensor 2', 'y');
@@ -270,20 +242,8 @@ fprintf('\n');
 
 function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed,deviation1,average1)
     
-    amp = 0;
+   	snr1 = 1;
     predict = {1,1};
-    
-    orig0 = signal_0;
-    orig1 = signal_1;
-    orig2 = signal_2;
-    orig3 = signal_3;
-    
-    % Low-pass filter each sensor's data, cutoff of 20hz
-    signal_0 = lowpass(signal_0,20,3413);
-    signal_1 = lowpass(signal_1,20,3413);
-    signal_2 = lowpass(signal_2,20,3413);
-    signal_3 = lowpass(signal_3,20,3413);
-    
     
     data = [];
     
@@ -311,54 +271,49 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             shift_2 = delta_2/wave_length;
             shift_3 = delta_3/wave_length;
             
+            % Boost amplitude according to distance travelled
+            decay_0 = (4*pi*distance0^2)/100000000;
+            decay_1 = (4*pi*distance1^2)/100000000;
+            decay_2 = (4*pi*distance2^2)/100000000;
+            decay_3 = (4*pi*distance3^2)/100000000;
+            
             % Shift signals 1-3 accordingly, in attempt to match signal 0
-            signal1_shift = circshift(signal_1,round(-shift_1*1024/3));
-            signal2_shift = circshift(signal_2,round(-shift_2*1024/3));
-            signal3_shift = circshift(signal_3,round(-shift_3*1024/3));
+            signal0_shift = decay_0 .* signal_0;
+            signal1_shift = decay_1 .* circshift(signal_1,round(-shift_1*1024/3));
+            signal2_shift = decay_2 .* circshift(signal_2,round(-shift_2*1024/3));
+            signal3_shift = decay_3 .* circshift(signal_3,round(-shift_3*1024/3));
             
         
             
-            orig1_shift = circshift(orig1,round(-shift_1*1024/3));
-            orig2_shift = circshift(orig2,round(-shift_2*1024/3));
-            orig3_shift = circshift(orig3,round(-shift_3*1024/3));
             
             % Sum all four signals
-            beamformed = signal_0 + signal1_shift + signal2_shift + signal3_shift;
-            beamformed_plot = beamformed;
-            beamformed_orig = orig0 + orig1_shift + orig2_shift + orig3_shift;
+            beamformed = signal0_shift + signal1_shift + signal2_shift + signal3_shift;
             
                        
             % Calculate root mean square ampltitude
-            beamformed = (beamformed).^2;
-            beamformed = sqrt(beamformed);
-            amplitude = mean(beamformed);
-            
-            data = [data amplitude];
+            snr_result = snr(beamformed);
+            data = [data snr_result];
             
            
             % Highest amplitude result survives as the prediction until
             % another point produces one higher
-            if amplitude > amp
-                amp = amplitude;
+            if snr_result > snr1
+                snr1 = snr_result;
                 predict = grid{i,k};
-                beamformed_plot_final = beamformed_plot;
-                beamformed_orig_final = beamformed_orig;
+                beamformed_plot_final = beamformed;
             end
             
         end
     end
     
-    % Plot the beamformed signal after low-pass filtering
-    figure();
-    t = 0:1/3413:0.3;
-    plot(t,beamformed_plot_final);
-    
-    % Plot the beamformed signal before low-pass filtering
-    figure();
-    plot(t,beamformed_orig_final);
+    % Plot the beamformed signal
+%     figure();
+%     t = 0:1/3413:0.3;
+%     plot(t,beamformed_plot_final);
+   
     
     % Analyze magnitude of 10hz frequency inside signal from fft
-    x1 = fft(beamformed_orig_final);
+    x1 = fft(beamformed);
     P2 = abs(x1/1024);
     P1 = P2(1:1024/2+1);
     P1(2:end-1) = 2*P1(2:end-1);
@@ -367,24 +322,23 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     
 
     % Calculate probability of signal detection
-        T_score_of_detection = (amp_10 - average1)/(deviation1)
-        prob = tcdf(T_score_of_detection,99) * 100;
-        fprintf('The system is ');
-        disp(prob);
-        disp('percent confident a 10hz infrasound signal is present');
+%         T_score_of_detection = (amp_10 - average1)/(deviation1)
+%         prob = tcdf(T_score_of_detection,99) * 100;
+%         fprintf('The system is ');
+%         disp(prob);
+%         disp('percent confident a 10hz infrasound signal is present');
         
     % Calculate geolocation accuracy probability
-    data_mean = mean(data);
-    data_std = std(data);
-    T_score_of_geolocation = (amp - data_mean)/data_std
-    prob = tcdf(T_score_of_geolocation,9999) * 100;
-    fprintf('The system is ');
-    disp(prob);
-    disp('percent confident it has correctly predicted the origin location');
-    
+%     data_mean = mean(data);
+%     data_std = std(data);
+%     T_score_of_geolocation = (snr1 - data_mean)/data_std
+%     prob = tcdf(T_score_of_geolocation,9999) * 100;
+%     fprintf('The system is ');
+%     disp(prob);
+%     disp('percent confident it has correctly predicted the origin location');
+    amp = snr1;
 end
 
->>>>>>> Stashed changes
 
 %% Distance function definition
 

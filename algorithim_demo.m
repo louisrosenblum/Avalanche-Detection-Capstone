@@ -35,16 +35,33 @@ scope = dsp.TimeScope(1,...
 
 
 
+<<<<<<< Updated upstream
 %% Generate phase delays
+=======
+% Generate random signal to noise ratio (1 to 100, with 1 being the most noise)
+signal_to_noise_ratio = randi(30,1,1);
+>>>>>>> Stashed changes
 
 
+<<<<<<< Updated upstream
+=======
+% Temp in celsius, -40 C to 10 C
+tempc = randi([-40 10],1,1);
+% tempc = tempk-273
+>>>>>>> Stashed changes
 
 <<<<<<< Updated upstream
 %% 4 copies of .wav file with delays
 
 
 
+<<<<<<< Updated upstream
 %% Add noise 
+=======
+% Speed of sound in m/s
+speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15));
+% speed_of_sound = sqrt(y*r*tempk/m)
+>>>>>>> Stashed changes
 
 
 =======
@@ -80,7 +97,7 @@ delta3 = d3 - d0;
 
 %% Signal Generation
 
-figure();
+%figure();
 t = 0:1/3413:0.3;
 
 
@@ -97,6 +114,7 @@ signal3 = cos(10*2*pi.*(t-shift3/10));
 
 % Add gaussian noise
 
+<<<<<<< Updated upstream
 signal0 = awgn(signal0,25);
 signal1 = awgn(signal1,25);
 signal2 = awgn(signal2,25);
@@ -139,6 +157,19 @@ legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3','Filt 0','Filt 1','Filt 2'
 title("Filtered Signals");
 xlabel("Time");
 ylabel("Amplitude"); hold off;
+=======
+% Plot signals received by sensors
+% plot(t,signal0), hold on
+% plot(t,signal1);
+% plot(t,signal2);
+% plot(t,signal3);
+% legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
+% title("Signals seen by sensors");
+% xlabel("Time");
+% ylabel("Amplitude");
+
+amplitude = max(signal0(:));
+>>>>>>> Stashed changes
 
 >>>>>>> Stashed changes
 
@@ -157,17 +188,17 @@ amplitude = max(signal0(:));
 
 %% Plot 
 
-figure();
+% figure();
 % Sensors
-%gscatter([0 100 0 100],[0 0 100 100],[0;1;2;3]),
-gscatter(0,0,'Sensor 0', 'b'),hold on
-gscatter(0,100,'Sensor 1', 'r');
-gscatter(100,0,'Sensor 2', 'y');
-gscatter(100,100,'Sensor 3', 'm');
-xlim([-100 1100]),ylim([-100 2100]);
+% gscatter(0,0,'Sensor 0', 'b'),hold on
+% gscatter(0,100,'Sensor 1', 'r');
+% gscatter(100,0,'Sensor 2', 'y');
+% gscatter(100,100,'Sensor 3', 'm');
+% xlim([-100 1100]),ylim([-100 2100]);
 
 
 % True origin
+<<<<<<< Updated upstream
 scatter([origin(1)],[origin(2)],'filled');
 %scatter([guess(1)],[guess(2)],'filled');
 scatter([filteredGuess(1)],[filteredGuess(2)],'filled');
@@ -177,39 +208,45 @@ title("Sensor Grid");
 %ylabel("Y (m)");
 % Grid border
 %plot([0 0 1000 1000 0],[1000 2000 2000 1000 1000],'g','Linewidth',2)
+=======
+% scatter([origin(1)],[origin(2)],'filled');
+% scatter([guess(1)],[guess(2)],'filled');
+% legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'True Origin','Predicted Origin');
+% title("Sensor Grid"); 
+>>>>>>> Stashed changes
 
 % Grid points
 x1 = [];
 y1 = [];
 
 % One square filled to 100x100 resolution
-for x = 1:10
-    for y = 1:10
-        z = grid{x,y};
-        k1 = [(z(1) - 5) (z(1) +5) (z(1) +5) (z(1) -5) (z(1) -5)];
-        k2 = [(z(2) + 5) (z(2) +5) (z(2) -5) (z(2) -5) (z(2) +5)];
-        x1 = [x1 k1];
-        y1 = [y1 k2];
-    end
-    plot(x1,y1,'b','HandleVisibility', 'off'), hold on;
-    x1 = [];
-    y1 = [];
-end
+% for x = 1:10
+%     for y = 1:10
+%         z = grid{x,y};
+%         k1 = [(z(1) - 5) (z(1) +5) (z(1) +5) (z(1) -5) (z(1) -5)];
+%         k2 = [(z(2) + 5) (z(2) +5) (z(2) -5) (z(2) -5) (z(2) +5)];
+%         x1 = [x1 k1];
+%         y1 = [y1 k2];
+%     end
+%     plot(x1,y1,'b','HandleVisibility', 'off'), hold on;
+%     x1 = [];
+%     y1 = [];
+% end
 
 % 10x10 resolution
-for x = 1:10
-    for y = 1:10
-        z = grid{x*10,y*10};
-        k1 = [(z(1) - 50) (z(1) +50) (z(1) +50) (z(1) -50) (z(1) -50)] - 45;
-        k2 = [(z(2) + 50) (z(2) +50) (z(2) -50) (z(2) -50) (z(2) +50)] - 45;
-        x1 = [x1 k1];
-        y1 = [y1 k2];
-    end
-    plot(x1,y1,'b','HandleVisibility','off'),xlabel("m"),ylabel("m")
-    x1 = [];
-    y1 = [];
-end
-hold off;
+% for x = 1:10
+%     for y = 1:10
+%         z = grid{x*10,y*10};
+%         k1 = [(z(1) - 50) (z(1) +50) (z(1) +50) (z(1) -50) (z(1) -50)] - 45;
+%         k2 = [(z(2) + 50) (z(2) +50) (z(2) -50) (z(2) -50) (z(2) +50)] - 45;
+%         x1 = [x1 k1];
+%         y1 = [y1 k2];
+%     end
+%     plot(x1,y1,'b','HandleVisibility','off'),xlabel("m"),ylabel("m")
+%     x1 = [];
+%     y1 = [];
+% end
+% hold off;
 
 %% Error calculation
 
@@ -218,6 +255,17 @@ d_2 = distance(s0,guess);
 
 percent_error = sqrt((d_2 - d_1)^2)/d_1 * 100
 
+<<<<<<< Updated upstream
+=======
+fprintf('\n');
+fprintf('\n');
+fprintf("The actual error of the origin prediction is")
+disp(geolocation_percent_error);
+fprintf("percent")
+
+% fprintf('\n');
+% fprintf('\n');
+>>>>>>> Stashed changes
 %% Prediction algorithm
 
 function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed)
@@ -265,6 +313,44 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
             
         end
     end
+<<<<<<< Updated upstream
+=======
+    
+    % Plot the beamformed signal after low-pass filtering
+%     figure();
+%     t = 0:1/3413:0.3;
+%     plot(t,beamformed_plot_final);
+    
+    % Plot the beamformed signal before low-pass filtering
+%     figure();
+%     plot(t,beamformed_orig_final);
+%     
+%     % Analyze magnitude of 10hz frequency inside signal from fft
+%     x1 = fft(beamformed_orig_final);
+%     P2 = abs(x1/1024);
+%     P1 = P2(1:1024/2+1);
+%     P1(2:end-1) = 2*P1(2:end-1);
+%     amp_10 = P1(4);
+%     
+%     
+% 
+%     % Calculate probability of signal detection
+%         T_score_of_detection = (amp_10 - average1)/(deviation1)
+%         prob = tcdf(T_score_of_detection,99) * 100;
+%         fprintf('The system is ');
+%         disp(prob);
+%         disp('percent confident a 10hz infrasound signal is present');
+%         
+%     % Calculate geolocation accuracy probability
+%     data_mean = mean(data);
+%     data_std = std(data);
+%     T_score_of_geolocation = (amp - data_mean)/data_std
+%     prob = tcdf(T_score_of_geolocation,9999) * 100;
+%     fprintf('The system is ');
+%     disp(prob);
+%     disp('percent confident it has correctly predicted the origin location');
+    
+>>>>>>> Stashed changes
 end
 >>>>>>> Stashed changes
 
