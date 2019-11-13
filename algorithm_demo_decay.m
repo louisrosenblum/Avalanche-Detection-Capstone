@@ -75,7 +75,7 @@ decay3 = 100000000/(4*pi*d3^2);
 
 %% Signal Generation
 
-figure();
+%figure();
 t = 0:1/3413:0.3;
 
 % Generate original avalanche signal
@@ -104,7 +104,9 @@ signal2 = awgn(signal2,signal_to_noise_ratio);
 signal3 = awgn(signal3,signal_to_noise_ratio);
 
 % Plot signals received by sensors
-plot(t,signal0), hold on
+figure()
+subplot(2,4,[1 2]), hold on
+plot(t,signal0); 
 plot(t,signal1);
 plot(t,signal2);
 plot(t,signal3);
@@ -162,7 +164,7 @@ average = mean(noise_avg);
 %% Plot 
 
 % Sensors
-figure();
+subplot(2,4,[3 4 7 8]);
 gscatter(0,0,'Sensor 0', 'b'),hold on
 gscatter(0,100,'Sensor 1', 'r');
 gscatter(100,0,'Sensor 2', 'y');
@@ -291,8 +293,8 @@ function [predict, amp] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signa
     end
     
     % Plot the beamformed signal
-    figure();
     t = 0:1/3413:0.3;
+    subplot(2,4,[5 6]);
     plot(t,beamformed_plot_final);
     title("Result of aligning and summing");
     xlabel("Time (s)");
