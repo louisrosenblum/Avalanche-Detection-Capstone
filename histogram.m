@@ -1,28 +1,28 @@
 close all;
 clear all;
 
-n = 1000; signalPresentAbsent = rand(1,n)
-signalPresentAbsent = round(signalPresentAbsent)
+n = 1000; signalPresentAbsent = rand(1,n);
+signalPresentAbsent = round(signalPresentAbsent);
 
 for i = 1:length(signalPresentAbsent)
   % if signal present trial
   if signalPresentAbsent(i) == 1
     % then pull a random draw from the signal distribution with mean = 1 and std = 1
-    signal(i) = random('norm',1,1)
+    signal(i) = random('norm',1,1);
   else
     % otherwise it is a noise trial so pull a random draw from the noise distribution with mean = 0 and std = 1
-    signal(i) = random('norm',0,1)
+    signal(i) = random('norm',0,1);
   end
 end
 
-hist(signal)
+hist(signal);
 
 hist(signal(signalPresentAbsent==1));
 % show signal absent distribution
 
 hist(signal(signalPresentAbsent==0));
 
-response = signal>0.5
+response = signal>0.5;
 
 % get total number of present trials
 nPresent = sum(signalPresentAbsent==1);

@@ -231,15 +231,10 @@ for i = 1:length(signalPresentAbsent)
 end
 
 figure()
-subplot(2,1,1), hold on
-hist(signal),title("Combined distribution")
-
-subplot(2,2,4), hold on
-hist(signal(signalPresentAbsent==1)),title("Signal present distribution")
+hist(signal(signalPresentAbsent==1));
 % show signal absent distribution
 
-subplot(2,2,3), hold on
-hist(signal(signalPresentAbsent==0)),title("Signal absent distribution")
+hist(signal(signalPresentAbsent==0));
 
 response = signal>0.5;
 
