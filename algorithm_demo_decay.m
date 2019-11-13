@@ -231,32 +231,43 @@ for i = 1:length(signalPresentAbsent)
 end
 
 figure()
-subplot(2,1,1), hold on
-hist(signal),title("Combined distribution")
+subplot(2,1,1)
+hist(signal(signalPresentAbsent==1)),title("Combined distribution"),hold on,xlabel("Signal strength"),ylabel("Count");
+h = findobj(gca,'Type','patch');
+h.FaceColor = [0 0.5 0.5];
+
+k = -2:1:2;
+hist(signal(signalPresentAbsent==0),k),legend('Signal + noise','Noise')
 
 subplot(2,2,4), hold on
-hist(signal(signalPresentAbsent==1)),title("Signal present distribution")
+hist(signal(signalPresentAbsent==1)),title("Signal + noise distribution"),xlabel("Signal Strength"),ylabel("Count");
 % show signal absent distribution
+h = findobj(gca,'Type','patch');
+h.FaceColor = [0 0.5 0.5];
+
 
 subplot(2,2,3), hold on
-hist(signal(signalPresentAbsent==0)),title("Signal absent distribution")
+hist(signal(signalPresentAbsent==0)),title("Noise only distribution"),xlabel("Signal Strength"),ylabel("Count");
+
+
+
 
 response = signal>0.5;
 
 % get total number of present trials
 nPresent = sum(signalPresentAbsent==1);
 % compute hits as all the responses to trials in which signal was present (signalPresentAbsent==1) in which the response was present (i.e. == 1). Divide by number of present trials.
-hits = sum(response(signalPresentAbsent==1)==1)/nPresent
+hits = sum(response(signalPresentAbsent==1)==1)/nPresent;
 % misses are the same except when the responses are 0 (absent even though signal was present)
-misses = sum(response(signalPresentAbsent==1)==0)/nPresent
+misses = sum(response(signalPresentAbsent==1)==0)/nPresent;
 % same idea for correctRejects and falseAlarms
 nAbsent = sum(signalPresentAbsent==1);
-correctRejects = sum(response(signalPresentAbsent==0)==0)/nAbsent
-falseAlarms = sum(response(signalPresentAbsent==0)==1)/nAbsent
+correctRejects = sum(response(signalPresentAbsent==0)==0)/nAbsent;
+falseAlarms = sum(response(signalPresentAbsent==0)==1)/nAbsent;
 
-zHits = icdf('norm',hits,0,1)
-zFalseAlarms = icdf('norm',falseAlarms,0,1)
-dPrime = zHits-zFalseAlarms
+zHits = icdf('norm',hits,0,1);
+zFalseAlarms = icdf('norm',falseAlarms,0,1);
+dPrime = zHits-zFalseAlarms;
 
 
 %% Error calculation
@@ -360,8 +371,8 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
     
 
     % Calculate probability of signal detection
-        T_score_of_detection = (amp_10 - average1)/(deviation1)
-        prob = tcdf(T_score_of_detection,99) * 100;
+        Z_score_of_detection = (amp_10 - average1)/(deviation1)
+        prob = normcdf(Z_score_of_detection) * 100;
         fprintf('The system is ');
         disp(prob);
         disp('percent confident a 10hz infrasound signal is present');
@@ -371,8 +382,8 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
     data_std = std(data);
     avg1 = data_mean;
     std1 = data_std;
-    T_score_of_geolocation = (amp - data_mean)/data_std
-    prob = tcdf(T_score_of_geolocation,9999) * 100;
+    Z_score_of_geolocation = (amp - data_mean)/data_std
+    prob = normcdf(Z_score_of_geolocation) * 100;
     fprintf('The system is ');
     disp(prob);
     disp('percent confident it has correctly predicted the origin location');
