@@ -1,4 +1,4 @@
-% Team 20 - Avalanche Detection
+% Team 20 - Signal Detection
 % Nov 12th, Algorithm demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
 
@@ -35,7 +35,7 @@ end
 
 
 
-%% Avalanche condition generation
+%% Signal condition generation
 
 % Two random intergers from 1-100 for grid indexes
 randx = randi(100,1,1);
@@ -48,10 +48,10 @@ origin_point = {randx,randy};
 origin = grid{randx, randy};
 
 % Temp in celsius, -40 C to 10 C
-tempc = randi([-40 10],1,1);
+tempc = randi([-40 10],1,1)
 
 % Speed of sound in m/s
-speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15));
+speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
 
 %% Calculate distance to sensors
 
@@ -78,7 +78,7 @@ decay3 = 100000000/(4*pi*d3^2);
 %figure();
 t = 0:1/3413:0.3;
 
-% Generate original avalanche signal
+% Generate original Signal signal
 signal0 = decay0 .* cos(10*2*pi.*t);
 
 % Shift each signal to match distance travelled to each sensor
