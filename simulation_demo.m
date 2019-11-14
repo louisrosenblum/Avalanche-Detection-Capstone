@@ -92,6 +92,16 @@ signal1 = awgn(signal1,signal_to_noise_ratio);
 signal2 = awgn(signal2,signal_to_noise_ratio);
 signal3 = awgn(signal3,signal_to_noise_ratio);
 
+% Test example noise against noise history
+zero = zeros(1,1024);
+noise0 = awgn(zero,signal_to_noise_ratio);
+noise1 = awgn(zero,signal_to_noise_ratio);
+noise2 = awgn(zero,signal_to_noise_ratio);
+noise3 = awgn(zero,signal_to_noise_ratio);
+    
+noise = noise0 + noise1 + noise2 + noise3;
+    
+
 % Plot signals received by sensors
 figure()
 subplot(2,4,[1 2]), hold on
@@ -99,7 +109,8 @@ plot(t,signal0);
 plot(t,signal1);
 plot(t,signal2);
 plot(t,signal3);
-legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
+plot(t,noise);
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3','Test noise');
 title("Signals seen by sensors");
 xlabel("Time (s)");
 ylabel("Amplitude");
@@ -136,16 +147,7 @@ deviation = std(noise_avg);
 average = mean(noise_avg);
 
 
-% Test example noise against noise history
-zero = zeros(1,1024);
-noise0 = awgn(zero,signal_to_noise_ratio);
-noise1 = awgn(zero,signal_to_noise_ratio);
-noise2 = awgn(zero,signal_to_noise_ratio);
-noise3 = awgn(zero,signal_to_noise_ratio);
-    
-noise = noise0 + noise1 + noise2 + noise3;
-    
-%plot(zeros,noise);
+
     
 noise_fft = fft(noise);
 P2 = abs(noise_fft/1024);
@@ -153,12 +155,12 @@ P1 = P2(1:1024/2+1);
 P1(2:end-1) = 2*P1(2:end-1);
 val = P1(4);
     
-Z_score_noise = (val-average)/(deviation)
-prob = normcdf(Z_score_noise) * 100
+Z_score_noise_test = (val-average)/(deviation)
+prob = normcdf(Z_score_noise_test) * 100;
 
 fprintf('The system is ');
 disp(prob);
-disp('percent confident a 10hz infrasound signal is present in the example noise');
+disp('percent confident a 10hz infrasound signal is present in the test noise');
 
 
 
