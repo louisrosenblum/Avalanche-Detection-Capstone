@@ -385,8 +385,8 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
     
 
     % Calculate probability of signal detection
-        Z_score_of_detection = (amp_10 - average1)/(deviation1)
-        prob = normcdf(Z_score_of_detection) * 100;
+        z_score_of_sensor_signals = (amp_10 - average1)/(deviation1)
+        prob = normcdf(z_score_of_sensor_signals) * 100;
         fprintf('The system is ');
         disp(prob);
         disp('percent confident a 10hz infrasound signal is present in data detected by the sensors');
