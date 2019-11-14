@@ -293,7 +293,7 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
     predict = {1,1};
     
     data = [];
-    
+    data2 = [];
     % Iterate through all grid points
     for i = 1:100
         for k = 1:100
@@ -339,6 +339,14 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
             amplitude = mean(sqrt(beamformed.^2));
             data = [data amplitude];
             
+                % Analyze magnitude of 10hz frequency inside signal from fft
+                x1 = fft(beamformed);
+                P2 = abs(x1/1024);
+                P1 = P2(1:1024/2+1);
+                P1(2:end-1) = 2*P1(2:end-1);
+                amp_10 = P1(4);
+            
+                data2 = [data2 amp_10];
            
             % Highest amplitude result survives as the prediction until
             % another point produces one higher
@@ -361,12 +369,9 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
     legend('Maximum amplitude alignment');
    
     
-    % Analyze magnitude of 10hz frequency inside signal from fft
-    x1 = fft(beamformed);
-    P2 = abs(x1/1024);
-    P1 = P2(1:1024/2+1);
-    P1(2:end-1) = 2*P1(2:end-1);
-    amp_10 = P1(4);
+    % Output mean and std for 10hz component
+    avg1 = mean(data2);
+    std1 = std(data2);
     
     
 
@@ -380,8 +385,6 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
     % Calculate geolocation accuracy probability
     data_mean = mean(data);
     data_std = std(data);
-    avg1 = data_mean;
-    std1 = data_std;
     Z_score_of_geolocation = (amp - data_mean)/data_std
     prob = normcdf(Z_score_of_geolocation) * 100;
     fprintf('The system is ');
