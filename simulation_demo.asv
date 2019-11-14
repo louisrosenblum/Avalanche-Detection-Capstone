@@ -1,5 +1,5 @@
 % Team 20 - Signal Detection
-% Nov 12th, Algorithm demo
+% Nov 12th, Simulation demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
 
 %% Initialization
@@ -9,6 +9,7 @@ clear all;
 
 %% Sensor placement
 
+% Hardcoding sensor locations at (x,y) coordinates
 s0 = [0 0];
 s1 = [100 0];
 s2 = [0 100];
@@ -16,7 +17,7 @@ s3 = [100 100];
 
 %% Grid design
 
-% data structure of all x,y locations for grid points
+% data structure of all x,y locations for possible signal origins
 grid = cell(100,100);
 
 for i = 1:100
@@ -27,30 +28,22 @@ for i = 1:100
     end
 end
 
-%% Distance function usage example
- 
- dist1 = distance(s0,s1);
- 
- dist1 = distance(s0, grid{30,80});
-
-
-
 %% Signal condition generation
 
-% Two random intergers from 1-100 for grid indexes
+% Two random intergers from 1-100 for origin out of possible grid indexes
 randx = randi(100,1,1);
 randy = randi(100,1,1);
 
-% Generate random signal to noise ratio (1 to 100, with 1 being the most noise)
+% Generate random signal to noise ratio (1 to 30, with 1 being the most noise)
 signal_to_noise_ratio = randi(30,1,1)
 
 origin_point = {randx,randy};
 origin = grid{randx, randy};
 
-% Temp in celsius, -40 C to 10 C
+% Generate random temp in celsius, -40 C to 10 C
 tempc = randi([-40 10],1,1)
 
-% Speed of sound in m/s
+% Calculate speed of sound in m/s
 speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
 
 %% Calculate distance to sensors
@@ -65,7 +58,8 @@ delta1 = d1 - d0;
 delta2 = d2 - d0;
 delta3 = d3 - d0;
 
-% Calculate amplitude decay
+% Calculate amplitude decay over each distance based on energy distributed
+% over surface area of a sphere
 
 decay0 = 100000000/(4*pi*d0^2);
 decay1 = 100000000/(4*pi*d1^2);
@@ -75,10 +69,10 @@ decay3 = 100000000/(4*pi*d3^2);
 
 %% Signal Generation
 
-%figure();
+% Time vector
 t = 0:1/3413:0.3;
 
-% Generate original Signal signal
+% Generate signal hitting the reference sensor
 signal0 = decay0 .* cos(10*2*pi.*t);
 
 % Shift each signal to match distance travelled to each sensor
@@ -92,12 +86,7 @@ signal1 = decay1 .* cos(10*2*pi.*(t-shift1/10));
 signal2 = decay2 .* cos(10*2*pi.*(t-shift2/10));
 signal3 = decay3 .* cos(10*2*pi.*(t-shift3/10));
 
-signal0_orig = signal0;
-signal1_orig = signal1;
-signal2_orig = signal2;
-signal3_orig = signal3;
-
-% Add gaussian noise
+% Add gaussian noise to each signal
 signal0 = awgn(signal0,signal_to_noise_ratio);
 signal1 = awgn(signal1,signal_to_noise_ratio);
 signal2 = awgn(signal2,signal_to_noise_ratio);
@@ -115,15 +104,9 @@ title("Signals seen by sensors");
 xlabel("Time (s)");
 ylabel("Amplitude");
 
-amplitude = max(signal0(:));
-
-noise0 = signal0 - signal0_orig;
-noise1 = signal1 - signal1_orig;
-noise2 = signal2 - signal2_orig;
-noise3 = signal3 - signal3_orig;
-
 %% Noise analysis
 
+% Analyze noise in order to make comparison to detected signal
 zero = zeros(1,1024);
 noise_avg = [ ];
 
@@ -148,17 +131,17 @@ for k = 1:100
 end
 
 
-% Calculate average magnitude and standard deviation
-deviation = std(noise_avg)
-average = mean(noise_avg)
+% Calculate average magnitude and standard deviation of 10hz component
+deviation = std(noise_avg);
+average = mean(noise_avg);
 
 
 
 
-%% Algorithm execution
+%% Confidence engine and geolocation algorithim
 
-% Pass sensor locations, filtered sensor data, grid layout, speed of
-% sound, and noise sampling into the geolocation algorithm
+% Pass sensor locations, sensor data, all possible origin points, speed of
+% sound, and noise sampling into the confidence engine
 
 [guess, height, mean1, std1] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound,deviation,average);
 
@@ -179,9 +162,9 @@ xlim([-100 1100]),ylim([-100 2100]);
 scatter([origin(1)],[origin(2)],'filled');
 scatter([guess(1)],[guess(2)],'filled');
 legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3', 'True Origin','Predicted Origin');
-title("Sensor Grid"); 
+title("Spatial layout map"); 
 
-% Grid points
+% Plot grid
 x1 = [];
 y1 = [];
 
@@ -216,6 +199,8 @@ hold off;
 
 %% Histogram Generation
 
+% Generate histograms to show the different distributions between noise
+% analysis and detected signal
 n = 1000; signalPresentAbsent = rand(1,n);
 signalPresentAbsent = round(signalPresentAbsent);
 
@@ -230,28 +215,31 @@ for i = 1:length(signalPresentAbsent)
   end
 end
 
+% Plot both distributions on one plot
 figure()
 subplot(2,1,1)
 hist(signal(signalPresentAbsent==1)),title("Combined distribution"),hold on,xlabel("Signal strength"),ylabel("Count");
 h = findobj(gca,'Type','patch');
 h.FaceColor = [0 0.5 0.5];
 
+
 k = -2:1:2;
 hist(signal(signalPresentAbsent==0),k),legend('Signal + noise','Noise')
 
+% Plot signal+noise distribution
 subplot(2,2,4), hold on
 hist(signal(signalPresentAbsent==1)),title("Signal + noise distribution"),xlabel("Signal Strength"),ylabel("Count");
 % show signal absent distribution
 h = findobj(gca,'Type','patch');
 h.FaceColor = [0 0.5 0.5];
 
-
+% Plot noise only distribution
 subplot(2,2,3), hold on
 hist(signal(signalPresentAbsent==0)),title("Noise only distribution"),xlabel("Signal Strength"),ylabel("Count");
 
 
 
-
+% Additional statistical analysis
 response = signal>0.5;
 
 % get total number of present trials
@@ -272,6 +260,7 @@ dPrime = zHits-zFalseAlarms;
 
 %% Error calculation
 
+% Calculate amount of actual error in origin prediction
 d_1 = distance(s0,origin);
 d_2 = distance(s0,guess);
 
