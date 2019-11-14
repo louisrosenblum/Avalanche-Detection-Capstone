@@ -348,7 +348,7 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
     title("Result of aligning and summing");
     xlabel("Time (s)");
     ylabel("Amplitude");
-    legend('Maximum amplitude alignment');
+    legend('Maximum constructive alignment');
    
     
     % Output mean and std for 10hz component
