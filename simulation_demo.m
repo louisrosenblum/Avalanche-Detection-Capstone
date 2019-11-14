@@ -135,6 +135,30 @@ end
 deviation = std(noise_avg);
 average = mean(noise_avg);
 
+    % Test noise versus noise
+    zero = zeros(1,1024);
+    noise0 = awgn(zero,signal_to_noise_ratio);
+    noise1 = awgn(zero,signal_to_noise_ratio);
+    noise2 = awgn(zero,signal_to_noise_ratio);
+    noise3 = awgn(zero,signal_to_noise_ratio);
+    
+    
+   
+    noise = noise0 + noise1 + noise2 + noise3;
+    
+    
+    %plot(zeros,noise);
+    
+    noise_fft = fft(noise);
+    P2 = abs(noise_fft/1024);
+    P1 = P2(1:1024/2+1);
+    P1(2:end-1) = 2*P1(2:end-1);
+    val = P1(4);
+    
+    Z_score_noise = (val-average)/(deviation)
+    prob = normcdf(Z_score_noise) * 100
+        
+
 
 
 
@@ -363,6 +387,8 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
         fprintf('The system is ');
         disp(prob);
         disp('percent confident a 10hz infrasound signal is present');
+       
+    
         
     % Calculate geolocation accuracy probability
     data_mean = mean(data);
