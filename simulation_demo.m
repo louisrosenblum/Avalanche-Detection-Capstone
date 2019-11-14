@@ -1,5 +1,5 @@
 % Team 20 - Signal Detection
-% Nov 12th, Simulation demo
+% Nov 14th, Simulation demo
 % Louis Rosenblum, Cayden Seiler, Khristian Jones
 
 %% Initialization
