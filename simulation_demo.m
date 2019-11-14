@@ -15,7 +15,7 @@ s1 = [100 0];
 s2 = [0 100];
 s3 = [100 100];
 
-%% Grid design
+%% Spatial grid design
 
 % data structure of all x,y locations for possible signal origins
 grid = cell(100,100);
@@ -46,7 +46,7 @@ tempc = randi([-40 10],1,1)
 % Calculate speed of sound in m/s
 speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
 
-%% Calculate distance to sensors
+%% Calculate distance to sensors and decay signals accordingly
 
 d0 = distance(s0,origin);
 d1 = distance(s1,origin);
@@ -60,7 +60,6 @@ delta3 = d3 - d0;
 
 % Calculate amplitude decay over each distance based on energy distributed
 % over surface area of a sphere
-
 decay0 = 100000000/(4*pi*d0^2);
 decay1 = 100000000/(4*pi*d1^2);
 decay2 = 100000000/(4*pi*d2^2);
@@ -75,8 +74,10 @@ t = 0:1/3413:0.3;
 % Generate signal hitting the reference sensor
 signal0 = decay0 .* cos(10*2*pi.*t);
 
-% Shift each signal to match distance travelled to each sensor
+% Calculate wavelength
 wavelength = speed_of_sound/10;
+
+% Shift other signals to match distance travelled to each sensor
 shift1 = delta1/wavelength;
 shift2 = delta2/wavelength;
 shift3 = delta3/wavelength;
@@ -86,22 +87,12 @@ signal1 = decay1 .* cos(10*2*pi.*(t-shift1/10));
 signal2 = decay2 .* cos(10*2*pi.*(t-shift2/10));
 signal3 = decay3 .* cos(10*2*pi.*(t-shift3/10));
 
-% Add gaussian noise to each signal
+% Add independent gaussian noise to each signal
 signal0 = awgn(signal0,signal_to_noise_ratio);
 signal1 = awgn(signal1,signal_to_noise_ratio);
 signal2 = awgn(signal2,signal_to_noise_ratio);
 signal3 = awgn(signal3,signal_to_noise_ratio);
-
-% Test example noise against noise history
-zero = zeros(1,1024);
-noise0 = awgn(zero,signal_to_noise_ratio);
-noise1 = awgn(zero,signal_to_noise_ratio);
-noise2 = awgn(zero,signal_to_noise_ratio);
-noise3 = awgn(zero,signal_to_noise_ratio);
     
-noise = noise0 + noise1 + noise2 + noise3;
-    
-
 % Plot signals received by sensors
 figure()
 subplot(2,4,[1 2]), hold on
@@ -109,15 +100,14 @@ plot(t,signal0);
 plot(t,signal1);
 plot(t,signal2);
 plot(t,signal3);
-plot(t,noise);
-legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3','Test noise');
+legend('Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3');
 title("Signals seen by sensors");
 xlabel("Time (s)");
 ylabel("Amplitude");
 
 %% Noise analysis
 
-% Analyze noise in order to make comparison to detected signal
+% Analyze history of noise in order to draw comparisons
 zero = zeros(1,1024);
 noise_avg = [ ];
 
@@ -146,21 +136,30 @@ end
 deviation = std(noise_avg);
 average = mean(noise_avg);
 
+% Test noise test case against noise history
+zero = zeros(1,1024);
+noise0 = awgn(zero,signal_to_noise_ratio);
+noise1 = awgn(zero,signal_to_noise_ratio);
+noise2 = awgn(zero,signal_to_noise_ratio);
+noise3 = awgn(zero,signal_to_noise_ratio);
 
+% Align and sum
+noise = noise0 + noise1 + noise2 + noise3;
 
-    
+% Get magnitude of 10hz component from fft
 noise_fft = fft(noise);
 P2 = abs(noise_fft/1024);
 P1 = P2(1:1024/2+1);
 P1(2:end-1) = 2*P1(2:end-1);
 val = P1(4);
-    
-Z_score_noise_test = (val-average)/(deviation)
-prob = normcdf(Z_score_noise_test) * 100;
+
+% Calculate z-score and make confidence prediction for test case
+Z_score_test_case = (val-average)/(deviation)
+prob = normcdf(Z_score_test_case) * 100;
 
 fprintf('The system is ');
 disp(prob);
-disp('percent confident a 10hz infrasound signal is present in the test noise');
+disp('percent confident a 10hz infrasound signal is present in the test case noise');
 
 
 
@@ -168,13 +167,16 @@ disp('percent confident a 10hz infrasound signal is present in the test noise');
 %% Confidence engine and geolocation algorithim
 
 % Pass sensor locations, sensor data, all possible origin points, speed of
-% sound, and noise sampling into the confidence engine
+% sound, and noise history data into the confidence engine
 
 [guess, height, mean1, std1] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound,deviation,average);
 
 
 
 %% Plot 
+
+% Plot test case
+plot(t,noise),legend('Constructive alignment of sensor data','Test case (noise)');
 
 % Sensors
 subplot(2,4,[3 4 7 8]);
@@ -371,7 +373,7 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
     % Plot the beamformed signal
     t = 0:1/3413:0.3;
     subplot(2,4,[5 6]);
-    plot(t,beamformed_plot_final);
+    plot(t,beamformed_plot_final), hold on;
     title("Result of aligning and summing");
     xlabel("Time (s)");
     ylabel("Amplitude");
