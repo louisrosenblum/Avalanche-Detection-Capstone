@@ -350,14 +350,7 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
             % Calculate root mean square ampltitude
             amplitude = mean(sqrt(beamformed.^2));
             data = [data amplitude];
-            
-            % Analyze magnitude of 10hz frequency inside signal from fft
-            x1 = fft(beamformed);
-            P2 = abs(x1/1024);
-            P1 = P2(1:1024/2+1);
-            P1(2:end-1) = 2*P1(2:end-1);
-            amp_10 = P1(4);
-            data2 = [data2 amp_10];
+     
            
             % Highest amplitude result survives as the prediction until
             % another point produces one higher
