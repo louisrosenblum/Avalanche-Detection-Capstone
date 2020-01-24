@@ -132,7 +132,7 @@ for i = 1:329
         x = [x grid{i,k}(1)];
         y = [y grid{i,k}(2)];
         k = (normcdf((heatmap{i,k} - avg)/std));
-        z = [z k.^f];
+        z = [z log(k)];
         
     end
 end
@@ -141,7 +141,7 @@ figure()
 scatter(x,y,1,z)
 colorbar()
 
-title("Origin Probability");
+title("Origin Significance");
 xlabel("X Location (m)");
 ylabel("Y Location (m)");
 
