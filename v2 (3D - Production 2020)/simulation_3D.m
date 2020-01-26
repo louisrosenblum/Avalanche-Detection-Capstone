@@ -135,9 +135,10 @@ end
 
 figure()
 scatter(x,y,1,z)
-colorbar()
+p = colorbar()
+title(p,'log10 scale')
 
-title("Origin Significance");
+title("Origin Statistical Significance");
 xlabel("X Location (m)");
 ylabel("Y Location (m)");
 
