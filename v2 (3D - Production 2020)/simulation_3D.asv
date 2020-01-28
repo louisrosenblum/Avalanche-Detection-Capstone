@@ -76,10 +76,8 @@ decay3 = 100000000/(4*pi*d3^2)
 % Time vector
 t = -0.6:1/3413:0.6;
 
-wave = rand(1,length(t));
-
 % Generate signal hitting the reference sensor
-signal0 = decay0 .* sinc(10*2*pi.*t) .* heaviside(t).*wave;
+signal0 = decay0 .* sinc(10*2*pi.*t) .* heaviside(t);
 
 % Calculate wavelength
 wavelength = speed_of_sound/10;
@@ -90,13 +88,13 @@ shift2 = delta2/wavelength;
 shift3 = delta3/wavelength;
 
 % Generate signals received by each sensor
-signal1 = decay1 .* sinc(10*2*pi.*(t-shift1/10)).* heaviside(t-shift1/10).*wave;
-signal2 = decay2 .* sinc(10*2*pi.*(t-shift2/10)).* heaviside(t-shift2/10).*wave;
-signal3 = decay3 .* sinc(10*2*pi.*(t-shift3/10)).* heaviside(t-shift3/10).*wave;
+signal1 = decay1 .* sinc(10*2*pi.*(t-shift1/10)).* heaviside(t-shift1/10);
+signal2 = decay2 .* sinc(10*2*pi.*(t-shift2/10)).* heaviside(t-shift2/10);
+signal3 = decay3 .* sinc(10*2*pi.*(t-shift3/10)).* heaviside(t-shift3/10);
 
 % Power factor
 pf = 0
-snr = 10
+snr = 500
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -219,7 +217,9 @@ function [a b heatmap avg std_mag] = predict(signal0,signal1,signal2,signal3,gri
             signal2_shift = circshift(signal2,round(-shift_2.*4096/12));
             signal3_shift = circshift(signal3,round(-shift_3.*4096/12));
             
-            
+            val1 = round(-shift_1.*4096/12);
+            val2 = round(-shift_2.*4096/12);
+            val3 = round(-shift_3.*4096/12);
   
             
             % Sum all four signals
