@@ -130,7 +130,7 @@ for i = 1:329
         x = [x grid{i,k}(1)];
         y = [y grid{i,k}(2)];
         k = (normcdf((heatmap{i,k} - avg)/std));
-        z = [z log(k)];
+        z = [z log(k);
         
     end
 end
@@ -290,4 +290,10 @@ function dist = distance(p1,p2)
     f = p2(3);
 
     dist = sqrt((d-a)^2+(e-b)^2+(f-c)^2);
+end
+
+%% LogBASE function defintion
+
+function k = logbase(b,x)
+    k = log(x)/log(b);
 end
