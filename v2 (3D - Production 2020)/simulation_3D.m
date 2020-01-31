@@ -8,10 +8,10 @@ close all
 
 %% Load 3D Elevation Map
 
-latlim = [45.25532873 45.30078327]
-longlim = [-111.4957325 -111.4048235]
+latlim = [45.25532873 45.30078327];
+longlim = [-111.4957325 -111.4048235];
 
-[elevation, refvec] = dted("lone_peak.dt2",1,latlim,longlim)
+[elevation, refvec] = dted("lone_peak.dt2",1,latlim,longlim);
 
 
 %% Populate grid with X,Y, and Z coordinates
@@ -66,10 +66,10 @@ delta3 = d3 - d0;
 
 % Calculate amplitude decay over each distance based on energy distributed
 % over surface area of a sphere
-decay0 = 100000000/(4*pi*d0^2)
-decay1 = 100000000/(4*pi*d1^2)
-decay2 = 100000000/(4*pi*d2^2)
-decay3 = 100000000/(4*pi*d3^2)
+decay0 = 100000000/(4*pi*d0^2);
+decay1 = 100000000/(4*pi*d1^2);
+decay2 = 100000000/(4*pi*d2^2);
+decay3 = 100000000/(4*pi*d3^2);
 
 %% Signal Generation
 
@@ -95,8 +95,8 @@ signal2 = decay2 .* sinc(10*2*pi.*(t-shift2/10)).* heaviside(t-shift2/10).*wave;
 signal3 = decay3 .* sinc(10*2*pi.*(t-shift3/10)).* heaviside(t-shift3/10).*wave;
 
 % Power factor
-pf = 0
-snr = 10
+pf = 0;
+snr = 50
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -118,7 +118,7 @@ ylabel("Amplitude");
 
 %% Run signal processing algorithim
 
-[w v heatmap avg std] = predict(signal0,signal1,signal2,signal3,grid,s0,s1,s2,s3,speed_of_sound);
+[w v q heatmap avg std] = predict(signal0,signal1,signal2,signal3,grid,s0,s1,s2,s3,speed_of_sound);
 
 %% Draw heatmap
 x = [];
@@ -137,7 +137,7 @@ end
 
 figure()
 scatter(x,y,1,z)
-p = colorbar()
+p = colorbar();
 title(p,'log10 scale')
 
 title("Origin Statistical Significance");
@@ -150,7 +150,7 @@ x = 0:1000/328:1000;
 y = 2000:1000/164:3000;
 
 figure()
-[C,h] = contour(x,y,elevation,16)
+[C,h] = contour(x,y,elevation,16);
 
 % Label countours with elevations
 %clabel(C,h)
@@ -175,9 +175,16 @@ ylabel("Y Position (meters)");
 
 hold off
 
+%% Calculate percent error
+
+grid_area = 1000 * 1000;
+dist_error = distance(origin,[w v q]);
+
+percent_error = (dist_error)^2 * pi/grid_area * 100
+
 %% Signal Processing Algorithim Definition
 
-function [a b heatmap avg std_mag] = predict(signal0,signal1,signal2,signal3,grid,s0,s1,s2,s3,speed)
+function [a b c heatmap avg std_mag] = predict(signal0,signal1,signal2,signal3,grid,s0,s1,s2,s3,speed)
 
     data = [];
     amp = 0;
@@ -234,9 +241,10 @@ function [a b heatmap avg std_mag] = predict(signal0,signal1,signal2,signal3,gri
             %amplitude = max(beamformed);
             
             if amplitude > amp
-                amp = amplitude
+                amp = amplitude;
                 a = grid{i,k}(1);
                 b = grid{i,k}(2);
+                c = grid{i,k}(3);
                 sig0 = signal0;
                 sig1 = signal1_shift;
                 sig2 = signal2_shift;
