@@ -130,7 +130,7 @@ for i = 1:329
         x = [x grid{i,k}(1)];
         y = [y grid{i,k}(2)];
         k = (normcdf((heatmap{i,k} - avg)/std));
-        z = [z log(k);
+        z = [z log(k)];
         
     end
 end
