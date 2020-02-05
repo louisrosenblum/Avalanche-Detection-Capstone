@@ -96,7 +96,7 @@ signal3 = decay3 .* sinc(10*2*pi.*(t-shift3/10)).* heaviside(t-shift3/10).*wave;
 
 % Power factor
 pf = 0;
-snr = 10
+snr = 16
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -130,7 +130,7 @@ for i = 1:329
         x = [x grid{i,k}(1)];
         y = [y grid{i,k}(2)];
         k = (heatmap{i,k});
-        z = [z log(k)];
+        z = [z log10(k)];
         
     end
 end
@@ -140,7 +140,7 @@ scatter(x,y,1,z)
 p = colorbar();
 title(p,'log10 scale')
 
-title("Origin Statistical Significance");
+title("Spatial Alignment Amplitude");
 xlabel("X Location (m)");
 ylabel("Y Location (m)");
 
