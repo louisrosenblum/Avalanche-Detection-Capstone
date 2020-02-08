@@ -118,7 +118,7 @@ ylabel("Amplitude");
 
 %% Run signal processing algorithim
 
-[w v q heatmap avg std] = predict(signal0,signal1,signal2,signal3,grid,s0,s1,s2,s3,speed_of_sound);
+[w heatmap avg std] = predict(signal0,signal1,signal2,signal3,grid,s0,s1,s2,s3,speed_of_sound);
 
 %% Draw heatmap
 x = [];
@@ -130,7 +130,7 @@ for i = 1:329
         x = [x grid{i,k}(1)];
         y = [y grid{i,k}(2)];
         k = (heatmap{i,k});
-        z = [z log10(k)];
+        z = [z log(k)];
         
     end
 end
@@ -164,27 +164,61 @@ gscatter(100,0,'Sensor 2', 'y'),text(15,100,"2648 m");
 gscatter(100,100,'Sensor 3', 'm'),text(115,100,"2560 m");
 
 scatter([origin(1)],[origin(2)],'filled');
-scatter(w,v,'filled');
+
+x = grid{w(1),w(2)};
+scatter(x(1),x(2),'filled');
 
 xlim([-100 1100]),ylim([-100 3100]);
-
-legend('Elevation','Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3','True Origin','Algorithim Prediction');
 title("Spatial Layout");
 xlabel("X Position (meters)");
 ylabel("Y Position (meters)");
 
+%% Error display
+
+% Plot error circle
+
+pos = [(origin(1)-100) (origin(2)-100) 200 200]; 
+rectangle('Position',pos,'Curvature',[1 1])
+
+z_max = (heatmap{w(1),w(2)}-avg)/std;
+
+% Plot all points above significance threshold
+threshold = 0.97 * z_max;
+
+count = 0;
+
+for i = 1:329
+    for k = 1:329
+        z = (heatmap{i,k}-avg)/std;
+        if(z > threshold)
+            
+            x = grid{i,k}(1);
+            y = grid{i,k}(2);
+            if(count == 0)
+            
+            scatter(x,y,'k');
+            
+            else
+                
+            scatter(x,y,'k','HandleVisibility','off');
+                
+            end
+            
+            count = count + 1;
+        end    
+    end
+end
+
+%axis equal;
+
 hold off
 
-%% Calculate percent error
+legend('Elevation','Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3','Actual Origin','Highest amplitude alignment','Threshold exceeding alignment');
 
-grid_area = 1000 * 1000;
-dist_error = distance(origin,[w v q]);
-
-percent_error = (dist_error)^2 * pi/grid_area * 100
 
 %% Signal Processing Algorithim Definition
 
-function [a b c heatmap avg std_mag] = predict(signal0,signal1,signal2,signal3,grid,s0,s1,s2,s3,speed)
+function [a heatmap avg std_mag] = predict(signal0,signal1,signal2,signal3,grid,s0,s1,s2,s3,speed)
 
     data = [];
     amp = 0;
@@ -242,9 +276,7 @@ function [a b c heatmap avg std_mag] = predict(signal0,signal1,signal2,signal3,g
             
             if amplitude > amp
                 amp = amplitude;
-                a = grid{i,k}(1);
-                b = grid{i,k}(2);
-                c = grid{i,k}(3);
+                a = [i k];
                 sig0 = signal0;
                 sig1 = signal1_shift;
                 sig2 = signal2_shift;
