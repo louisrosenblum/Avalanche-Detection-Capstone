@@ -96,7 +96,7 @@ signal3 = decay3 .* sinc(10*2*pi.*(t-shift3/10)).* heaviside(t-shift3/10).*wave;
 
 % Power factor
 pf = 0;
-snr = 16
+snr = r16
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -187,7 +187,7 @@ threshold = 0.97 * z_max;
 
 count = 0;
 
-pass = []
+pass = [];
 
 for i = 1:329
     for k = 1:329
@@ -222,15 +222,36 @@ legend('Elevation','Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3','Actual Origin
 
 %% Error calculation
 
+    check = 0;
+    error = [];
+
 for i = 1:length(pass)/2
-    x = pass(i);
-    y = pass(i+1);
+    
+    x = pass(2*i-1);
+    y = pass(2*i);
     
     point = grid{x,y};
     point = point(1:2);
     
+    origin_2d = origin(1:2);
     
+    dist_2d = dist2d(point,origin_2d);
+    
+    if(dist_2d > 100)
+        check = 1;
+        error = [error (dist_2d^2/(100^2) - 1)*100];
+    else
+        error = [error 0];
+    end
 end
+
+    if(check == 1)
+       disp("Error: One or more threshold exceeding predictions over 100m off true origin");
+       percent_error = mean(error)
+    else
+        disp("Success: All threshold exceeding predictions within 100m of true origin");
+        percent_error = 0
+    end
 
 
 

@@ -96,7 +96,7 @@ signal3 = decay3 .* sinc(10*2*pi.*(t-shift3/10)).* heaviside(t-shift3/10).*wave;
 
 % Power factor
 pf = 0;
-snr = 16
+snr = randi([5 35])
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -130,7 +130,7 @@ for i = 1:329
         x = [x grid{i,k}(1)];
         y = [y grid{i,k}(2)];
         k = (heatmap{i,k});
-        z = [z log(k)];
+        z = [z k];
         
     end
 end
@@ -138,7 +138,7 @@ end
 figure()
 scatter(x,y,1,z)
 p = colorbar();
-title(p,'log10 scale')
+title(p,'Magnitude')
 
 title("Spatial Alignment Amplitude");
 xlabel("X Location (m)");
@@ -187,7 +187,7 @@ threshold = 0.97 * z_max;
 
 count = 0;
 
-pass = []
+pass = [];
 
 for i = 1:329
     for k = 1:329
@@ -203,11 +203,11 @@ for i = 1:329
             else
                 
             scatter(x,y,'k','HandleVisibility','off');
+                
+            end
             
             point = [i k];
             pass = [pass point];
-                
-            end
             
             count = count + 1;
         end    
@@ -222,7 +222,11 @@ legend('Elevation','Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3','Actual Origin
 
 %% Error calculation
 
+    check = 0;
+    error = [];
+
 for i = 1:length(pass)/2
+    
     x = pass(2*i-1);
     y = pass(2*i);
     
@@ -232,7 +236,22 @@ for i = 1:length(pass)/2
     origin_2d = origin(1:2);
     
     dist_2d = dist2d(point,origin_2d)
+    
+    if(dist_2d > 100)
+        check = 1;
+        error = [error (dist_2d^2/(100^2) - 1)*100];
+    else
+        error = [error 0];
+    end
 end
+
+    if(check == 1)
+       disp("Failure: One or more threshold exceeding predictions over 100m off true origin");
+       percent_error = mean(error)
+    else
+        disp("Success: All threshold exceeding predictions within 100m of true origin");
+        percent_error = 0
+    end
 
 
 
