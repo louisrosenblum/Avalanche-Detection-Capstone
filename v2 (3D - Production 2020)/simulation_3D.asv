@@ -223,15 +223,13 @@ legend('Elevation','Sensor 0', 'Sensor 1', 'Sensor 2', 'Sensor 3','Actual Origin
 %% Error calculation
 
 for i = 1:length(pass)/2
-    x = pass(2*i-1);
-    y = pass(2*i);
+    x = pass(i);
+    y = pass(i+1);
     
     point = grid{x,y};
     point = point(1:2);
     
-    origin_2d = origin(1:2);
     
-    dist_2d = dist2d(point,origin_2d)
 end
 
 
