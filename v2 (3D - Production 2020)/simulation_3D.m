@@ -94,8 +94,11 @@ decay7 = 100000000/(4*pi*d7^2);
 
 %% Signal Generation
 
+% Sampling rate
+f = 1000
+
 % Time vector
-t = -3:1/1000:3;
+t = -4:1/f:4;
 
 wave = rand(1,length(t));
 
@@ -159,16 +162,16 @@ ylabel("Amplitude");
 %% Run signal processing algorithim
 
 % s0 and s1
-[heatmap0] = predict(signal0,signal1,grid,s0,s1,speed_of_sound);
+[heatmap0] = predict(f,signal0,signal1,grid,s0,s1,speed_of_sound);
 
 % s2 and s3
-[heatmap2] = predict(signal2,signal3,grid,s2,s3,speed_of_sound);
+[heatmap2] = predict(f,signal2,signal3,grid,s2,s3,speed_of_sound);
 
 % s4 and s5
-[heatmap4] = predict(signal4,signal5,grid,s4,s5,speed_of_sound);
+[heatmap4] = predict(f,signal4,signal5,grid,s4,s5,speed_of_sound);
 
 % s6 and s7
-[heatmap6] = predict(signal6,signal7,grid,s6,s7,speed_of_sound);
+[heatmap6] = predict(f,signal6,signal7,grid,s6,s7,speed_of_sound);
 
 
 
@@ -198,9 +201,9 @@ end
 figure()
 scatter(x,y,1,z)
 p = colorbar();
-title(p,'Magnitude')
+%title(p,'Amplitude')
 
-title("Spatial Alignment Amplitude");
+title("Confidence Engine Prediction");
 xlabel("X Location (m)");
 ylabel("Y Location (m)");
 
@@ -219,7 +222,7 @@ colormap default
 hold on
 
 
-gscatter(s0(1),s0(2),'Sensor 0'),text(s0(1)+15,s0(2),int2str(s0(3)));
+p0 = gscatter(s0(1),s0(2),'Sensor 0'),text(s0(1)+15,s0(2),int2str(s0(3)));
 gscatter(s1(1),s1(2),'Sensor 1'),text(s1(1)+15,s1(2),int2str(s1(3)));
 gscatter(s2(1),s2(2),'Sensor 2'),text(s2(1)+15,s2(2),int2str(s2(3)));
 gscatter(s3(1),s3(2),'Sensor 3'),text(s3(1)+15,s3(2),int2str(s3(3)));
@@ -228,15 +231,17 @@ gscatter(s5(1),s5(2),'Sensor 5'),text(s5(1)+15,s5(2),int2str(s5(3)));
 gscatter(s6(1),s6(2),'Sensor 6'),text(s6(1)+15,s6(2),int2str(s6(3)));
 gscatter(s7(1),s7(2),'Sensor 7'),text(s7(1)+15,s7(2),int2str(s7(3)));
 
-scatter([origin(1)],[origin(2)],'filled','g');
+p1 = scatter([origin(1)],[origin(2)],'filled','g');
 
 x = grid{w(1),w(2)};
-scatter(x(1),x(2),'filled','b');
+p2 = scatter(x(1),x(2),'filled','b');
 
 xlim([-1100 2100]),ylim([-1100 2100]);
 title("Spatial Layout");
 xlabel("X Position (meters)");
 ylabel("Y Position (meters)");
+
+legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Algorithim Prediction');
 
 %% Error display
 
@@ -250,13 +255,12 @@ rectangle('Position',pos,'Curvature',[1 1])
 
 hold off
 
-legend('Elevation','Sensor Array','Actual Origin','Algorithim Prediction')
 
 
 
 %% Signal Processing Algorithim Definition
 
-function [heatmap] = predict(signal0,signal1,grid,s0,s1,speed)
+function [heatmap] = predict(f,signal0,signal1,grid,s0,s1,speed)
 
     data = [];
     amp = 0;
@@ -286,7 +290,7 @@ function [heatmap] = predict(signal0,signal1,grid,s0,s1,speed)
             % Shift signals 1-3 accordingly, in attempt to match signal 0
         
 
-            signal1_shift = circshift(signal1,round(-shift_1.*100));
+            signal1_shift = circshift(signal1,round(-shift_1.*f/10));
 
             % Sum all four signals
             beam1 = signal0 .*signal1_shift;
@@ -310,17 +314,6 @@ function [heatmap] = predict(signal0,signal1,grid,s0,s1,speed)
         end
     end
     
-    % Time vector
-    t = -3:1/1000:3;
-    figure();
-    
-    plot(t,sig0), hold on
-    plot(t,sig1)
-    
-    legend('Sensor 0', 'Sensor 1');
-    title("Maximum Peak Alignment");
-    xlabel("Time (s)");
-    ylabel("Amplitude");
 
 end
 
