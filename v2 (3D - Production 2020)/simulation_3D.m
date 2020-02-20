@@ -188,6 +188,7 @@ for i = 1:329
         x = [x grid{i,k}(1)];
         y = [y grid{i,k}(2)];
         j = heatmap0{i,k}*heatmap2{i,k}*heatmap4{i,k}*heatmap6{i,k};
+        j = j^10;
         
         if(j > compare)
             compare = j;
@@ -201,7 +202,7 @@ end
 figure()
 scatter(x,y,1,z)
 p = colorbar();
-%title(p,'Amplitude')
+ylabel(p,'Amplitude (power of 10)')
 
 title("Confidence Engine Prediction");
 xlabel("X Location (m)");
