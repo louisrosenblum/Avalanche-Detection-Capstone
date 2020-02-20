@@ -169,7 +169,7 @@ disp('percent confident a 10hz infrasound signal is present in the test case noi
 % Pass sensor locations, sensor data, all possible origin points, speed of
 % sound, and noise history data into the confidence engine
 
-[guess, height, mean1, std1] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound,deviation,average);
+[heatmap, guess, height, mean1, std1] = algorithm(s0,s1,s2,s3,signal0,signal1,signal2,signal3,grid,speed_of_sound,deviation,average);
 
 
 
@@ -226,65 +226,28 @@ for x = 1:10
 end
 hold off;
 
-%% Histogram Generation
+%% Draw heatmap
+x = [];
+y = [];
+z = []
 
-% Generate histograms to show the different distributions between noise
-% analysis and detected signal
-n = 1000; signalPresentAbsent = rand(1,n);
-signalPresentAbsent = round(signalPresentAbsent);
-
-for i = 1:length(signalPresentAbsent)
-  % if signal present trial
-  if signalPresentAbsent(i) == 1
-    % then pull a random draw from the signal distribution with mean = 1 and std = 1
-    signal(i) = random('norm',mean1,std1);
-  else
-    % otherwise it is a noise trial so pull a random draw from the noise distribution with mean = 0 and std = 1
-    signal(i) = random('norm',average,deviation);
-  end
+for i = 1:100
+    for k = 1:100
+        x = [x grid{i,k}(1)];
+        y = [y grid{i,k}(2)];
+        k = (heatmap{i,k});
+        z = [z k];
+    end
 end
 
-% Plot both distributions on one plot
 figure()
-subplot(2,1,1)
-hist(signal(signalPresentAbsent==1)),title("Combined distribution"),hold on,xlabel("Signal strength"),ylabel("Count");
-h = findobj(gca,'Type','patch');
-h.FaceColor = [0 0.5 0.5];
+scatter(x,y,1,z)
+p = colorbar();
+title(p,'Magnitude')
 
-
-k = -2:1:2;
-hist(signal(signalPresentAbsent==0),k),legend('Signal + noise','Noise')
-
-% Plot signal+noise distribution
-subplot(2,2,4), hold on
-hist(signal(signalPresentAbsent==1)),title("Signal + noise distribution"),xlabel("Signal Strength"),ylabel("Count");
-% show signal absent distribution
-h = findobj(gca,'Type','patch');
-h.FaceColor = [0 0.5 0.5];
-
-% Plot noise only distribution
-subplot(2,2,3), hold on
-hist(signal(signalPresentAbsent==0)),title("Noise only distribution"),xlabel("Signal Strength"),ylabel("Count");
-
-
-
-% Additional statistical analysis
-response = signal>0.5;
-
-% get total number of present trials
-nPresent = sum(signalPresentAbsent==1);
-% compute hits as all the responses to trials in which signal was present (signalPresentAbsent==1) in which the response was present (i.e. == 1). Divide by number of present trials.
-hits = sum(response(signalPresentAbsent==1)==1)/nPresent;
-% misses are the same except when the responses are 0 (absent even though signal was present)
-misses = sum(response(signalPresentAbsent==1)==0)/nPresent;
-% same idea for correctRejects and falseAlarms
-nAbsent = sum(signalPresentAbsent==1);
-correctRejects = sum(response(signalPresentAbsent==0)==0)/nAbsent;
-falseAlarms = sum(response(signalPresentAbsent==0)==1)/nAbsent;
-
-zHits = icdf('norm',hits,0,1);
-zFalseAlarms = icdf('norm',falseAlarms,0,1);
-dPrime = zHits-zFalseAlarms;
+title("Spatial Alignment Amplitude");
+xlabel("X Location (m)");
+ylabel("Y Location (m)");
 
 
 %% Error calculation
@@ -304,11 +267,13 @@ fprintf('\n');
 fprintf('\n');
 %% Confidence engine algorithim definition
 
-function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed,deviation1,average1)
+function [heatmap, predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,signal_2,signal_3,grid,speed,deviation1,average1)
     
    	amp = 0;
     amplitude = 0;
     predict = {1,1};
+    
+    headmap = {};
     
     data = [];
     data2 = [];
@@ -349,6 +314,8 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
                        
             % Calculate root mean square ampltitude
             amplitude = mean(sqrt(beamformed.^2));
+            
+            heatmap{i,k} = amplitude;
             data = [data amplitude];
      
            
@@ -377,25 +344,6 @@ function [predict, amp, avg1, std1] = algorithm(s0,s1,s2,s3,signal_0,signal_1,si
     avg1 = mean(data2);
     std1 = std(data2);
     
-    
-
-    % Calculate probability of signal detection
-        z_score_of_sensor_signals = (amp_10 - average1)/(deviation1)
-        prob = normcdf(z_score_of_sensor_signals) * 100;
-        fprintf('The system is ');
-        disp(prob);
-        disp('percent confident a 10hz infrasound signal is present in data detected by the sensors');
-       
-    
-        
-    % Calculate geolocation accuracy probability
-    data_mean = mean(data);
-    data_std = std(data);
-    Z_score_of_geolocation = (amp - data_mean)/data_std
-    prob = normcdf(Z_score_of_geolocation) * 100;
-    fprintf('The system is ');
-    disp(prob);
-    disp('percent confident it has correctly predicted the origin location');
 end
 
 
