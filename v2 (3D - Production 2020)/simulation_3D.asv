@@ -95,7 +95,7 @@ decay7 = 100000000/(4*pi*d7^2);
 %% Signal Generation
 
 % Sampling rate
-f = 200
+f = 1000
 
 % Time vector
 t = -4:1/f:4;
@@ -132,15 +132,15 @@ pf = 0;
 snr = randi([8 36])
 
 % Add independent gaussian noise to each signal
-%signal0 = awgn(signal0,snr,pf);
-%signal1 = awgn(signal1,snr,pf);
-%signal2 = awgn(signal2,snr,pf);
-%signal3 = awgn(signal3,snr,pf);
+signal0 = awgn(signal0,snr,pf);
+signal1 = awgn(signal1,snr,pf);
+signal2 = awgn(signal2,snr,pf);
+signal3 = awgn(signal3,snr,pf);
 
-%signal4 = awgn(signal4,snr,pf);
-%signal5 = awgn(signal5,snr,pf);
-%signal6 = awgn(signal6,snr,pf);
-%signal7 = awgn(signal7,snr,pf);
+signal4 = awgn(signal4,snr,pf);
+signal5 = awgn(signal5,snr,pf);
+signal6 = awgn(signal6,snr,pf);
+signal7 = awgn(signal7,snr,pf);
     
 % Plot signals received by sensors
 figure()
@@ -188,6 +188,7 @@ for i = 1:329
         x = [x grid{i,k}(1)];
         y = [y grid{i,k}(2)];
         j = heatmap0{i,k}*heatmap2{i,k}*heatmap4{i,k}*heatmap6{i,k};
+        j = j^10;
         
         if(j > compare)
             compare = j;
@@ -201,9 +202,9 @@ end
 figure()
 scatter(x,y,1,z)
 p = colorbar();
-title(p,'Magnitude')
+ylabel(p,'Amplitude (power of 10)')
 
-title("Spatial Alignment Amplitude");
+title("Confidence Engine Prediction");
 xlabel("X Location (m)");
 ylabel("Y Location (m)");
 
@@ -231,19 +232,21 @@ gscatter(s5(1),s5(2),'Sensor 5'),text(s5(1)+15,s5(2),int2str(s5(3)));
 gscatter(s6(1),s6(2),'Sensor 6'),text(s6(1)+15,s6(2),int2str(s6(3)));
 gscatter(s7(1),s7(2),'Sensor 7'),text(s7(1)+15,s7(2),int2str(s7(3)));
 
-scatter([origin(1)],[origin(2)],'filled','g');
+p1 = scatter([origin(1)],[origin(2)],'filled','g');
 
 x = grid{w(1),w(2)};
-scatter(x(1),x(2),'filled','b');
+p2 = scatter(x(1),x(2),'filled','b');
 
 xlim([-1100 2100]),ylim([-1100 2100]);
 title("Spatial Layout");
 xlabel("X Position (meters)");
 ylabel("Y Position (meters)");
 
+legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Algorithim Prediction');
+
 %% Error display
 
-% Plot error circle
+% Plot 100 m error circle
 
 pos = [(origin(1)-100) (origin(2)-100) 200 200]; 
 rectangle('Position',pos,'Curvature',[1 1])
@@ -253,8 +256,17 @@ rectangle('Position',pos,'Curvature',[1 1])
 
 hold off
 
-legend('Elevation','Sensor Array','','','','','','','','','Actual Origin','Algorithim Prediction')
+%% Error calculation
 
+prediction = grid{w(1),w(2)};
+
+error = dist2d(origin,prediction)
+
+if (error <= 0)
+    
+end
+
+percent_error = (error-100)^2/(100)^2 * 100
 
 
 %% Signal Processing Algorithim Definition
@@ -313,17 +325,6 @@ function [heatmap] = predict(f,signal0,signal1,grid,s0,s1,speed)
         end
     end
     
-    % Time vector
-    t = -4:1/f:4;
-    figure();
-    
-    plot(t,sig0), hold on
-    plot(t,sig1)
-    
-    legend('Sensor 0', 'Sensor 1');
-    title("Maximum Peak Alignment");
-    xlabel("Time (s)");
-    ylabel("Amplitude");
 
 end
 

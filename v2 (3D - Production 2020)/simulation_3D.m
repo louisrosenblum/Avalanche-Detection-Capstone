@@ -202,7 +202,7 @@ end
 figure()
 scatter(x,y,1,z)
 p = colorbar();
-ylabel(p,'Amplitude (power of 10)')
+ylabel(p,'Amplitude - power of 10 scale')
 
 title("Confidence Engine Prediction");
 xlabel("X Location (m)");
@@ -246,7 +246,7 @@ legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Algorithim Pred
 
 %% Error display
 
-% Plot error circle
+% Plot 100 m error circle
 
 pos = [(origin(1)-100) (origin(2)-100) 200 200]; 
 rectangle('Position',pos,'Curvature',[1 1])
@@ -256,6 +256,17 @@ rectangle('Position',pos,'Curvature',[1 1])
 
 hold off
 
+%% Error calculation
+
+prediction = grid{w(1),w(2)};
+
+error = dist2d(origin,prediction)
+
+if (error <= 100)
+    percent_error = 0
+else
+    percent_error = (error-100)^2/(100)^2 * 100
+end
 
 
 
