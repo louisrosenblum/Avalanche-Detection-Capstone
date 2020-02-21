@@ -1,0 +1,351 @@
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   17.3892
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+  110.6726
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+  183.2776
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   56.2621
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   38.1610
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   5.6889e+03
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   3.0784e+03
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   1.7037e+03
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   13.3110
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+    6.8523
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+    0.3290
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   22.2597
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+  371.2554
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+  325.8533
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+  138.1707
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   5.5907e+03
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+Success: All threshold exceeding predictions within 100m of true origin
+
+percent_error =
+
+     0
+
+16/50 FAILED 100M OF TRUE ORIGIN. 
+AVERAGE OF FAILURES WAS: 1.0841e+03
+MAX FAILURE WAS: 5.6889e+03
+MIN FAILURE WAS: 0.3290
+AVERAGE OF ALL WAS: 346.9096{Attempt to execute SCRIPT simulation_3D as a function:
+C:\Users\cayde\Documents\GitHub\Infrasonic-Wave-Detection\v2 (3D - Production 2020)\simulation_3D.m
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script', 'C:\Users\cayde\Documents\GitHub\Infrasonic-Wave-Detection\v1 (2D - Design Review 2019)\Old versions\script.m', 4)" style="font-weight:bold">script</a> (<a href="matlab: opentoline('C:\Users\cayde\Documents\GitHub\Infrasonic-Wave-Detection\v1 (2D - Design Review 2019)\Old versions\script.m',4,0)">line 4</a>)
+   answ = simulation_3D();
+} 
+sqrt(50^2+50^2+50^2)
+
+ans =
+
+   86.6025
+
+sqrt(50^2+45^2+45^2)
+
+ans =
+
+   80.9321
+
+sqrt(50^2+45^2+55^2)
+
+ans =
+
+   86.8907
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   1.3861e+03
+
+Failure: One or more threshold exceeding predictions over 100m off true origin
+
+percent_error =
+
+   4.7745e+03
+
+{Error: Functions cannot be indexed using {} or . indexing.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script', 'C:\Users\cayde\Documents\GitHub\Infrasonic-Wave-Detection\v1 (2D - Design Review 2019)\Old versions\script.m', 4)" style="font-weight:bold">script</a> (<a href="matlab: opentoline('C:\Users\cayde\Documents\GitHub\Infrasonic-Wave-Detection\v1 (2D - Design Review 2019)\Old versions\script.m',4,0)">line 4</a>)
+   answ(i) = simulation_3D().percent_error;
+} 
+script
+{Undefined variable "simulation_3D" or class "simulation_3D.percent_error".
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('script', 'C:\Users\cayde\Documents\GitHub\Infrasonic-Wave-Detection\v1 (2D - Design Review 2019)\Old versions\script.m', 4)" style="font-weight:bold">script</a> (<a href="matlab: opentoline('C:\Users\cayde\Documents\GitHub\Infrasonic-Wave-Detection\v1 (2D - Design Review 2019)\Old versions\script.m',4,0)">line 4</a>)
+   answ(i) = simulation_3D.percent_error;
+} 

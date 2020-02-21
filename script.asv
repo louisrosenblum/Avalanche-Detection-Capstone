@@ -1,5 +1,12 @@
+<<<<<<< Updated upstream:script.asv
 diary('C:\Users\cayde\Documents\GitHub\Avalanche-Detection-Capstone\de.txt')
 for i = 1:100
     algorithim_demo_decay()
+=======
+diary('average error.txt')
+answ = zeros(1,50);
+for i = 1:2
+   answ(i) = simulation_3D().percent_error;
+>>>>>>> Stashed changes:v1 (2D - Design Review 2019)/Old versions/script.m
 end
 diary('off')
