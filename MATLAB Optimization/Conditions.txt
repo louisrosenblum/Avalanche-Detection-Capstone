@@ -1,0 +1,2 @@
+150 x 150 grid
+snr of 16

@@ -1,0 +1,6822 @@
+
+results =
+
+     []
+
+
+go =
+
+     1
+
+
+randx =
+
+   123
+
+
+randy =
+
+   136
+
+
+tempc =
+
+   -34
+
+
+speed_of_sound =
+
+  309.9960
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   54.1091
+
+
+percent_error =
+
+     0
+
+{Unrecognized function or variable 'go'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_bench', 'C:\Users\Louis\Desktop\Infrasonic-Wave-Detection\MATLAB Draft v0.1\test_bench.m', 12)" style="font-weight:bold">test_bench</a> (<a href="matlab: opentoline('C:\Users\Louis\Desktop\Infrasonic-Wave-Detection\MATLAB Draft v0.1\test_bench.m',12,0)">line 12</a>)
+    results(go) = error;
+} 
+test_bench
+
+results =
+
+     []
+
+
+go =
+
+     1
+
+
+randx =
+
+    45
+
+
+randy =
+
+    61
+
+
+tempc =
+
+   -25
+
+
+speed_of_sound =
+
+  315.7752
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  403.2435
+
+
+percent_error =
+
+  919.5660
+
+
+go =
+
+     2
+
+
+randx =
+
+    15
+
+
+randy =
+
+   133
+
+
+tempc =
+
+   -27
+
+
+speed_of_sound =
+
+  314.5001
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  105.0502
+
+
+percent_error =
+
+    0.2550
+
+
+go =
+
+     3
+
+
+randx =
+
+   101
+
+
+randy =
+
+   107
+
+
+tempc =
+
+    10
+
+
+speed_of_sound =
+
+  337.3099
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  227.8916
+
+
+percent_error =
+
+  163.5627
+
+
+go =
+
+     4
+
+
+randx =
+
+    48
+
+
+randy =
+
+   101
+
+
+tempc =
+
+   -33
+
+
+speed_of_sound =
+
+  310.6434
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  456.4252
+
+
+percent_error =
+
+   1.2704e+03
+
+
+go =
+
+     5
+
+
+randx =
+
+   113
+
+
+randy =
+
+    59
+
+
+tempc =
+
+   -26
+
+
+speed_of_sound =
+
+  315.1383
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   27.6718
+
+
+percent_error =
+
+     0
+
+
+go =
+
+     6
+
+
+randx =
+
+    51
+
+
+randy =
+
+    32
+
+
+tempc =
+
+     5
+
+
+speed_of_sound =
+
+  334.3185
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  265.7583
+
+
+percent_error =
+
+  274.7580
+
+
+go =
+
+     7
+
+
+randx =
+
+   149
+
+
+randy =
+
+    30
+
+
+tempc =
+
+     4
+
+
+speed_of_sound =
+
+  333.7170
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  227.0997
+
+
+percent_error =
+
+  161.5432
+
+
+go =
+
+     8
+
+
+randx =
+
+    40
+
+
+randy =
+
+    31
+
+
+tempc =
+
+     6
+
+
+speed_of_sound =
+
+  334.9189
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  251.9238
+
+
+percent_error =
+
+  230.8085
+
+
+go =
+
+     9
+
+
+randx =
+
+    88
+
+
+randy =
+
+    40
+
+
+tempc =
+
+   -37
+
+
+speed_of_sound =
+
+  308.0455
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   54.1091
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    10
+
+
+randx =
+
+   133
+
+
+randy =
+
+    71
+
+
+tempc =
+
+    -4
+
+
+speed_of_sound =
+
+  328.8653
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   54.1091
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    11
+
+
+randx =
+
+    68
+
+
+randy =
+
+    79
+
+
+tempc =
+
+    -2
+
+
+speed_of_sound =
+
+  330.0849
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  657.3756
+
+
+percent_error =
+
+   3.1067e+03
+
+
+go =
+
+    12
+
+
+randx =
+
+    45
+
+
+randy =
+
+    36
+
+
+tempc =
+
+     8
+
+
+speed_of_sound =
+
+  336.1165
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    13
+
+
+randx =
+
+   135
+
+
+randy =
+
+    52
+
+
+tempc =
+
+   -33
+
+
+speed_of_sound =
+
+  310.6434
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   75.0358
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    14
+
+
+randx =
+
+    15
+
+
+randy =
+
+   129
+
+
+tempc =
+
+   -12
+
+
+speed_of_sound =
+
+  323.9409
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  104.1891
+
+
+percent_error =
+
+    0.1755
+
+
+go =
+
+    15
+
+
+randx =
+
+   139
+
+
+randy =
+
+    12
+
+
+tempc =
+
+     9
+
+
+speed_of_sound =
+
+  336.7138
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  886.5414
+
+
+percent_error =
+
+   6.1865e+03
+
+
+go =
+
+    16
+
+
+randx =
+
+    53
+
+
+randy =
+
+   109
+
+
+tempc =
+
+    -6
+
+
+speed_of_sound =
+
+  327.6411
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   30.0143
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    17
+
+
+randx =
+
+   116
+
+
+randy =
+
+    37
+
+
+tempc =
+
+   -31
+
+
+speed_of_sound =
+
+  311.9343
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   75.9309
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    18
+
+
+randx =
+
+    46
+
+
+randy =
+
+    23
+
+
+tempc =
+
+   -19
+
+
+speed_of_sound =
+
+  319.5699
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   34.2216
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    19
+
+
+randx =
+
+    98
+
+
+randy =
+
+    75
+
+
+tempc =
+
+    -7
+
+
+speed_of_sound =
+
+  327.0273
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  513.6750
+
+
+percent_error =
+
+   1.7113e+03
+
+
+go =
+
+    20
+
+
+randx =
+
+    76
+
+
+randy =
+
+    80
+
+
+tempc =
+
+   -22
+
+
+speed_of_sound =
+
+  317.6782
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  186.4758
+
+
+percent_error =
+
+   74.7806
+
+
+go =
+
+    21
+
+
+randx =
+
+    28
+
+
+randy =
+
+   149
+
+
+tempc =
+
+   -11
+
+
+speed_of_sound =
+
+  324.5606
+
+
+f =
+
+    80
+
+<a href="matlab: opentoline('C:\Users\Louis\Desktop\Infrasonic-Wave-Detection\MATLAB Draft v0.1\simulation_3D.m',315,1)">315 </a>            if amplitude > amp
+if system_dependent('IsDebugMode')==1, dbquit; end
+simulation_3D
+
+randx =
+
+   117
+
+
+randy =
+
+    58
+
+
+tempc =
+
+   -16
+
+
+speed_of_sound =
+
+  321.4505
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+simulation_3D
+
+randx =
+
+   134
+
+
+randy =
+
+    22
+
+
+tempc =
+
+   -34
+
+
+speed_of_sound =
+
+  309.9960
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  132.3697
+
+
+percent_error =
+
+   10.4780
+
+simulation_3D
+
+randx =
+
+    63
+
+
+randy =
+
+    15
+
+
+tempc =
+
+    -9
+
+
+speed_of_sound =
+
+  325.7963
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   99.7723
+
+
+percent_error =
+
+     0
+
+simulation_3D
+
+randx =
+
+    97
+
+
+randy =
+
+   137
+
+
+tempc =
+
+    -3
+
+
+speed_of_sound =
+
+  329.4756
+
+
+f =
+
+    80
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+  255.5629
+
+
+percent_error =
+
+  241.9980
+
+simulation_3D
+
+randx =
+
+   131
+
+
+randy =
+
+   107
+
+
+tempc =
+
+   -20
+
+
+speed_of_sound =
+
+  318.9406
+
+
+f =
+
+        1000
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+simulation_3D
+
+randx =
+
+   104
+
+
+randy =
+
+    43
+
+
+tempc =
+
+   -31
+
+
+speed_of_sound =
+
+  311.9343
+
+
+f =
+
+        1000
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+simulation_3D
+
+randx =
+
+    84
+
+
+randy =
+
+   144
+
+
+tempc =
+
+   -22
+
+
+speed_of_sound =
+
+  317.6782
+
+
+f =
+
+        1000
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+test_bench
+
+results =
+
+     []
+
+
+go =
+
+     1
+
+
+randx =
+
+    61
+
+
+randy =
+
+    13
+
+
+tempc =
+
+   -15
+
+
+speed_of_sound =
+
+  322.0749
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+     2
+
+
+randx =
+
+    57
+
+
+randy =
+
+    57
+
+
+tempc =
+
+    -2
+
+
+speed_of_sound =
+
+  330.0849
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+     3
+
+
+randx =
+
+    58
+
+
+randy =
+
+    41
+
+
+tempc =
+
+   -23
+
+
+speed_of_sound =
+
+  317.0451
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+     4
+
+
+randx =
+
+   134
+
+
+randy =
+
+     7
+
+
+tempc =
+
+   -16
+
+
+speed_of_sound =
+
+  321.4505
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+     5
+
+
+randx =
+
+    37
+
+
+randy =
+
+   148
+
+
+tempc =
+
+   -22
+
+
+speed_of_sound =
+
+  317.6782
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+     6
+
+
+randx =
+
+    44
+
+
+randy =
+
+    18
+
+
+tempc =
+
+   -20
+
+
+speed_of_sound =
+
+  318.9406
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+     7
+
+
+randx =
+
+    29
+
+
+randy =
+
+    92
+
+
+tempc =
+
+     8
+
+
+speed_of_sound =
+
+  336.1165
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   72.2841
+
+
+percent_error =
+
+     0
+
+
+go =
+
+     8
+
+
+randx =
+
+    67
+
+
+randy =
+
+   141
+
+
+tempc =
+
+    -8
+
+
+speed_of_sound =
+
+  326.4124
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+     9
+
+
+randx =
+
+   137
+
+
+randy =
+
+    49
+
+
+tempc =
+
+     0
+
+
+speed_of_sound =
+
+  331.3000
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    10
+
+
+randx =
+
+   137
+
+
+randy =
+
+   114
+
+
+tempc =
+
+   -29
+
+
+speed_of_sound =
+
+  313.2198
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    11
+
+
+randx =
+
+    58
+
+
+randy =
+
+    17
+
+
+tempc =
+
+   -34
+
+
+speed_of_sound =
+
+  309.9960
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    12
+
+
+randx =
+
+   110
+
+
+randy =
+
+    70
+
+
+tempc =
+
+   -26
+
+
+speed_of_sound =
+
+  315.1383
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    13
+
+
+randx =
+
+    89
+
+
+randy =
+
+   147
+
+
+tempc =
+
+   -20
+
+
+speed_of_sound =
+
+  318.9406
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    14
+
+
+randx =
+
+     5
+
+
+randy =
+
+    39
+
+
+tempc =
+
+   -33
+
+
+speed_of_sound =
+
+  310.6434
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    15
+
+
+randx =
+
+    78
+
+
+randy =
+
+    16
+
+
+tempc =
+
+     3
+
+
+speed_of_sound =
+
+  333.1144
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   13.4228
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    16
+
+
+randx =
+
+     6
+
+
+randy =
+
+    41
+
+
+tempc =
+
+    -7
+
+
+speed_of_sound =
+
+  327.0273
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   21.2233
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    17
+
+
+randx =
+
+   145
+
+
+randy =
+
+   116
+
+
+tempc =
+
+   -35
+
+
+speed_of_sound =
+
+  309.3472
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    18
+
+
+randx =
+
+   147
+
+
+randy =
+
+    81
+
+
+tempc =
+
+     7
+
+
+speed_of_sound =
+
+  335.5182
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    19
+
+
+randx =
+
+   144
+
+
+randy =
+
+    12
+
+
+tempc =
+
+   -39
+
+
+speed_of_sound =
+
+  306.7382
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    20
+
+
+randx =
+
+    54
+
+
+randy =
+
+    32
+
+
+tempc =
+
+    -1
+
+
+speed_of_sound =
+
+  330.6930
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    21
+
+
+randx =
+
+    88
+
+
+randy =
+
+    38
+
+
+tempc =
+
+     3
+
+
+speed_of_sound =
+
+  333.1144
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    22
+
+
+randx =
+
+    68
+
+
+randy =
+
+   137
+
+
+tempc =
+
+    -4
+
+
+speed_of_sound =
+
+  328.8653
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    23
+
+
+randx =
+
+    65
+
+
+randy =
+
+    27
+
+
+tempc =
+
+    -6
+
+
+speed_of_sound =
+
+  327.6411
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    24
+
+
+randx =
+
+   122
+
+
+randy =
+
+   107
+
+
+tempc =
+
+   -16
+
+
+speed_of_sound =
+
+  321.4505
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    25
+
+
+randx =
+
+     2
+
+
+randy =
+
+   123
+
+
+tempc =
+
+   -38
+
+
+speed_of_sound =
+
+  307.3925
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    26
+
+
+randx =
+
+    49
+
+
+randy =
+
+   143
+
+
+tempc =
+
+   -13
+
+
+speed_of_sound =
+
+  323.3201
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    27
+
+
+randx =
+
+   140
+
+
+randy =
+
+   135
+
+
+tempc =
+
+   -32
+
+
+speed_of_sound =
+
+  311.2895
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   20.1342
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    28
+
+
+randx =
+
+    93
+
+
+randy =
+
+    78
+
+
+tempc =
+
+     3
+
+
+speed_of_sound =
+
+  333.1144
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    29
+
+
+randx =
+
+    64
+
+
+randy =
+
+    25
+
+
+tempc =
+
+   -38
+
+
+speed_of_sound =
+
+  307.3925
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    30
+
+
+randx =
+
+    56
+
+
+randy =
+
+   100
+
+
+tempc =
+
+    -8
+
+
+speed_of_sound =
+
+  326.4124
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    31
+
+
+randx =
+
+   101
+
+
+randy =
+
+   102
+
+
+tempc =
+
+   -19
+
+
+speed_of_sound =
+
+  319.5699
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    32
+
+
+randx =
+
+   122
+
+
+randy =
+
+    12
+
+
+tempc =
+
+   -21
+
+
+speed_of_sound =
+
+  318.3100
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    33
+
+
+randx =
+
+   118
+
+
+randy =
+
+    84
+
+
+tempc =
+
+   -24
+
+
+speed_of_sound =
+
+  316.4108
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    34
+
+
+randx =
+
+   118
+
+
+randy =
+
+     1
+
+
+tempc =
+
+     6
+
+
+speed_of_sound =
+
+  334.9189
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   30.0143
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    35
+
+
+randx =
+
+    31
+
+
+randy =
+
+    38
+
+
+tempc =
+
+     7
+
+
+speed_of_sound =
+
+  335.5182
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    36
+
+
+randx =
+
+   109
+
+
+randy =
+
+   121
+
+
+tempc =
+
+   -28
+
+
+speed_of_sound =
+
+  313.8606
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    37
+
+
+randx =
+
+    97
+
+
+randy =
+
+     2
+
+
+tempc =
+
+   -40
+
+
+speed_of_sound =
+
+  306.0825
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    38
+
+
+randx =
+
+    65
+
+
+randy =
+
+   140
+
+
+tempc =
+
+   -27
+
+
+speed_of_sound =
+
+  314.5001
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    39
+
+
+randx =
+
+    43
+
+
+randy =
+
+    15
+
+
+tempc =
+
+    -6
+
+
+speed_of_sound =
+
+  327.6411
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    40
+
+
+randx =
+
+    18
+
+
+randy =
+
+    47
+
+
+tempc =
+
+    -1
+
+
+speed_of_sound =
+
+  330.6930
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    41
+
+
+randx =
+
+   130
+
+
+randy =
+
+    32
+
+
+tempc =
+
+   -40
+
+
+speed_of_sound =
+
+  306.0825
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    42
+
+
+randx =
+
+    59
+
+
+randy =
+
+    75
+
+
+tempc =
+
+   -36
+
+
+speed_of_sound =
+
+  308.6970
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    43
+
+
+randx =
+
+   145
+
+
+randy =
+
+   124
+
+
+tempc =
+
+   -23
+
+
+speed_of_sound =
+
+  317.0451
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    44
+
+
+randx =
+
+   126
+
+
+randy =
+
+   103
+
+
+tempc =
+
+   -10
+
+
+speed_of_sound =
+
+  325.1790
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   13.4228
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    45
+
+
+randx =
+
+    54
+
+
+randy =
+
+    60
+
+
+tempc =
+
+    -8
+
+
+speed_of_sound =
+
+  326.4124
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    46
+
+
+randx =
+
+     4
+
+
+randy =
+
+    20
+
+
+tempc =
+
+    -6
+
+
+speed_of_sound =
+
+  327.6411
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   21.2233
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    47
+
+
+randx =
+
+    98
+
+
+randy =
+
+   104
+
+
+tempc =
+
+    10
+
+
+speed_of_sound =
+
+  337.3099
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    48
+
+
+randx =
+
+     7
+
+
+randy =
+
+    91
+
+
+tempc =
+
+    -4
+
+
+speed_of_sound =
+
+  328.8653
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   39.1339
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    49
+
+
+randx =
+
+    34
+
+
+randy =
+
+    57
+
+
+tempc =
+
+     0
+
+
+speed_of_sound =
+
+  331.3000
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    50
+
+
+randx =
+
+    82
+
+
+randy =
+
+    59
+
+
+tempc =
+
+   -16
+
+
+speed_of_sound =
+
+  321.4505
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    51
+
+
+randx =
+
+   121
+
+
+randy =
+
+   120
+
+
+tempc =
+
+   -27
+
+
+speed_of_sound =
+
+  314.5001
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    52
+
+
+randx =
+
+   101
+
+
+randy =
+
+    21
+
+
+tempc =
+
+     7
+
+
+speed_of_sound =
+
+  335.5182
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    53
+
+
+randx =
+
+   124
+
+
+randy =
+
+   134
+
+
+tempc =
+
+   -10
+
+
+speed_of_sound =
+
+  325.1790
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    54
+
+
+randx =
+
+   133
+
+
+randy =
+
+    18
+
+
+tempc =
+
+   -38
+
+
+speed_of_sound =
+
+  307.3925
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   55.3437
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    55
+
+
+randx =
+
+    86
+
+
+randy =
+
+    52
+
+
+tempc =
+
+   -36
+
+
+speed_of_sound =
+
+  308.6970
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   18.9827
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    56
+
+
+randx =
+
+   150
+
+
+randy =
+
+   145
+
+
+tempc =
+
+     2
+
+
+speed_of_sound =
+
+  332.5107
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    57
+
+
+randx =
+
+    17
+
+
+randy =
+
+    42
+
+
+tempc =
+
+   -24
+
+
+speed_of_sound =
+
+  316.4108
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    58
+
+
+randx =
+
+    97
+
+
+randy =
+
+    61
+
+
+tempc =
+
+     4
+
+
+speed_of_sound =
+
+  333.7170
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    59
+
+
+randx =
+
+    34
+
+
+randy =
+
+    91
+
+
+tempc =
+
+   -39
+
+
+speed_of_sound =
+
+  306.7382
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    60
+
+
+randx =
+
+    61
+
+
+randy =
+
+    40
+
+
+tempc =
+
+   -23
+
+
+speed_of_sound =
+
+  317.0451
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    61
+
+
+randx =
+
+   102
+
+
+randy =
+
+    72
+
+
+tempc =
+
+   -11
+
+
+speed_of_sound =
+
+  324.5606
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    62
+
+
+randx =
+
+   122
+
+
+randy =
+
+    95
+
+
+tempc =
+
+    -6
+
+
+speed_of_sound =
+
+  327.6411
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    63
+
+
+randx =
+
+   135
+
+
+randy =
+
+   146
+
+
+tempc =
+
+   -17
+
+
+speed_of_sound =
+
+  320.8249
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    64
+
+
+randx =
+
+    83
+
+
+randy =
+
+    49
+
+
+tempc =
+
+   -37
+
+
+speed_of_sound =
+
+  308.0455
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    65
+
+
+randx =
+
+     5
+
+
+randy =
+
+    98
+
+
+tempc =
+
+     5
+
+
+speed_of_sound =
+
+  334.3185
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    66
+
+
+randx =
+
+   107
+
+
+randy =
+
+    22
+
+
+tempc =
+
+   -16
+
+
+speed_of_sound =
+
+  321.4505
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    67
+
+
+randx =
+
+    75
+
+
+randy =
+
+    79
+
+
+tempc =
+
+     8
+
+
+speed_of_sound =
+
+  336.1165
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   24.1983
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    68
+
+
+randx =
+
+   143
+
+
+randy =
+
+     3
+
+
+tempc =
+
+   -34
+
+
+speed_of_sound =
+
+  309.9960
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   21.2233
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    69
+
+
+randx =
+
+    34
+
+
+randy =
+
+   128
+
+
+tempc =
+
+     7
+
+
+speed_of_sound =
+
+  335.5182
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    70
+
+
+randx =
+
+     5
+
+
+randy =
+
+    86
+
+
+tempc =
+
+   -17
+
+
+speed_of_sound =
+
+  320.8249
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    71
+
+
+randx =
+
+    37
+
+
+randy =
+
+    23
+
+
+tempc =
+
+    -5
+
+
+speed_of_sound =
+
+  328.2538
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    72
+
+
+randx =
+
+    44
+
+
+randy =
+
+    25
+
+
+tempc =
+
+    -4
+
+
+speed_of_sound =
+
+  328.8653
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    73
+
+
+randx =
+
+    80
+
+
+randy =
+
+   137
+
+
+tempc =
+
+   -36
+
+
+speed_of_sound =
+
+  308.6970
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    74
+
+
+randx =
+
+    12
+
+
+randy =
+
+    40
+
+
+tempc =
+
+    -3
+
+
+speed_of_sound =
+
+  329.4756
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   24.1983
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    75
+
+
+randx =
+
+    34
+
+
+randy =
+
+    61
+
+
+tempc =
+
+    -3
+
+
+speed_of_sound =
+
+  329.4756
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    76
+
+
+randx =
+
+    64
+
+
+randy =
+
+    48
+
+
+tempc =
+
+   -29
+
+
+speed_of_sound =
+
+  313.2198
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    77
+
+
+randx =
+
+    18
+
+
+randy =
+
+    42
+
+
+tempc =
+
+     3
+
+
+speed_of_sound =
+
+  333.1144
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    78
+
+
+randx =
+
+   139
+
+
+randy =
+
+   139
+
+
+tempc =
+
+   -35
+
+
+speed_of_sound =
+
+  309.3472
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   13.4228
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    79
+
+
+randx =
+
+   148
+
+
+randy =
+
+     6
+
+
+tempc =
+
+   -12
+
+
+speed_of_sound =
+
+  323.9409
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    80
+
+
+randx =
+
+    77
+
+
+randy =
+
+    50
+
+
+tempc =
+
+     9
+
+
+speed_of_sound =
+
+  336.7138
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    81
+
+
+randx =
+
+   113
+
+
+randy =
+
+   150
+
+
+tempc =
+
+   -35
+
+
+speed_of_sound =
+
+  309.3472
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   60.0287
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    82
+
+
+randx =
+
+   146
+
+
+randy =
+
+    88
+
+
+tempc =
+
+   -34
+
+
+speed_of_sound =
+
+  309.9960
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    83
+
+
+randx =
+
+   120
+
+
+randy =
+
+    15
+
+
+tempc =
+
+   -38
+
+
+speed_of_sound =
+
+  307.3925
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   18.9827
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    84
+
+
+randx =
+
+   119
+
+
+randy =
+
+    85
+
+
+tempc =
+
+     5
+
+
+speed_of_sound =
+
+  334.3185
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    85
+
+
+randx =
+
+    20
+
+
+randy =
+
+   105
+
+
+tempc =
+
+     8
+
+
+speed_of_sound =
+
+  336.1165
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   15.0072
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    86
+
+
+randx =
+
+   150
+
+
+randy =
+
+    75
+
+
+tempc =
+
+   -31
+
+
+speed_of_sound =
+
+  311.9343
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    87
+
+
+randx =
+
+   141
+
+
+randy =
+
+    34
+
+
+tempc =
+
+    -3
+
+
+speed_of_sound =
+
+  329.4756
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   72.5950
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    88
+
+
+randx =
+
+   148
+
+
+randy =
+
+    17
+
+
+tempc =
+
+    -5
+
+
+speed_of_sound =
+
+  328.2538
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    89
+
+
+randx =
+
+    39
+
+
+randy =
+
+    64
+
+
+tempc =
+
+   -34
+
+
+speed_of_sound =
+
+  309.9960
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    90
+
+
+randx =
+
+   139
+
+
+randy =
+
+   102
+
+
+tempc =
+
+   -40
+
+
+speed_of_sound =
+
+  306.0825
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   13.4228
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    91
+
+
+randx =
+
+    93
+
+
+randy =
+
+    39
+
+
+tempc =
+
+   -39
+
+
+speed_of_sound =
+
+  306.7382
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    92
+
+
+randx =
+
+    11
+
+
+randy =
+
+   148
+
+
+tempc =
+
+     6
+
+
+speed_of_sound =
+
+  334.9189
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    9.4914
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    93
+
+
+randx =
+
+    76
+
+
+randy =
+
+   120
+
+
+tempc =
+
+   -35
+
+
+speed_of_sound =
+
+  309.3472
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    94
+
+
+randx =
+
+    25
+
+
+randy =
+
+    33
+
+
+tempc =
+
+   -23
+
+
+speed_of_sound =
+
+  317.0451
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+   13.4228
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    95
+
+
+randx =
+
+    80
+
+
+randy =
+
+    69
+
+
+tempc =
+
+   -12
+
+
+speed_of_sound =
+
+  323.9409
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    96
+
+
+randx =
+
+    59
+
+
+randy =
+
+     4
+
+
+tempc =
+
+   -35
+
+
+speed_of_sound =
+
+  309.3472
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    97
+
+
+randx =
+
+    68
+
+
+randy =
+
+    40
+
+
+tempc =
+
+    -2
+
+
+speed_of_sound =
+
+  330.0849
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+    6.7114
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    98
+
+
+randx =
+
+    86
+
+
+randy =
+
+    67
+
+
+tempc =
+
+     0
+
+
+speed_of_sound =
+
+  331.3000
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+    99
+
+
+randx =
+
+   133
+
+
+randy =
+
+    93
+
+
+tempc =
+
+    -6
+
+
+speed_of_sound =
+
+  327.6411
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+
+
+go =
+
+   100
+
+
+randx =
+
+   109
+
+
+randy =
+
+   103
+
+
+tempc =
+
+   -15
+
+
+speed_of_sound =
+
+  322.0749
+
+
+p0 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> (Sensor 0) with properties:
+
+              Color: [1 0 0]
+          LineStyle: 'none'
+          LineWidth: 0.5000
+             Marker: '.'
+         MarkerSize: 15
+    MarkerFaceColor: 'none'
+              XData: 450
+              YData: -1000
+              ZData: [1×0 double]
+
+  Show <a href="matlab:if exist('p0', 'var'), matlab.graphics.internal.getForDisplay('p0', p0, 'matlab.graphics.chart.primitive.Line'), else, matlab.graphics.internal.getForDisplay('p0'), end">all properties</a>
+
+
+error =
+
+     0
+
+
+percent_error =
+
+     0
+

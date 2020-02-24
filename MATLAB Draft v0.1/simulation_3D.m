@@ -3,7 +3,6 @@
 
 %% Initialize program
 
-clear all
 close all
 
 %% Load 3D Elevation Map
@@ -16,13 +15,13 @@ longlim = [-111.4957325 -111.4048235];
 
 %% Populate grid with X,Y, and Z coordinates
 
-grid = cell(329,329);
+grid = cell(150,150);
 
-for i = 1:329
-    for k = 1:329
-        x = 1000*(i-1)/328;
-        y = 1000*(k-1)/328;
-        z = elevation(round(k*0.5),i);
+for i = 1:150
+    for k = 1:150
+        x = 1000*(i-1)/149;
+        y = 1000*(k-1)/149;
+        z = elevation(round(k*0.5*329/150),round(i*329/150));
         grid{i,k} = [x y z];
 
     end
@@ -47,9 +46,9 @@ s7 = [-1000 450 2452];
 
 %% Signal condition generation
 
-% Two random intergers from 1-329 for origin out of possible grid indexes
-randx = randi(329,1,1)
-randy = randi(329,1,1)
+% Two random intergers from 1-150 for origin out of possible grid indexes
+randx = randi(150,1,1)
+randy = randi(150,1,1)
 
 origin = grid{randx, randy};
 
@@ -95,7 +94,7 @@ decay7 = 100000000/(4*pi*d7^2);
 %% Signal Generation
 
 % Sampling rate
-f = 1000
+f = 1000;
 
 % Time vector
 t = -4:1/f:4;
@@ -129,7 +128,7 @@ signal7 = decay7 .* sinc(10*2*pi.*(t-shift7/10)).* heaviside(t-shift7/10).*wave;
 
 % Power factor
 pf = 0;
-snr = randi([8 36])
+snr = 16;
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -183,8 +182,8 @@ z = [];
 w = [];
 compare = 0;
 
-for i = 1:329
-    for k = 1:329
+for i = 1:150
+    for k = 1:150
         x = [x grid{i,k}(1)];
         y = [y grid{i,k}(2)];
         j = heatmap0{i,k}*heatmap2{i,k}*heatmap4{i,k}*heatmap6{i,k};
@@ -277,11 +276,11 @@ function [heatmap] = predict(f,signal0,signal1,grid,s0,s1,speed)
     data = [];
     amp = 0;
     
-    heatmap = cell(329,329);
+    heatmap = cell(150,150);
    
   % Iterate through all grid points
-    for i = 1:329
-        for k = 1:329
+    for i = 1:150
+        for k = 1:150
             
             % Calculate distance from current grid point to each sensor
             distance0 = distance(s0,grid{i,k});

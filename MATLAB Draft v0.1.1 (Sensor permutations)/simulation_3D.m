@@ -3,7 +3,7 @@
 
 %% Initialize program
 
-clear all
+%clear all
 close all
 
 %% Load 3D Elevation Map
@@ -95,7 +95,7 @@ decay7 = 100000000/(4*pi*d7^2);
 %% Signal Generation
 
 % Sampling rate
-f = 80
+f = 1000
 
 % Time vector
 t = -4:1/f:4;
@@ -129,7 +129,7 @@ signal7 = decay7 .* sinc(10*2*pi.*(t-shift7/10)).* heaviside(t-shift7/10).*wave;
 
 % Power factor
 pf = 0;
-snr = randi([8 36])
+snr = 16;
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
