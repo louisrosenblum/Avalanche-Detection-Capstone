@@ -1,5 +1,5 @@
 microphone = phased.CustomMicrophoneElement('FrequencyVector',[20,20000],'FrequencyResponse',[1,1]);
-array = phased.ULA('Element',microphone,'NumElements',6,'ElementSpacing',0.04);
+array = phased.ULA('Element',microphone,'NumElements',6,'ElementSpacing',2);
 fs = 8000;
 t = 0:1/fs:0.3;
 x = chirp(t,0,1,500);
