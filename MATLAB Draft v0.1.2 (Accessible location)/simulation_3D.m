@@ -95,7 +95,7 @@ decay7 = 100000000/(4*pi*d7^2);
 %% Signal Generation
 
 % Sampling rate
-f = 640
+f = 1000
 
 % Time vector
 t = -4:1/f:4;

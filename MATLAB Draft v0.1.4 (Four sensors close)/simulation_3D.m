@@ -102,8 +102,8 @@ signal3 = decay3 .* sinc(10*2*pi.*(t-shift3/10)).* heaviside(t-shift3/10).*wave;
 
 
 % Power factor
-pf = 20;
-snr = randi([1 2],1,1)
+pf = 0;
+snr = 16 %randi([1 2],1,1)
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
