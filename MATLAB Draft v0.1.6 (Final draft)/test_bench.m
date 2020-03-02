@@ -2,19 +2,21 @@
 % to be used in calculating an average error.
 diary('log.txt')
 
-results = []
+fail_ = []
+pass_ = []
 
 tic
 
-for go = 1:100
+for go = 1:10
     go
     simulation_3D();
-    results(go) = error;
+    fail_(go) = fail;
+    pass_(go) = pass;
 end
 diary('off')
 
 toc
 
-average_error = mean(results)
+average_fail = mean(fail_)
 
-std(results)
+average_pass = mean(pass_)

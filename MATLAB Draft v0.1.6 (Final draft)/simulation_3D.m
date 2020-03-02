@@ -129,7 +129,7 @@ signal7 = decay7 .* sinc(10*2*pi.*(t-shift7/10)).* heaviside(t-shift7/10).*wave;
 
 % Power factor
 pf = 0;
-snr = round(rand(1)*24 + 4)
+snr = round(rand(1)*24 + 6)
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -311,8 +311,6 @@ title("Spatial Layout");
 xlabel("X Position (meters)");
 ylabel("Y Position (meters)");
 
-legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Algorithim Prediction');
-
 %% Error display
 
 % Plot 100 m error circle
@@ -324,25 +322,43 @@ rectangle('Position',pos,'Curvature',[1 1])
 avg = mean(all);
 dev = std(all);
 
-threshold = avg + 5*dev; % 99.996% threshold
+max = compare;
+threshold = (max-avg)/dev * 0.68; % 68% threshold
+
+fail = 0
+pass = 0
+
+count = 0;
 
 for i = 1:150
     for k = 1:150
-        j = heatmap_final{i,k};
+        j = (heatmap_final{i,k}-avg)/dev;
         
         if(j >= threshold)
             
             x = 1000*(i-1)/149;
             y = 1000*(k-1)/149;
             
-            scatter(x,y,'k')
+            dist = dist2d(origin,[x y]);
+            
+            if(dist > 100)
+                fail = fail + 1;
+            else
+                pass = pass + 1;
+            end
+            
+            if(count == 0)
+                b0 = scatter(x,y,'k')
+                count = count+1;
+            else
+                scatter(x,y,'k','HandleVisibility','off')
+            end
         end
 
     end
 end
 
-
-%axis equal;
+legend([h p0 p1 p2 b0], 'Elevation','Sensor Array','Actual Origin','Ultimate Algorithim Prediction','Threshold Exceeding Prediction');
 
 hold off
 
