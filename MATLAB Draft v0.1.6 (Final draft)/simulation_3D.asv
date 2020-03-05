@@ -127,9 +127,10 @@ signal5 = decay5 .* sinc(10*2*pi.*(t-shift5/10)).* heaviside(t-shift5/10).*wave;
 signal6 = decay6 .* sinc(10*2*pi.*(t-shift6/10)).* heaviside(t-shift6/10).*wave;
 signal7 = decay7 .* sinc(10*2*pi.*(t-shift7/10)).* heaviside(t-shift7/10).*wave;
 
+
 % Power factor
 pf = 0;
-snr = round(rand(1)*24 + 4)
+snr = round(rand(1)*24 + 6)
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -311,8 +312,6 @@ title("Spatial Layout");
 xlabel("X Position (meters)");
 ylabel("Y Position (meters)");
 
-legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Algorithim Prediction');
-
 %% Error display
 
 % Plot 100 m error circle
@@ -320,17 +319,23 @@ legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Algorithim Pred
 pos = [(origin(1)-100) (origin(2)-100) 200 200]; 
 rectangle('Position',pos,'Curvature',[1 1])
 
-threshold 
 
-for i = 1:150
-    for k = 1:150
+avg = mean(all);
+dev = std(all);
 
-    end
+max = compare;
 
+max_z = (max - avg)/dev;
+
+if(max_z >= 5.894)
+    prob = normcdf(max_z,4.5797,0.385) * 100;
+    fprintf('Confidence threshold exceeded, system is %d% confident infrasonic signal present',prob)
+else
+    prob = normcdf(max_z
+    disp('Confidence below threshold, system is 91.51% infrasonic signal absent')
 end
 
-
-%axis equal;
+legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Ultimate Algorithim Prediction');
 
 hold off
 
@@ -339,7 +344,6 @@ hold off
 prediction = grid{w(1),w(2)};
 
 error = dist2d(origin,prediction)
-
 
 %% Signal Processing Algorithim Definition
 

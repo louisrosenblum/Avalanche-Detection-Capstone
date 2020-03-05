@@ -127,6 +127,7 @@ signal5 = decay5 .* sinc(10*2*pi.*(t-shift5/10)).* heaviside(t-shift5/10).*wave;
 signal6 = decay6 .* sinc(10*2*pi.*(t-shift6/10)).* heaviside(t-shift6/10).*wave;
 signal7 = decay7 .* sinc(10*2*pi.*(t-shift7/10)).* heaviside(t-shift7/10).*wave;
 
+
 % Power factor
 pf = 0;
 snr = round(rand(1)*24 + 6)
@@ -323,42 +324,19 @@ avg = mean(all);
 dev = std(all);
 
 max = compare;
-threshold = (max-avg)/dev * 0.68; % 68% threshold
 
-fail = 0
-pass = 0
+max_z = (max - avg)/dev;
 
-count = 0;
-
-for i = 1:150
-    for k = 1:150
-        j = (heatmap_final{i,k}-avg)/dev;
-        
-        if(j >= threshold)
-            
-            x = 1000*(i-1)/149;
-            y = 1000*(k-1)/149;
-            
-            dist = dist2d(origin,[x y]);
-            
-            if(dist > 100)
-                fail = fail + 1;
-            else
-                pass = pass + 1;
-            end
-            
-            if(count == 0)
-                b0 = scatter(x,y,'k')
-                count = count+1;
-            else
-                scatter(x,y,'k','HandleVisibility','off')
-            end
-        end
-
-    end
+if(max_z >= 5.894)
+    prob = normcdf(max_z,4.5797,0.385) * 100;
+    fprintf('Confidence threshold exceeded, system is %d',prob)
+    fprintf('% confident infrasonic signal present')
+else
+    prob = (1 - (normcdf(max_z,75.57,50.75)))*100;
+    disp('Confidence below threshold, system is %d% confident infrasonic signal absent',prob)
 end
 
-legend([h p0 p1 p2 b0], 'Elevation','Sensor Array','Actual Origin','Ultimate Algorithim Prediction','Threshold Exceeding Prediction');
+legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Ultimate Algorithim Prediction');
 
 hold off
 
