@@ -330,10 +330,11 @@ max_z = (max - avg)/dev;
 if(max_z >= 5.894)
     prob = normcdf(max_z,4.5797,0.385) * 100;
     fprintf('Confidence threshold exceeded, system is %d',prob)
-    fprintf('% confident infrasonic signal present')
+    disp('% confident infrasonic signal present')
 else
     prob = (1 - (normcdf(max_z,75.57,50.75)))*100;
-    disp('Confidence below threshold, system is %d% confident infrasonic signal absent',prob)
+    fprintf('Confidence below threshold, system is %d',prob)
+    disp('% confident infrasonic signal absent');
 end
 
 legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Ultimate Algorithim Prediction');
