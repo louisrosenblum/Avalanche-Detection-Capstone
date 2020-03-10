@@ -47,6 +47,9 @@ s7 = [500 -1100 2728];
 
 %% Signal condition generation
 
+% Infrasonic signal present or absent?
+present = true;
+
 % Two random intergers from 1-100 for origin out of possible grid indexes
 randx = randi(150,1,1);
 randy = randi(150,1,1);
@@ -102,9 +105,6 @@ t = -4:1/f:4;
 
 wave = rand(1,length(t));
 
-% Generate signal hitting the reference sensor
-signal0 = decay0 .* sinc(10*2*pi.*t) .* heaviside(t).*wave;
-
 % Calculate wavelength
 wavelength = speed_of_sound/10;
 
@@ -118,19 +118,32 @@ shift6 = delta6/wavelength;
 shift7 = delta7/wavelength;
 
 % Generate signals received by each sensor
-signal1 = decay1 .* sinc(10*2*pi.*(t-shift1/10)).* heaviside(t-shift1/10).*wave;
-signal2 = decay2 .* sinc(10*2*pi.*(t-shift2/10)).* heaviside(t-shift2/10).*wave;
-signal3 = decay3 .* sinc(10*2*pi.*(t-shift3/10)).* heaviside(t-shift3/10).*wave;
 
-signal4 = decay4 .* sinc(10*2*pi.*(t-shift4/10)).* heaviside(t-shift4/10).*wave;
-signal5 = decay5 .* sinc(10*2*pi.*(t-shift5/10)).* heaviside(t-shift5/10).*wave;
-signal6 = decay6 .* sinc(10*2*pi.*(t-shift6/10)).* heaviside(t-shift6/10).*wave;
-signal7 = decay7 .* sinc(10*2*pi.*(t-shift7/10)).* heaviside(t-shift7/10).*wave;
+if (present)
+    % Generate signal hitting the reference sensor
+    signal0 = decay0 .* sinc(10*2.*t) .* heaviside(t).*wave;
+    signal1 = decay1 .* sinc(10*2.*(t-shift1/10)).* heaviside(t-shift1/10).*wave;
+    signal2 = decay2 .* sinc(10*2.*(t-shift2/10)).* heaviside(t-shift2/10).*wave;
+    signal3 = decay3 .* sinc(10*2.*(t-shift3/10)).* heaviside(t-shift3/10).*wave;
 
+    signal4 = decay4 .* sinc(10*2.*(t-shift4/10)).* heaviside(t-shift4/10).*wave;
+    signal5 = decay5 .* sinc(10*2.*(t-shift5/10)).* heaviside(t-shift5/10).*wave;
+    signal6 = decay6 .* sinc(10*2.*(t-shift6/10)).* heaviside(t-shift6/10).*wave;
+    signal7 = decay7 .* sinc(10*2.*(t-shift7/10)).* heaviside(t-shift7/10).*wave;
+else
+    signal0 = zeros(1,length(t));
+    signal1 = zeros(1,length(t));
+    signal2 = zeros(1,length(t));
+    signal3 = zeros(1,length(t));
+    signal4 = zeros(1,length(t));
+    signal5 = zeros(1,length(t));
+    signal6 = zeros(1,length(t));
+    signal7 = zeros(1,length(t)); 
+end
 
 % Power factor
 pf = 0;
-snr = round(rand(1)*24 + 6)
+snr = round(rand(1)*22 + 8);
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -327,14 +340,16 @@ max = compare;
 
 max_z = (max - avg)/dev;
 
-if(max_z >= 5.894)
-    prob = normcdf(max_z,4.5797,0.385) * 100;
+if(max_z >= 5.918)
+    prob = normcdf(max_z,4.58,0.38) * 100;
     fprintf('Confidence threshold exceeded, system is %d',prob)
     disp('% confident infrasonic signal present')
+    detection = true;
 else
-    prob = (1 - (normcdf(max_z,75.57,50.75)))*100;
+    prob = (1 - (normcdf(max_z,81.21,48.98)))*100;
     fprintf('Confidence below threshold, system is %d',prob)
     disp('% confident infrasonic signal absent');
+    detection = false;
 end
 
 legend([h p0 p1 p2], 'Elevation','Sensor Array','Actual Origin','Ultimate Algorithim Prediction');

@@ -3,15 +3,25 @@
 diary('log.txt')
 
 result = []
+probs = []
+
+mean_result = []
+mean_prob = []
 tic
 
- 
+for snr = 8:30
+    
 for go = 1:10
     go
     simulation_3D();
-    result(go) = max_z;
+    probs(go) = prob;
+    result(go) = error;
 end
 
+mean_result(snr-7) = mean(result);
+
+
+end
 
 diary('off')
 
