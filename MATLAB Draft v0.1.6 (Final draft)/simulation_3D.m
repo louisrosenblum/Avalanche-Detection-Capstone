@@ -51,8 +51,10 @@ s7 = [500 -1100 2728];
 present = true;
 
 % Two random intergers from 1-100 for origin out of possible grid indexes
-randx = randi(150,1,1);
-randy = randi(150,1,1);
+%randx = randi(150,1,1);
+%randy = randi(150,1,1);
+randx = 150;
+randy = 150;
 
 origin = grid{randx, randy};
 
@@ -143,7 +145,8 @@ end
 
 % Power factor
 pf = 0;
-snr = round(rand(1)*22 + 8);
+%snr = round(rand(1)*22 + 8);
+snr = 1;
 
 % Add independent gaussian noise to each signal
 signal0 = awgn(signal0,snr,pf);
@@ -398,8 +401,8 @@ function [heatmap] = predict(heatmap_in,f,signal0,signal1,grid,s0,s1,speed)
 
             signal1_shift = circshift(signal1,round(-shift_1.*f/10));
 
-            % Sum all four signals
-            beamformed = signal0 .*signal1_shift;
+            % Sum signals
+            beamformed = signal0 .* signal1_shift;
             
             % Calculate root mean square ampltitude
             amplitude = mean(sqrt(beamformed.^2));
