@@ -1,15 +1,26 @@
-% Will put everything printed into the command window into a .txt file 
-% to be used in calculating an average error.
 diary('log.txt')
 
 result = []
+prob = []
+
+z_scores = []
+probs = []
 tic
 
-for go = 1:100
-    go
+
+
+for snr = 8:30
+for go = 1:10
+    snr
     simulation_3D();
     result(go) = max_z;
+    prob(go) = prob;
 end
+    z_scores(snr-7) = mean(result);
+    probs(snr - 7) = mean(prob);
+end
+
+
 diary('off')
 
 toc
