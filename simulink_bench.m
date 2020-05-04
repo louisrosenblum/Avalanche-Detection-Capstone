@@ -58,15 +58,15 @@ speed_of_sound = 331.3 * sqrt(1 + (tempc / 273.15))
 
 %% Calculate distance to sensors
 
-d0 = distance(origin,s0);
-d1 = distance(origin,s1);
-d2 = distance(origin,s2);
-d3 = distance(origin,s3);
+d0 = distance_grid(origin,s0);
+d1 = distance_grid(origin,s1);
+d2 = distance_grid(origin,s2);
+d3 = distance_grid(origin,s3);
 
-d4 = distance(origin,s4);
-d5 = distance(origin,s5);
-d6 = distance(origin,s6);
-d7 = distance(origin,s7);
+d4 = distance_grid(origin,s4);
+d5 = distance_grid(origin,s5);
+d6 = distance_grid(origin,s6);
+d7 = distance_grid(origin,s7);
 
 % Calculate difference in distance from sensors 1-3 to reference sensor 0
 delta1 = d1 - d0;
@@ -138,6 +138,17 @@ signal5 = awgn(signal5,snr,pf);
 signal6 = awgn(signal6,snr,pf);
 signal7 = awgn(signal7,snr,pf);
 
+
+%% Make timeseries data 
+
+time = 0:1/f:8;
+
+signal_0_sm = timeseries(signal0',time);
+signal_1_sm = timeseries(signal1',time);
+signal_2_sm = timeseries(signal2',time);
+signal_3_sm = timeseries(signal3',time);
+
+
 %% Function call
 
 % f - sample rate
@@ -147,19 +158,26 @@ signal7 = awgn(signal7,snr,pf);
 % x - horizontal index
 % y - vertical index
 
+max_phase_delay = 0;
+phase_delay_vector = zeros(150,150);
+
 for x = 1:150
     for y = 1:150
-        phase_delay = delay(f,s0,s1,grid,x,y);
+        phase_delay = delay(f,s0,s2,grid,x,y,speed_of_sound);
+        if (abs(phase_delay) > max_phase_delay)
+            max_phase_delay = abs(phase_delay)
+        end;
+        phase_delay_vector(x,y) = phase_delay;
     end   
 end
 
 %% Fetch delays function
 
-function shift = delay(f,s0,s1,grid,i,k)
+function shift = delay(f,s0,s1,grid,i,k, speed_of_sound)
             
             % Calculate distance from current grid point to each sensor
-            distance0 = distance(s0,grid{i,k});
-            distance1 = distance(s1,grid{i,k});
+            distance0 = distance_grid(s0,grid{i,k});
+            distance1 = distance_grid(s1,grid{i,k});
             
             % Determine difference in distance to reach sensor 1-3 compared
             % to reference sensor 0
@@ -167,7 +185,7 @@ function shift = delay(f,s0,s1,grid,i,k)
 
             
             % Calculate wavelength from speed of sound
-            wave_length = speed/10;
+            wave_length = speed_of_sound/10;
             
             % Calculate phase shifts from wavelength
             shift = delta_1/wave_length*f;
@@ -176,7 +194,7 @@ end
 
 %% Distance function definition
 
-function dist = distance(p1,p2)
+function dist = distance_grid(p1,p2)
     a = p1(1);
     b = p1(2);
     c = p1(3);
